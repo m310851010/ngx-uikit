@@ -1,0 +1,193 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ngx-uikit-site": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "less",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/ngx-uikit-site",
+      "sourceRoot": "projects/ngx-uikit-site/src",
+      "prefix": "ngx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ngx-uikit-site",
+            "index": "projects/ngx-uikit-site/src/index.html",
+            "main": "projects/ngx-uikit-site/src/main.ts",
+            "polyfills": "projects/ngx-uikit-site/src/polyfills.ts",
+            "tsConfig": "projects/ngx-uikit-site/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ngx-uikit-site/src/favicon.ico",
+              "projects/ngx-uikit-site/src/assets"
+            ],
+            "styles": [
+              "projects/ngx-uikit-site/src/styles.less"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ngx-uikit-site/src/environments/environment.ts",
+                  "with": "projects/ngx-uikit-site/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ngx-uikit-site:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ngx-uikit-site:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ngx-uikit-site:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-uikit-site/src/test.ts",
+            "polyfills": "projects/ngx-uikit-site/src/polyfills.ts",
+            "tsConfig": "projects/ngx-uikit-site/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-uikit-site/karma.conf.js",
+            "assets": [
+              "projects/ngx-uikit-site/src/favicon.ico",
+              "projects/ngx-uikit-site/src/assets"
+            ],
+            "styles": [
+              "projects/ngx-uikit-site/src/styles.less"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-uikit-site/tsconfig.app.json",
+              "projects/ngx-uikit-site/tsconfig.spec.json",
+              "projects/ngx-uikit-site/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ngx-uikit-site/e2e/protractor.conf.js",
+            "devServerTarget": "ngx-uikit-site:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ngx-uikit-site:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "ngx-uikit": {
+      "projectType": "library",
+      "root": "projects/ngx-uikit",
+      "sourceRoot": "projects/ngx-uikit/src",
+      "prefix": "ngx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ngx-uikit/tsconfig.lib.json",
+            "project": "projects/ngx-uikit/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-uikit/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-uikit/src/test.ts",
+            "tsConfig": "projects/ngx-uikit/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-uikit/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-uikit/tsconfig.lib.json",
+              "projects/ngx-uikit/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ngx-uikit-site"
+}
