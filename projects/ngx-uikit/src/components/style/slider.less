@@ -1,12 +1,12 @@
 // Name:            Slider
 // Description:     Component to create horizontal sliders
 //
-// Component:       `uk-slider`
+// Component:       `nk-slider`
 //
-// Sub-objects:     `uk-slider-container`
-//                  `uk-slider-items`
+// Sub-objects:     `nk-slider-container`
+//                  `nk-slider-items`
 //
-// States:          `uk-active`
+// States:          `nk-active`
 //
 // ========================================================================
 
@@ -28,7 +28,7 @@
  * 1. Prevent tab highlighting on iOS.
  */
 
-.uk-slider {
+.nk-slider {
     /* 1 */
     -webkit-tap-highlight-color: transparent;
     .hook-slider;
@@ -42,13 +42,13 @@
  * Clip child elements
  */
 
-.uk-slider-container { overflow: hidden; }
+.nk-slider-container { overflow: hidden; }
 
 /*
  * Widen container to prevent box-shadows from clipping, `large-box-shadow`
  */
 
-.uk-slider-container-offset {
+.nk-slider-container-offset {
     margin: @slider-container-margin-top @slider-container-margin-right @slider-container-margin-bottom @slider-container-margin-left;
     padding: (@slider-container-margin-top * -1) (@slider-container-margin-right * -1) (@slider-container-margin-bottom * -1) (@slider-container-margin-left * -1);
 }
@@ -61,7 +61,7 @@
  * 2. Create a containing block. In Safari it's neither created by `transform` nor `will-change`.
  */
 
-.uk-slider-items {
+.nk-slider-items {
     /* 1 */
     will-change: transform;
     /* 2 */
@@ -73,7 +73,7 @@
  * 2. Prevent displaying the callout information on iOS.
  */
 
-.uk-slider-items:not(.uk-grid) {
+.nk-slider-items:not(.nk-grid) {
     display: flex;
     /* 1 */
     margin: 0;
@@ -83,7 +83,7 @@
     -webkit-touch-callout: none;
 }
 
-.uk-slider-items.uk-grid { flex-wrap: nowrap; }
+.nk-slider-items.nk-grid { flex-wrap: nowrap; }
 
 
 /* Item
@@ -96,7 +96,7 @@
  * 4. Suppress outline on focus
  */
 
-.uk-slider-items > * {
+.nk-slider-items > * {
     /* 1 */
     flex: none;
     /* 2 */
@@ -106,7 +106,7 @@
 }
 
 /* 4 */
-.uk-slider-items > :focus { outline: none; }
+.nk-slider-items > :focus { outline: none; }
 
 
 // Hooks

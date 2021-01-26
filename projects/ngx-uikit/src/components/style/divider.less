@@ -1,9 +1,9 @@
 // Name:            Divider
 // Description:     Styles for dividers
 //
-// Component:       `uk-divider-icon`
-//                  `uk-divider-small`
-//                  `uk-divider-vertical`
+// Component:       `nk-divider-icon`
+//                  `nk-divider-small`
+//                  `nk-divider-vertical`
 //
 // ========================================================================
 
@@ -41,7 +41,7 @@
  * 2. Set margin if a `div` is used for semantical reason
  */
 
-[class*='uk-divider'] {
+[class*='nk-divider'] {
     /* 1 */
     border: none;
     /* 2 */
@@ -49,13 +49,13 @@
 }
 
 /* Add margin if adjacent element */
-* + [class*='uk-divider'] { margin-top: @divider-margin-vertical; }
+* + [class*='nk-divider'] { margin-top: @divider-margin-vertical; }
 
 
 /* Icon
  ========================================================================== */
 
-.uk-divider-icon {
+.nk-divider-icon {
     position: relative;
     height: @divider-icon-height;
     .svg-fill(@internal-divider-icon-image, "#000", @divider-icon-color);
@@ -64,8 +64,8 @@
     .hook-divider-icon;
 }
 
-.uk-divider-icon::before,
-.uk-divider-icon::after {
+.nk-divider-icon::before,
+.nk-divider-icon::after {
     content: "";
     position: absolute;
     top: @divider-icon-line-top;
@@ -74,13 +74,13 @@
     .hook-divider-icon-line;
 }
 
-.uk-divider-icon::before {
+.nk-divider-icon::before {
     right: ~'calc(50% + (@{divider-icon-width} / 2))';
     width: @divider-icon-line-width;
     .hook-divider-icon-line-left;
 }
 
-.uk-divider-icon::after {
+.nk-divider-icon::after {
     left: ~'calc(50% + (@{divider-icon-width} / 2))';
     width: @divider-icon-line-width;
     .hook-divider-icon-line-right;
@@ -96,10 +96,10 @@
  */
 
 /* 1 */
-.uk-divider-small { line-height: 0; }
+.nk-divider-small { line-height: 0; }
 
 /* 2 */
-.uk-divider-small::after {
+.nk-divider-small::after {
     content: "";
     display: inline-block;
     width: @divider-small-width;
@@ -113,7 +113,7 @@
 /* Vertical
  ========================================================================== */
 
-.uk-divider-vertical {
+.nk-divider-vertical {
     width: 1px;
     height: @divider-vertical-height;
     margin-left: auto;
@@ -147,23 +147,23 @@
 
 .hook-inverse() {
 
-    .uk-divider-icon {
+    .nk-divider-icon {
         .svg-fill(@internal-divider-icon-image, "#000", @inverse-divider-icon-color);
         .hook-inverse-divider-icon;
     }
 
-    .uk-divider-icon::before,
-    .uk-divider-icon::after {
+    .nk-divider-icon::before,
+    .nk-divider-icon::after {
         border-bottom-color: @inverse-divider-icon-line-border;
         .hook-inverse-divider-icon-line;
     }
 
-    .uk-divider-small::after {
+    .nk-divider-small::after {
         border-top-color: @inverse-divider-small-border;
         .hook-inverse-divider-small;
     }
 
-    .uk-divider-vertical {
+    .nk-divider-vertical {
         border-left-color: @inverse-divider-vertical-border;
         .hook-inverse-divider-vertical;
     }

@@ -1,24 +1,24 @@
 // Name:            Modal
 // Description:     Component to create modal dialogs
 //
-// Component:       `uk-modal`
+// Component:       `nk-modal`
 //
-// Sub-objects:     `uk-modal-page`
-//                  `uk-modal-dialog`
-//                  `uk-modal-header`
-//                  `uk-modal-body`
-//                  `uk-modal-footer`
-//                  `uk-modal-title`
-//                  `uk-modal-close`
+// Sub-objects:     `nk-modal-page`
+//                  `nk-modal-dialog`
+//                  `nk-modal-header`
+//                  `nk-modal-body`
+//                  `nk-modal-footer`
+//                  `nk-modal-title`
+//                  `nk-modal-close`
 //
-// Adopted:         `uk-modal-close-default`
-//                  `uk-modal-close-outside`
-//                  `uk-modal-close-full`
+// Adopted:         `nk-modal-close-default`
+//                  `nk-modal-close-outside`
+//                  `nk-modal-close-full`
 //
-// Modifiers:       `uk-modal-container`
-//                  `uk-modal-full`
+// Modifiers:       `nk-modal-container`
+//                  `nk-modal-full`
 //
-// States:          `uk-open`
+// States:          `nk-open`
 //
 // ========================================================================
 
@@ -76,7 +76,7 @@
  * 6. Fade-in transition
  */
 
-.uk-modal {
+.nk-modal {
     /* 1 */
     display: none;
     /* 2 */
@@ -102,14 +102,14 @@
 /* Phone landscape and bigger */
 @media (min-width: @breakpoint-small) {
 
-    .uk-modal { padding: @modal-padding-vertical-s @modal-padding-horizontal-s; }
+    .nk-modal { padding: @modal-padding-vertical-s @modal-padding-horizontal-s; }
 
 }
 
 /* Tablet landscape and bigger */
 @media (min-width: @breakpoint-medium) {
 
-    .uk-modal {
+    .nk-modal {
         padding-left: @modal-padding-horizontal-m;
         padding-right: @modal-padding-horizontal-m;
     }
@@ -120,7 +120,7 @@
  * Open
  */
 
-.uk-modal.uk-open { opacity: 1; }
+.nk-modal.nk-open { opacity: 1; }
 
 
 /* Page
@@ -130,7 +130,7 @@
  * Prevent scrollbars
  */
 
-.uk-modal-page { overflow: hidden; }
+.nk-modal-page { overflow: hidden; }
 
 
 /* Dialog
@@ -140,12 +140,12 @@
  * 1. Create position context for spinner and close button
  * 2. Dimensions
  * 3. Fix `max-width: 100%` not working in combination with flex and responsive images in IE11
- *    `!important` needed to overwrite `uk-width-auto`. See `#modal-media-image` in tests
+ *    `!important` needed to overwrite `nk-width-auto`. See `#modal-media-image` in tests
  * 4. Style
  * 5. Slide-in transition
  */
 
-.uk-modal-dialog {
+.nk-modal-dialog {
     /* 1 */
     position: relative;
     /* 2 */
@@ -168,7 +168,7 @@
  * Open
  */
 
-.uk-open > .uk-modal-dialog {
+.nk-open > .nk-modal-dialog {
     opacity: 1;
     transform: translateY(0);
 }
@@ -182,7 +182,7 @@
  * Take the same size as the Container components
  */
 
-.uk-modal-container .uk-modal-dialog { width: @modal-container-width; }
+.nk-modal-container .nk-modal-dialog { width: @modal-container-width; }
 
 /*
  * Full size
@@ -191,13 +191,13 @@
  */
 
 /* 1 */
-.uk-modal-full {
+.nk-modal-full {
     padding: 0;
     background: none;
 }
 
 /* 2 */
-.uk-modal-full .uk-modal-dialog {
+.nk-modal-full .nk-modal-dialog {
     margin: 0;
     width: 100%;
     max-width: 100%;
@@ -209,20 +209,20 @@
 /* Sections
  ========================================================================== */
 
-.uk-modal-body {
+.nk-modal-body {
     display: flow-root;
     padding: @modal-body-padding-vertical @modal-body-padding-horizontal;
     .hook-modal-body;
 }
 
-.uk-modal-header {
+.nk-modal-header {
     display: flow-root;
     padding: @modal-header-padding-vertical @modal-header-padding-horizontal;
     background: @modal-header-background;
     .hook-modal-header;
 }
 
-.uk-modal-footer {
+.nk-modal-footer {
     display: flow-root;
     padding: @modal-footer-padding-vertical @modal-footer-padding-horizontal;
     background: @modal-footer-background;
@@ -233,15 +233,15 @@
  * Remove margin from the last-child
  */
 
-.uk-modal-body > :last-child,
-.uk-modal-header > :last-child,
-.uk-modal-footer > :last-child { margin-bottom: 0; }
+.nk-modal-body > :last-child,
+.nk-modal-header > :last-child,
+.nk-modal-footer > :last-child { margin-bottom: 0; }
 
 
 /* Title
  ========================================================================== */
 
-.uk-modal-title {
+.nk-modal-title {
     font-size: @modal-title-font-size;
     line-height: @modal-title-line-height;
     .hook-modal-title;
@@ -249,10 +249,10 @@
 
 
 /* Close
- * Adopts `uk-close`
+ * Adopts `nk-close`
  ========================================================================== */
 
-[class*='uk-modal-close-'] {
+[class*='nk-modal-close-'] {
     position: absolute;
     z-index: @modal-z-index;
     top: @modal-close-position;
@@ -265,13 +265,13 @@
  * Remove margin from adjacent element
  */
 
-[class*='uk-modal-close-']:first-child + * { margin-top: 0; }
+[class*='nk-modal-close-']:first-child + * { margin-top: 0; }
 
 /*
  * Hover
  */
 
-[class*='uk-modal-close-']:hover {
+[class*='nk-modal-close-']:hover {
     .hook-modal-close-hover;
 }
 
@@ -279,11 +279,11 @@
  * Default
  */
 
-.uk-modal-close-default {
+.nk-modal-close-default {
     .hook-modal-close-default;
 }
 
-.uk-modal-close-default:hover {
+.nk-modal-close-default:hover {
     .hook-modal-close-default-hover;
 }
 
@@ -292,7 +292,7 @@
  * 1. Prevent scrollbar on small devices
  */
 
-.uk-modal-close-outside {
+.nk-modal-close-outside {
     top: @modal-close-outside-position;
     /* 1 */
     right: -@modal-close-padding;
@@ -301,7 +301,7 @@
     .hook-modal-close-outside;
 }
 
-.uk-modal-close-outside:hover {
+.nk-modal-close-outside:hover {
     color: @modal-close-outside-hover-color;
     .hook-modal-close-outside-hover;
 }
@@ -310,7 +310,7 @@
 @media (min-width: @breakpoint-medium) {
 
     /* 1 */
-    .uk-modal-close-outside {
+    .nk-modal-close-outside {
         right: @modal-close-outside-position;
         transform: translate(@modal-close-outside-translate, -(@modal-close-outside-translate));
     }
@@ -321,11 +321,11 @@
  * Full
  */
 
-.uk-modal-close-full {
+.nk-modal-close-full {
     .hook-modal-close-full;
 }
 
-.uk-modal-close-full:hover {
+.nk-modal-close-full:hover {
     .hook-modal-close-full-hover;
 }
 

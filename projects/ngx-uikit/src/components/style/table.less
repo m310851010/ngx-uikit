@@ -1,20 +1,20 @@
 // Name:            Table
 // Description:     Styles for tables
 //
-// Component:       `uk-table`
+// Component:       `nk-table`
 //
-// Modifiers:       `uk-table-middle`
-//                  `uk-table-divider`
-//                  `uk-table-striped`
-//                  `uk-table-hover`
-//                  `uk-table-small`
-//                  `uk-table-justify`
-//                  `uk-table-shrink`
-//                  `uk-table-expand`
-//                  `uk-table-link`
-//                  `uk-table-responsive`
+// Modifiers:       `nk-table-middle`
+//                  `nk-table-divider`
+//                  `nk-table-striped`
+//                  `nk-table-hover`
+//                  `nk-table-small`
+//                  `nk-table-justify`
+//                  `nk-table-shrink`
+//                  `nk-table-expand`
+//                  `nk-table-link`
+//                  `nk-table-responsive`
 //
-// States:          `uk-active`
+// States:          `nk-active`
 //
 // ========================================================================
 
@@ -64,7 +64,7 @@
  * 3. Style
  */
 
-.uk-table {
+.nk-table {
     /* 1 */
     border-collapse: collapse;
     border-spacing: 0;
@@ -76,7 +76,7 @@
 }
 
 /* Add margin if adjacent element */
-* + .uk-table { margin-top: @table-margin-vertical; }
+* + .nk-table { margin-top: @table-margin-vertical; }
 
 
 /* Header cell
@@ -86,7 +86,7 @@
  * 1. Style
  */
 
-.uk-table th {
+.nk-table th {
     padding: @table-cell-padding-vertical @table-cell-padding-horizontal;
     text-align: left;
     vertical-align: bottom;
@@ -101,7 +101,7 @@
 /* Cell
  ========================================================================== */
 
-.uk-table td {
+.nk-table td {
     padding: @table-cell-padding-vertical @table-cell-padding-horizontal;
     vertical-align: top;
     .hook-table-cell;
@@ -111,13 +111,13 @@
  * Remove margin from the last-child
  */
 
-.uk-table td > :last-child { margin-bottom: 0; }
+.nk-table td > :last-child { margin-bottom: 0; }
 
 
 /* Footer
  ========================================================================== */
 
-.uk-table tfoot {
+.nk-table tfoot {
     font-size: @table-footer-font-size;
     .hook-table-footer;
 }
@@ -126,7 +126,7 @@
 /* Caption
  ========================================================================== */
 
-.uk-table caption {
+.nk-table caption {
     font-size: @table-caption-font-size;
     text-align: left;
     color: @table-caption-color;
@@ -137,8 +137,8 @@
 /* Alignment modifier
  ========================================================================== */
 
-.uk-table-middle,
-.uk-table-middle td { vertical-align: middle !important; }
+.nk-table-middle,
+.nk-table-middle td { vertical-align: middle !important; }
 
 
 /* Style modifiers
@@ -148,9 +148,9 @@
  * Divider
  */
 
-.uk-table-divider > tr:not(:first-child),
-.uk-table-divider > :not(:first-child) > tr,
-.uk-table-divider > :first-child > tr:not(:first-child) {
+.nk-table-divider > tr:not(:first-child),
+.nk-table-divider > :not(:first-child) > tr,
+.nk-table-divider > :first-child > tr:not(:first-child) {
     border-top: @table-divider-border-width solid @table-divider-border;
     .hook-table-divider;
 }
@@ -159,8 +159,8 @@
  * Striped
  */
 
-.uk-table-striped > tr:nth-of-type(odd),
-.uk-table-striped tbody tr:nth-of-type(odd) {
+.nk-table-striped > tr:nth-of-type(odd),
+.nk-table-striped tbody tr:nth-of-type(odd) {
     background: @table-striped-row-background;
     .hook-table-striped;
 }
@@ -169,8 +169,8 @@
  * Hover
  */
 
-.uk-table-hover > tr:hover,
-.uk-table-hover tbody tr:hover {
+.nk-table-hover > tr:hover,
+.nk-table-hover tbody tr:hover {
     background: @table-hover-row-background;
     .hook-table-hover;
 }
@@ -179,8 +179,8 @@
 /* Active state
  ========================================================================== */
 
-.uk-table > tr.uk-active,
-.uk-table tbody tr.uk-active {
+.nk-table > tr.nk-active,
+.nk-table tbody tr.nk-active {
     background: @table-row-active-background;
     .hook-table-row-active;
 }
@@ -188,14 +188,14 @@
 /* Size modifier
  ========================================================================== */
 
-.uk-table-small th,
-.uk-table-small td {
+.nk-table-small th,
+.nk-table-small td {
     padding: @table-small-cell-padding-vertical @table-small-cell-padding-horizontal;
     .hook-table-small;
 }
 
-.uk-table-large th,
-.uk-table-large td {
+.nk-table-large th,
+.nk-table-large td {
     padding: @table-large-cell-padding-vertical @table-large-cell-padding-horizontal;
     .hook-table-large;
 }
@@ -204,35 +204,35 @@
 /* Justify modifier
  ========================================================================== */
 
-.uk-table-justify th:first-child,
-.uk-table-justify td:first-child { padding-left: 0; }
+.nk-table-justify th:first-child,
+.nk-table-justify td:first-child { padding-left: 0; }
 
-.uk-table-justify th:last-child,
-.uk-table-justify td:last-child { padding-right: 0; }
+.nk-table-justify th:last-child,
+.nk-table-justify td:last-child { padding-right: 0; }
 
 
 /* Cell size modifier
  ========================================================================== */
 
-.uk-table-shrink { width: 1px; }
-.uk-table-expand { min-width: @table-expand-min-width; }
+.nk-table-shrink { width: 1px; }
+.nk-table-expand { min-width: @table-expand-min-width; }
 
 
 /* Cell link modifier
  ========================================================================== */
 
 /*
- * Does not work with `uk-table-justify` at the moment
+ * Does not work with `nk-table-justify` at the moment
  */
 
-.uk-table-link { padding: 0 !important; }
+.nk-table-link { padding: 0 !important; }
 
-.uk-table-link > a {
+.nk-table-link > a {
     display: block;
     padding: @table-cell-padding-vertical @table-cell-padding-horizontal;
 }
 
-.uk-table-small .uk-table-link > a { padding: @table-small-cell-padding-vertical @table-small-cell-padding-horizontal; }
+.nk-table-small .nk-table-link > a { padding: @table-small-cell-padding-vertical @table-small-cell-padding-horizontal; }
 
 
 /* Responsive table
@@ -242,16 +242,16 @@
 /* Phone landscape and smaller */
 @media (max-width: @breakpoint-small-max) {
 
-    .uk-table-responsive,
-    .uk-table-responsive tbody,
-    .uk-table-responsive th,
-    .uk-table-responsive td,
-    .uk-table-responsive tr { display: block; }
+    .nk-table-responsive,
+    .nk-table-responsive tbody,
+    .nk-table-responsive th,
+    .nk-table-responsive td,
+    .nk-table-responsive tr { display: block; }
 
-    .uk-table-responsive thead { display: none; }
+    .nk-table-responsive thead { display: none; }
 
-    .uk-table-responsive th,
-    .uk-table-responsive td {
+    .nk-table-responsive th,
+    .nk-table-responsive td {
         width: auto !important;
         max-width: none !important;
         min-width: 0 !important;
@@ -259,16 +259,16 @@
         white-space: normal !important;
     }
 
-    .uk-table-responsive th:not(:first-child):not(.uk-table-link),
-    .uk-table-responsive td:not(:first-child):not(.uk-table-link),
-    .uk-table-responsive .uk-table-link:not(:first-child) > a { padding-top: round(@table-cell-padding-vertical / 3) !important; }
+    .nk-table-responsive th:not(:first-child):not(.nk-table-link),
+    .nk-table-responsive td:not(:first-child):not(.nk-table-link),
+    .nk-table-responsive .nk-table-link:not(:first-child) > a { padding-top: round(@table-cell-padding-vertical / 3) !important; }
 
-    .uk-table-responsive th:not(:last-child):not(.uk-table-link),
-    .uk-table-responsive td:not(:last-child):not(.uk-table-link),
-    .uk-table-responsive .uk-table-link:not(:last-child) > a { padding-bottom: round(@table-cell-padding-vertical / 3) !important; }
+    .nk-table-responsive th:not(:last-child):not(.nk-table-link),
+    .nk-table-responsive td:not(:last-child):not(.nk-table-link),
+    .nk-table-responsive .nk-table-link:not(:last-child) > a { padding-bottom: round(@table-cell-padding-vertical / 3) !important; }
 
-    .uk-table-justify.uk-table-responsive th,
-    .uk-table-justify.uk-table-responsive td {
+    .nk-table-justify.nk-table-responsive th,
+    .nk-table-justify.nk-table-responsive td {
         padding-left: 0;
         padding-right: 0;
     }
@@ -307,37 +307,37 @@
 
 .hook-inverse() {
 
-    .uk-table th {
+    .nk-table th {
         color: @inverse-table-header-cell-color;
         .hook-inverse-table-header-cell;
     }
 
-    .uk-table caption {
+    .nk-table caption {
         color: @inverse-table-caption-color;
         .hook-inverse-table-caption;
     }
 
-    .uk-table > tr.uk-active,
-    .uk-table tbody tr.uk-active {
+    .nk-table > tr.nk-active,
+    .nk-table tbody tr.nk-active {
         background: @inverse-table-row-active-background;
         .hook-inverse-table-row-active;
     }
 
-    .uk-table-divider > tr:not(:first-child),
-    .uk-table-divider > :not(:first-child) > tr,
-    .uk-table-divider > :first-child > tr:not(:first-child) {
+    .nk-table-divider > tr:not(:first-child),
+    .nk-table-divider > :not(:first-child) > tr,
+    .nk-table-divider > :first-child > tr:not(:first-child) {
         border-top-color: @inverse-table-divider-border;
         .hook-inverse-table-divider;
     }
 
-    .uk-table-striped > tr:nth-of-type(odd),
-    .uk-table-striped tbody tr:nth-of-type(odd) {
+    .nk-table-striped > tr:nth-of-type(odd),
+    .nk-table-striped tbody tr:nth-of-type(odd) {
         background: @inverse-table-striped-row-background;
         .hook-inverse-table-striped;
     }
 
-    .uk-table-hover > tr:hover,
-    .uk-table-hover tbody tr:hover {
+    .nk-table-hover > tr:hover,
+    .nk-table-hover tbody tr:hover {
         background: @inverse-table-hover-row-background;
         .hook-inverse-table-hover;
     }

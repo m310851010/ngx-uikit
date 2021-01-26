@@ -1,23 +1,23 @@
 // Name:            Card
 // Description:     Component to create boxed content containers
 //
-// Component:       `uk-card`
+// Component:       `nk-card`
 //
-// Sub-objects:     `uk-card-body`
-//                  `uk-card-header`
-//                  `uk-card-footer`
-//                  `uk-card-media-*`
-//                  `uk-card-title`
-//                  `uk-card-badge`
+// Sub-objects:     `nk-card-body`
+//                  `nk-card-header`
+//                  `nk-card-footer`
+//                  `nk-card-media-*`
+//                  `nk-card-title`
+//                  `nk-card-badge`
 //
-// Modifiers:       `uk-card-hover`
-//                  `uk-card-default`
-//                  `uk-card-primary`
-//                  `uk-card-secondary`
-//                  `uk-card-small`
-//                  `uk-card-large`
+// Modifiers:       `nk-card-hover`
+//                  `nk-card-default`
+//                  `nk-card-primary`
+//                  `nk-card-secondary`
+//                  `nk-card-small`
+//                  `nk-card-large`
 //
-// Uses:            `uk-grid-stack`
+// Uses:            `nk-grid-stack`
 //
 // ========================================================================
 
@@ -87,7 +87,7 @@
    Component: Card
  ========================================================================== */
 
-.uk-card {
+.nk-card {
     position: relative;
     box-sizing: border-box;
     .hook-card;
@@ -97,19 +97,19 @@
 /* Sections
  ========================================================================== */
 
-.uk-card-body {
+.nk-card-body {
     display: flow-root;
     padding: @card-body-padding-vertical @card-body-padding-horizontal;
     .hook-card-body;
 }
 
-.uk-card-header {
+.nk-card-header {
     display: flow-root;
     padding: @card-header-padding-vertical @card-header-padding-horizontal;
     .hook-card-header;
 }
 
-.uk-card-footer {
+.nk-card-footer {
     display: flow-root;
     padding: @card-footer-padding-vertical @card-footer-padding-horizontal;
     .hook-card-footer;
@@ -118,11 +118,11 @@
 /* Desktop and bigger */
 @media (min-width: @breakpoint-large) {
 
-    .uk-card-body { padding: @card-body-padding-vertical-l @card-body-padding-horizontal-l; }
+    .nk-card-body { padding: @card-body-padding-vertical-l @card-body-padding-horizontal-l; }
 
-    .uk-card-header { padding: @card-header-padding-vertical-l @card-header-padding-horizontal-l; }
+    .nk-card-header { padding: @card-header-padding-vertical-l @card-header-padding-horizontal-l; }
 
-    .uk-card-footer { padding: @card-footer-padding-vertical-l @card-footer-padding-horizontal-l; }
+    .nk-card-footer { padding: @card-footer-padding-vertical-l @card-footer-padding-horizontal-l; }
 
 }
 
@@ -130,9 +130,9 @@
  * Remove margin from the last-child
  */
 
-.uk-card-body > :last-child,
-.uk-card-header > :last-child,
-.uk-card-footer > :last-child { margin-bottom: 0; }
+.nk-card-body > :last-child,
+.nk-card-header > :last-child,
+.nk-card-footer > :last-child { margin-bottom: 0; }
 
 
 /* Media
@@ -143,25 +143,25 @@
  * Implemented by the theme
  */
 
-[class*='uk-card-media'] {
+[class*='nk-card-media'] {
     .hook-card-media;
 }
 
-.uk-card-media-top,
-.uk-grid-stack > .uk-card-media-left,
-.uk-grid-stack > .uk-card-media-right  {
+.nk-card-media-top,
+.nk-grid-stack > .nk-card-media-left,
+.nk-grid-stack > .nk-card-media-right  {
     .hook-card-media-top;
 }
 
-.uk-card-media-bottom {
+.nk-card-media-bottom {
     .hook-card-media-bottom;
 }
 
-:not(.uk-grid-stack) > .uk-card-media-left {
+:not(.nk-grid-stack) > .nk-card-media-left {
     .hook-card-media-left;
 }
 
-:not(.uk-grid-stack) > .uk-card-media-right {
+:not(.nk-grid-stack) > .nk-card-media-right {
     .hook-card-media-right;
 }
 
@@ -169,7 +169,7 @@
 /* Title
  ========================================================================== */
 
-.uk-card-title {
+.nk-card-title {
     font-size: @card-title-font-size;
     line-height: @card-title-line-height;
     .hook-card-title;
@@ -179,7 +179,7 @@
 /* Badge
  ========================================================================== */
 
-.uk-card-badge {
+.nk-card-badge {
     position: absolute;
     top: @card-badge-top;
     right: @card-badge-right;
@@ -191,13 +191,13 @@
  * Remove margin from adjacent element
  */
 
-.uk-card-badge:first-child + * { margin-top: 0; }
+.nk-card-badge:first-child + * { margin-top: 0; }
 
 
 /* Hover modifier
  ========================================================================== */
 
-.uk-card-hover:not(.uk-card-default):not(.uk-card-primary):not(.uk-card-secondary):hover {
+.nk-card-hover:not(.nk-card-default):not(.nk-card-primary):not(.nk-card-secondary):hover {
     background: @card-hover-background;
     .hook-card-hover;
 }
@@ -211,27 +211,27 @@
  * Note: Header and Footer are only implemented for the default style
  */
 
-.uk-card-default {
+.nk-card-default {
     background: @card-default-background;
     color: @card-default-color;
     .hook-card-default;
 }
 
-.uk-card-default .uk-card-title {
+.nk-card-default .nk-card-title {
     color: @card-default-title-color;
     .hook-card-default-title;
 }
 
-.uk-card-default.uk-card-hover:hover {
+.nk-card-default.nk-card-hover:hover {
     background-color: @card-default-hover-background;
     .hook-card-default-hover;
 }
 
-.uk-card-default .uk-card-header {
+.nk-card-default .nk-card-header {
     .hook-card-default-header;
 }
 
-.uk-card-default .uk-card-footer {
+.nk-card-default .nk-card-footer {
     .hook-card-default-footer;
 }
 
@@ -239,53 +239,53 @@
  * Primary
  */
 
-.uk-card-primary {
+.nk-card-primary {
     background: @card-primary-background;
     color: @card-primary-color;
     .hook-card-primary;
 }
 
-.uk-card-primary .uk-card-title {
+.nk-card-primary .nk-card-title {
     color: @card-primary-title-color;
     .hook-card-primary-title;
 }
 
-.uk-card-primary.uk-card-hover:hover {
+.nk-card-primary.nk-card-hover:hover {
     background-color: @card-primary-hover-background;
     .hook-card-primary-hover;
 }
 
 // Color Mode
-.uk-card-primary.uk-card-body:extend(.uk-light all) when (@card-primary-color-mode = light) {}
-.uk-card-primary > :not([class*='uk-card-media']):extend(.uk-light all) when (@card-primary-color-mode = light) {}
-.uk-card-primary.uk-card-body:extend(.uk-dark all) when (@card-primary-color-mode = dark) {}
-.uk-card-primary > :not([class*='uk-card-media']):extend(.uk-dark all) when (@card-primary-color-mode = dark) {}
+.nk-card-primary.nk-card-body:extend(.nk-light all) when (@card-primary-color-mode = light) {}
+.nk-card-primary > :not([class*='nk-card-media']):extend(.nk-light all) when (@card-primary-color-mode = light) {}
+.nk-card-primary.nk-card-body:extend(.nk-dark all) when (@card-primary-color-mode = dark) {}
+.nk-card-primary > :not([class*='nk-card-media']):extend(.nk-dark all) when (@card-primary-color-mode = dark) {}
 
 /*
  * Secondary
  */
 
-.uk-card-secondary {
+.nk-card-secondary {
     background: @card-secondary-background;
     color: @card-secondary-color;
     .hook-card-secondary;
 }
 
-.uk-card-secondary .uk-card-title {
+.nk-card-secondary .nk-card-title {
     color: @card-secondary-title-color;
     .hook-card-secondary-title;
 }
 
-.uk-card-secondary.uk-card-hover:hover {
+.nk-card-secondary.nk-card-hover:hover {
     background-color: @card-secondary-hover-background;
     .hook-card-secondary-hover;
 }
 
 // Color Mode
-.uk-card-secondary.uk-card-body:extend(.uk-light all) when (@card-secondary-color-mode = light) {}
-.uk-card-secondary > :not([class*='uk-card-media']):extend(.uk-light all) when (@card-secondary-color-mode = light) {}
-.uk-card-secondary.uk-card-body:extend(.uk-dark all) when (@card-secondary-color-mode = dark) {}
-.uk-card-secondary > :not([class*='uk-card-media']):extend(.uk-dark all) when (@card-secondary-color-mode = dark) {}
+.nk-card-secondary.nk-card-body:extend(.nk-light all) when (@card-secondary-color-mode = light) {}
+.nk-card-secondary > :not([class*='nk-card-media']):extend(.nk-light all) when (@card-secondary-color-mode = light) {}
+.nk-card-secondary.nk-card-body:extend(.nk-dark all) when (@card-secondary-color-mode = dark) {}
+.nk-card-secondary > :not([class*='nk-card-media']):extend(.nk-dark all) when (@card-secondary-color-mode = dark) {}
 
 
 /* Size modifier
@@ -295,11 +295,11 @@
  * Small
  */
 
-.uk-card-small.uk-card-body,
-.uk-card-small .uk-card-body { padding: @card-small-body-padding-vertical @card-small-body-padding-horizontal; }
+.nk-card-small.nk-card-body,
+.nk-card-small .nk-card-body { padding: @card-small-body-padding-vertical @card-small-body-padding-horizontal; }
 
-.uk-card-small .uk-card-header { padding: @card-small-header-padding-vertical @card-small-header-padding-horizontal; }
-.uk-card-small .uk-card-footer { padding: @card-small-footer-padding-vertical @card-small-footer-padding-horizontal; }
+.nk-card-small .nk-card-header { padding: @card-small-header-padding-vertical @card-small-header-padding-horizontal; }
+.nk-card-small .nk-card-footer { padding: @card-small-footer-padding-vertical @card-small-footer-padding-horizontal; }
 
 /*
  * Large
@@ -308,11 +308,11 @@
 /* Desktop and bigger */
 @media (min-width: @breakpoint-large) {
 
-    .uk-card-large.uk-card-body,
-    .uk-card-large .uk-card-body { padding: @card-large-body-padding-vertical-l @card-large-body-padding-horizontal-l; }
+    .nk-card-large.nk-card-body,
+    .nk-card-large .nk-card-body { padding: @card-large-body-padding-vertical-l @card-large-body-padding-horizontal-l; }
 
-    .uk-card-large .uk-card-header { padding: @card-large-header-padding-vertical-l @card-large-header-padding-horizontal-l; }
-    .uk-card-large .uk-card-footer { padding: @card-large-footer-padding-vertical-l @card-large-footer-padding-horizontal-l; }
+    .nk-card-large .nk-card-header { padding: @card-large-header-padding-vertical-l @card-large-header-padding-horizontal-l; }
+    .nk-card-large .nk-card-footer { padding: @card-large-footer-padding-vertical-l @card-large-footer-padding-horizontal-l; }
 
 }
 

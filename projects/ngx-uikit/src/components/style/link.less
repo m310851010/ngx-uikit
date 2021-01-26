@@ -1,12 +1,12 @@
 // Name:            Link
 // Description:     Styles for links
 //
-// Component:       `uk-link-muted`
-//                  `uk-link-text`
-//                  `uk-link-heading`
-//                  `uk-link-reset`
+// Component:       `nk-link-muted`
+//                  `nk-link-text`
+//                  `nk-link-heading`
+//                  `nk-link-reset`
 //
-// Sub-objects:     `uk-link-toggle`
+// Sub-objects:     `nk-link-toggle`
 //
 // ========================================================================
 
@@ -31,16 +31,16 @@
 /* Muted
  ========================================================================== */
 
-a.uk-link-muted,
-.uk-link-muted a {
+a.nk-link-muted,
+.nk-link-muted a {
     color: @link-muted-color;
     .hook-link-muted;
 }
 
-a.uk-link-muted:hover,
-.uk-link-muted a:hover,
-.uk-link-toggle:hover .uk-link-muted,
-.uk-link-toggle:focus .uk-link-muted {
+a.nk-link-muted:hover,
+.nk-link-muted a:hover,
+.nk-link-toggle:hover .nk-link-muted,
+.nk-link-toggle:focus .nk-link-muted {
     color: @link-muted-hover-color;
     .hook-link-muted-hover;
 }
@@ -49,16 +49,16 @@ a.uk-link-muted:hover,
 /* Text
  ========================================================================== */
 
-a.uk-link-text,
-.uk-link-text a {
+a.nk-link-text,
+.nk-link-text a {
     color: inherit;
     .hook-link-text;
 }
 
-a.uk-link-text:hover,
-.uk-link-text a:hover,
-.uk-link-toggle:hover .uk-link-text,
-.uk-link-toggle:focus .uk-link-text {
+a.nk-link-text:hover,
+.nk-link-text a:hover,
+.nk-link-toggle:hover .nk-link-text,
+.nk-link-toggle:focus .nk-link-text {
     color: @link-text-hover-color;
     .hook-link-text-hover;
 }
@@ -67,16 +67,16 @@ a.uk-link-text:hover,
 /* Heading
  ========================================================================== */
 
-a.uk-link-heading,
-.uk-link-heading a {
+a.nk-link-heading,
+.nk-link-heading a {
     color: inherit;
     .hook-link-heading;
 }
 
-a.uk-link-heading:hover,
-.uk-link-heading a:hover,
-.uk-link-toggle:hover .uk-link-heading,
-.uk-link-toggle:focus .uk-link-heading {
+a.nk-link-heading:hover,
+.nk-link-heading a:hover,
+.nk-link-toggle:hover .nk-link-heading,
+.nk-link-toggle:focus .nk-link-heading {
     color: @link-heading-hover-color;
     text-decoration: @link-heading-hover-text-decoration;
     .hook-link-heading-hover;
@@ -90,8 +90,8 @@ a.uk-link-heading:hover,
  * `!important` needed to override inverse components
  */
 
-a.uk-link-reset,
-.uk-link-reset a {
+a.nk-link-reset,
+.nk-link-reset a {
     color: inherit !important;
     text-decoration: none !important;
     .hook-link-reset;
@@ -101,12 +101,12 @@ a.uk-link-reset,
 /* Toggle
  ========================================================================== */
 
-.uk-link-toggle {
+.nk-link-toggle {
     color: inherit !important;
     text-decoration: none !important;
 }
 
-.uk-link-toggle:focus { outline: none; }
+.nk-link-toggle:focus { outline: none; }
 
 
 // Hooks
@@ -134,32 +134,32 @@ a.uk-link-reset,
 
 .hook-inverse() {
 
-    a.uk-link-muted,
-    .uk-link-muted a {
+    a.nk-link-muted,
+    .nk-link-muted a {
         color: @inverse-link-muted-color;
         .hook-inverse-link-muted;
     }
 
-    a.uk-link-muted:hover,
-    .uk-link-muted a:hover,
-    .uk-link-toggle:hover .uk-link-muted,
-    .uk-link-toggle:focus .uk-link-muted  {
+    a.nk-link-muted:hover,
+    .nk-link-muted a:hover,
+    .nk-link-toggle:hover .nk-link-muted,
+    .nk-link-toggle:focus .nk-link-muted  {
         color: @inverse-link-muted-hover-color;
         .hook-inverse-link-muted-hover;
     }
 
-    a.uk-link-text:hover,
-    .uk-link-text a:hover,
-    .uk-link-toggle:hover .uk-link-text,
-    .uk-link-toggle:focus .uk-link-text {
+    a.nk-link-text:hover,
+    .nk-link-text a:hover,
+    .nk-link-toggle:hover .nk-link-text,
+    .nk-link-toggle:focus .nk-link-text {
         color: @inverse-link-text-hover-color;
         .hook-inverse-link-text-hover;
     }
 
-    a.uk-link-heading:hover,
-    .uk-link-heading a:hover,
-    .uk-link-toggle:hover .uk-link-heading,
-    .uk-link-toggle:focus .uk-link-heading {
+    a.nk-link-heading:hover,
+    .nk-link-heading a:hover,
+    .nk-link-toggle:hover .nk-link-heading,
+    .nk-link-toggle:focus .nk-link-heading {
         color: @inverse-link-heading-hover-color;
         .hook-inverse-link-heading-hover;
     }

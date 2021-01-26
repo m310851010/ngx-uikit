@@ -1,13 +1,13 @@
 // Name:            Icon
 // Description:     Component to create icons
 //
-// Component:       `uk-icon`
+// Component:       `nk-icon`
 //
-// Modifiers:       `uk-icon-image`
-//                  `uk-icon-link`
-//                  `uk-icon-button`
+// Modifiers:       `nk-icon-image`
+//                  `nk-icon-link`
+//                  `nk-icon-button`
 //
-// States:          `uk-preserve`
+// States:          `nk-preserve`
 //
 // ========================================================================
 
@@ -51,7 +51,7 @@
  * 10. Let the container fit the height of the icon
  */
 
-.uk-icon {
+.nk-icon {
     /* 1 */
     margin: 0;
     /* 2 */
@@ -77,13 +77,13 @@
 }
 
 /* Required for `button`. */
-button.uk-icon:not(:disabled) { cursor: pointer; }
+button.nk-icon:not(:disabled) { cursor: pointer; }
 
 /*
  * Remove the inner border and padding in Firefox.
  */
 
-.uk-icon::-moz-focus-inner {
+.nk-icon::-moz-focus-inner {
     border: 0;
     padding: 0;
 }
@@ -92,14 +92,14 @@ button.uk-icon:not(:disabled) { cursor: pointer; }
  * Set the fill and stroke color of all SVG elements to the current text color
  */
 
-.uk-icon:not(.uk-preserve) [fill*='#']:not(.uk-preserve) { fill: currentcolor; }
-.uk-icon:not(.uk-preserve) [stroke*='#']:not(.uk-preserve) { stroke: currentcolor; }
+.nk-icon:not(.nk-preserve) [fill*='#']:not(.nk-preserve) { fill: currentcolor; }
+.nk-icon:not(.nk-preserve) [stroke*='#']:not(.nk-preserve) { stroke: currentcolor; }
 
 /*
  * Fix Firefox blurry SVG rendering: https://bugzilla.mozilla.org/show_bug.cgi?id=1046835
  */
 
-.uk-icon > * { transform: translate(0,0); }
+.nk-icon > * { transform: translate(0,0); }
 
 
 /* Image modifier
@@ -109,7 +109,7 @@ button.uk-icon:not(:disabled) { cursor: pointer; }
  * Display images in icon dimensions
  */
 
-.uk-icon-image {
+.nk-icon-image {
     width: @icon-image-size;
     height: @icon-image-size;
     background-position: 50% 50%;
@@ -126,21 +126,21 @@ button.uk-icon:not(:disabled) { cursor: pointer; }
  * Link
  */
 
-.uk-icon-link {
+.nk-icon-link {
     color: @icon-link-color;
     .hook-icon-link;
 }
 
-.uk-icon-link:hover,
-.uk-icon-link:focus {
+.nk-icon-link:hover,
+.nk-icon-link:focus {
     color: @icon-link-hover-color;
     outline: none;
     .hook-icon-link-hover;
 }
 
 /* OnClick + Active */
-.uk-icon-link:active,
-.uk-active > .uk-icon-link {
+.nk-icon-link:active,
+.nk-active > .nk-icon-link {
     color: @icon-link-active-color;
     .hook-icon-link-active;
 }
@@ -150,7 +150,7 @@ button.uk-icon:not(:disabled) { cursor: pointer; }
  * 1. Center icon vertically and horizontally
  */
 
-.uk-icon-button {
+.nk-icon-button {
     box-sizing: border-box;
     width: @icon-button-size;
     height: @icon-button-size;
@@ -166,8 +166,8 @@ button.uk-icon:not(:disabled) { cursor: pointer; }
 }
 
 /* Hover + Focus */
-.uk-icon-button:hover,
-.uk-icon-button:focus {
+.nk-icon-button:hover,
+.nk-icon-button:focus {
     background-color: @icon-button-hover-background;
     color: @icon-button-hover-color;
     outline: none;
@@ -175,8 +175,8 @@ button.uk-icon:not(:disabled) { cursor: pointer; }
 }
 
 /* OnClick + Active */
-.uk-icon-button:active,
-.uk-active > .uk-icon-button {
+.nk-icon-button:active,
+.nk-active > .nk-icon-button {
     background-color: @icon-button-active-background;
     color: @icon-button-active-color;
     .hook-icon-button-active;
@@ -216,19 +216,19 @@ button.uk-icon:not(:disabled) { cursor: pointer; }
     // Link
     //
 
-    .uk-icon-link {
+    .nk-icon-link {
         color: @inverse-icon-link-color;
         .hook-inverse-icon-link;
     }
 
-    .uk-icon-link:hover,
-    .uk-icon-link:focus {
+    .nk-icon-link:hover,
+    .nk-icon-link:focus {
         color: @inverse-icon-link-hover-color;
         .hook-inverse-icon-link-hover;
     }
 
-    .uk-icon-link:active,
-    .uk-active > .uk-icon-link {
+    .nk-icon-link:active,
+    .nk-active > .nk-icon-link {
         color: @inverse-icon-link-active-color;
         .hook-inverse-icon-link-active;
     }
@@ -237,20 +237,20 @@ button.uk-icon:not(:disabled) { cursor: pointer; }
     // Button
     //
 
-    .uk-icon-button {
+    .nk-icon-button {
         background-color: @inverse-icon-button-background;
         color: @inverse-icon-button-color;
         .hook-inverse-icon-button;
     }
 
-    .uk-icon-button:hover,
-    .uk-icon-button:focus {
+    .nk-icon-button:hover,
+    .nk-icon-button:focus {
         background-color: @inverse-icon-button-hover-background;
         color: @inverse-icon-button-hover-color;
         .hook-inverse-icon-button-hover;
     }
 
-    .uk-icon-button:active {
+    .nk-icon-button:active {
         background-color: @inverse-icon-button-active-background;
         color: @inverse-icon-button-active-color;
         .hook-inverse-icon-button-active;

@@ -1,21 +1,21 @@
 // Name:            Off-canvas
 // Description:     Component to create an off-canvas sidebar
 //
-// Component:       `uk-offcanvas`
+// Component:       `nk-offcanvas`
 //
-// Sub-objects:     `uk-offcanvas-bar`
-//                  `uk-offcanvas-container`
-//                  `uk-offcanvas-page`
+// Sub-objects:     `nk-offcanvas-bar`
+//                  `nk-offcanvas-container`
+//                  `nk-offcanvas-page`
 //
-// Adopted:         `uk-offcanvas-close`
+// Adopted:         `nk-offcanvas-close`
 //
-// Modifiers:       `uk-offcanvas-flip`
-//                  `uk-offcanvas-bar-animation`
-//                  `uk-offcanvas-reveal`
-//                  `uk-offcanvas-overlay`
-//                  `uk-offcanvas-container-animation`
+// Modifiers:       `nk-offcanvas-flip`
+//                  `nk-offcanvas-bar-animation`
+//                  `nk-offcanvas-reveal`
+//                  `nk-offcanvas-overlay`
+//                  `nk-offcanvas-container-animation`
 //
-// States:          `uk-open`
+// States:          `nk-open`
 //
 // ========================================================================
 
@@ -50,7 +50,7 @@
  * 2. Set position
  */
 
-.uk-offcanvas {
+.nk-offcanvas {
     /* 1 */
     display: none;
     /* 2 */
@@ -65,7 +65,7 @@
  * Flip modifier
  */
 
-.uk-offcanvas-flip .uk-offcanvas {
+.nk-offcanvas-flip .nk-offcanvas {
     right: 0;
     left: auto;
 }
@@ -80,7 +80,7 @@
  * 3. Allow scrolling
  */
 
-.uk-offcanvas-bar {
+.nk-offcanvas-bar {
     /* 1 */
     position: absolute;
     top: 0;
@@ -100,7 +100,7 @@
 /* Tablet landscape and bigger */
 @media (min-width: @breakpoint-medium) {
 
-    .uk-offcanvas-bar {
+    .nk-offcanvas-bar {
         left: -@offcanvas-bar-width-m;
         width: @offcanvas-bar-width-m;
         padding: @offcanvas-bar-padding-vertical-m @offcanvas-bar-padding-horizontal-m;
@@ -109,11 +109,11 @@
 }
 
 // Color Mode
-.uk-offcanvas-bar:extend(.uk-light all) when (@offcanvas-bar-color-mode = light) {}
-.uk-offcanvas-bar:extend(.uk-dark all) when (@offcanvas-bar-color-mode = dark) {}
+.nk-offcanvas-bar:extend(.nk-light all) when (@offcanvas-bar-color-mode = light) {}
+.nk-offcanvas-bar:extend(.nk-dark all) when (@offcanvas-bar-color-mode = dark) {}
 
 /* Flip modifier */
-.uk-offcanvas-flip .uk-offcanvas-bar {
+.nk-offcanvas-flip .nk-offcanvas-bar {
     left: auto;
     right: -@offcanvas-bar-width;
 }
@@ -121,7 +121,7 @@
 /* Tablet landscape and bigger */
 @media (min-width: @breakpoint-medium) {
 
-    .uk-offcanvas-flip .uk-offcanvas-bar { right: -@offcanvas-bar-width-m; }
+    .nk-offcanvas-flip .nk-offcanvas-bar { right: -@offcanvas-bar-width-m; }
 
 }
 
@@ -129,8 +129,8 @@
  * Open
  */
 
-.uk-open > .uk-offcanvas-bar { left: 0; }
-.uk-offcanvas-flip .uk-open > .uk-offcanvas-bar {
+.nk-open > .nk-offcanvas-bar { left: 0; }
+.nk-offcanvas-flip .nk-open > .nk-offcanvas-bar {
     left: auto;
     right: 0;
 }
@@ -139,8 +139,8 @@
  * Slide Animation (Used in slide and push mode)
  */
 
-.uk-offcanvas-bar-animation { transition: left 0.3s ease-out; }
-.uk-offcanvas-flip .uk-offcanvas-bar-animation { transition-property: right; }
+.nk-offcanvas-bar-animation { transition: left 0.3s ease-out; }
+.nk-offcanvas-flip .nk-offcanvas-bar-animation { transition-property: right; }
 
 /*
  * Reveal Animation
@@ -150,7 +150,7 @@
  * 4. Reset position
  */
 
-.uk-offcanvas-reveal {
+.nk-offcanvas-reveal {
     /* 1 */
     position: absolute;
     top: 0;
@@ -163,23 +163,23 @@
     transition: width 0.3s ease-out;
 }
 
-.uk-offcanvas-reveal .uk-offcanvas-bar {
+.nk-offcanvas-reveal .nk-offcanvas-bar {
     /* 4 */
     left: 0;
 }
 
-.uk-offcanvas-flip .uk-offcanvas-reveal .uk-offcanvas-bar {
+.nk-offcanvas-flip .nk-offcanvas-reveal .nk-offcanvas-bar {
     /* 4 */
     left: auto;
     right: 0;
 }
 
-.uk-open > .uk-offcanvas-reveal { width: @offcanvas-bar-width; }
+.nk-open > .nk-offcanvas-reveal { width: @offcanvas-bar-width; }
 
 /* Tablet landscape and bigger */
 @media (min-width: @breakpoint-medium) {
 
-    .uk-open > .uk-offcanvas-reveal { width: @offcanvas-bar-width-m; }
+    .nk-open > .nk-offcanvas-reveal { width: @offcanvas-bar-width-m; }
 
 }
 
@@ -187,17 +187,17 @@
  * Flip modifier
  */
 
-.uk-offcanvas-flip .uk-offcanvas-reveal {
+.nk-offcanvas-flip .nk-offcanvas-reveal {
     right: 0;
     left: auto;
 }
 
 
 /* Close
- * Adopts `uk-close`
+ * Adopts `nk-close`
  ========================================================================== */
 
-.uk-offcanvas-close {
+.nk-offcanvas-close {
     position: absolute;
     z-index: @offcanvas-z-index;
     top: @offcanvas-close-position;
@@ -216,7 +216,7 @@
  * 2. Allow for closing with swipe gesture on devices with pointer events.
  */
 
-.uk-offcanvas-overlay {
+.nk-offcanvas-overlay {
     /* 1 */
     width: 100vw;
     /* 2 */
@@ -228,7 +228,7 @@
  * 2. Fade-in transition
  */
 
-.uk-offcanvas-overlay::before {
+.nk-offcanvas-overlay::before {
     /* 1 */
     content: "";
     position: absolute;
@@ -243,7 +243,7 @@
     .hook-offcanvas-overlay;
 }
 
-.uk-offcanvas-overlay.uk-open::before { opacity: 1; }
+.nk-offcanvas-overlay.nk-open::before { opacity: 1; }
 
 
 /* Prevent scrolling
@@ -254,8 +254,8 @@
  * Has to be on the `html` element too to make it work on the `body`
  */
 
-.uk-offcanvas-page,
-.uk-offcanvas-container { overflow-x: hidden; }
+.nk-offcanvas-page,
+.nk-offcanvas-container { overflow-x: hidden; }
 
 
 /* Container
@@ -268,7 +268,7 @@
  * 1. Provide a fixed width and prevent shrinking
  */
 
-.uk-offcanvas-container {
+.nk-offcanvas-container {
     position: relative;
     left: 0;
     transition: left 0.3s ease-out;
@@ -281,16 +281,16 @@
  * Activate slide-out animation
  */
 
-:not(.uk-offcanvas-flip).uk-offcanvas-container-animation { left: @offcanvas-bar-width; }
+:not(.nk-offcanvas-flip).nk-offcanvas-container-animation { left: @offcanvas-bar-width; }
 
-.uk-offcanvas-flip.uk-offcanvas-container-animation { left: -@offcanvas-bar-width; }
+.nk-offcanvas-flip.nk-offcanvas-container-animation { left: -@offcanvas-bar-width; }
 
 /* Tablet landscape and bigger */
 @media (min-width: @breakpoint-medium) {
 
-    :not(.uk-offcanvas-flip).uk-offcanvas-container-animation { left: @offcanvas-bar-width-m; }
+    :not(.nk-offcanvas-flip).nk-offcanvas-container-animation { left: @offcanvas-bar-width-m; }
 
-    .uk-offcanvas-flip.uk-offcanvas-container-animation { left: -@offcanvas-bar-width-m; }
+    .nk-offcanvas-flip.nk-offcanvas-container-animation { left: -@offcanvas-bar-width-m; }
 
 }
 

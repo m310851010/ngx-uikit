@@ -1,13 +1,13 @@
 // Name:            Slidenav
 // Description:     Component to create previous/next icon navigations
 //
-// Component:       `uk-slidenav`
+// Component:       `nk-slidenav`
 //
-// Sub-objects:     `uk-slidenav-container`
+// Sub-objects:     `nk-slidenav-container`
 //
-// Modifiers:       `uk-slidenav-previous`
-//                  `uk-slidenav-next`
-//                  `uk-slidenav-large`
+// Modifiers:       `nk-slidenav-previous`
+//                  `nk-slidenav-next`
+//                  `nk-slidenav-large`
 //
 // ========================================================================
 
@@ -31,25 +31,25 @@
  ========================================================================== */
 
 /*
- * Adopts `uk-icon`
+ * Adopts `nk-icon`
  */
 
-.uk-slidenav {
+.nk-slidenav {
     padding: @slidenav-padding-vertical @slidenav-padding-horizontal;
     color: @slidenav-color;
     .hook-slidenav;
 }
 
 /* Hover + Focus */
-.uk-slidenav:hover,
-.uk-slidenav:focus {
+.nk-slidenav:hover,
+.nk-slidenav:focus {
     color: @slidenav-hover-color;
     outline: none;
     .hook-slidenav-hover;
 }
 
 /* OnClick */
-.uk-slidenav:active {
+.nk-slidenav:active {
     color: @slidenav-active-color;
     .hook-slidenav-active;
 }
@@ -62,7 +62,7 @@
  * Previous
  */
 
-.uk-slidenav-previous {
+.nk-slidenav-previous {
     .hook-slidenav-previous;
 }
 
@@ -70,7 +70,7 @@
  * Next
  */
 
-.uk-slidenav-next {
+.nk-slidenav-next {
     .hook-slidenav-next;
 }
 
@@ -78,7 +78,7 @@
 /* Size modifier
  ========================================================================== */
 
-.uk-slidenav-large {
+.nk-slidenav-large {
     padding: @slidenav-large-padding-vertical @slidenav-large-padding-horizontal;
     .hook-slidenav-large;
 }
@@ -87,7 +87,7 @@
 /* Container
  ========================================================================== */
 
-.uk-slidenav-container {
+.nk-slidenav-container {
     display: flex;
     .hook-slidenav-container;
 }
@@ -117,18 +117,18 @@
 
 .hook-inverse() {
 
-    .uk-slidenav {
+    .nk-slidenav {
         color: @inverse-slidenav-color;
         .hook-inverse-slidenav;
     }
 
-    .uk-slidenav:hover,
-    .uk-slidenav:focus {
+    .nk-slidenav:hover,
+    .nk-slidenav:focus {
         color: @inverse-slidenav-hover-color;
         .hook-inverse-slidenav-hover;
     }
 
-    .uk-slidenav:active {
+    .nk-slidenav:active {
         color: @inverse-slidenav-active-color;
         .hook-inverse-slidenav-active;
     }

@@ -1,11 +1,87 @@
 //
-// Core
-//
-
-@import "components/_import.less";
-
-//
 // Theme
 //
 
-@import "theme/_import.less";
+@theme: "theme";
+
+// Base
+@import "@{theme}/variables.less";
+@import "@{theme}/base.less";
+
+// Elements
+@import "@{theme}/link.less";
+@import "@{theme}/heading.less";
+@import "@{theme}/divider.less";
+@import "@{theme}/list.less";
+@import "@{theme}/description-list.less";
+@import "@{theme}/table.less";
+@import "@{theme}/icon.less";
+@import "@{theme}/form-range.less";
+@import "@{theme}/form.less";
+@import "@{theme}/button.less";
+@import "@{theme}/progress.less";
+
+// Layout
+@import "@{theme}/section.less";
+@import "@{theme}/container.less";
+@import "@{theme}/tile.less";
+@import "@{theme}/card.less";
+
+// Common
+@import "@{theme}/close.less";
+@import "@{theme}/spinner.less";
+@import "@{theme}/marker.less";
+@import "@{theme}/totop.less";
+@import "@{theme}/alert.less";
+@import "@{theme}/placeholder.less";
+@import "@{theme}/badge.less";
+@import "@{theme}/label.less";
+@import "@{theme}/overlay.less";
+@import "@{theme}/article.less";
+@import "@{theme}/comment.less";
+@import "@{theme}/search.less";
+
+// JavaScript
+@import "@{theme}/accordion.less";
+@import "@{theme}/drop.less";
+@import "@{theme}/dropdown.less";
+@import "@{theme}/modal.less";
+@import "@{theme}/slider.less";
+@import "@{theme}/sticky.less";
+@import "@{theme}/offcanvas.less";
+@import "@{theme}/leader.less";
+@import "@{theme}/notification.less";
+@import "@{theme}/tooltip.less";
+@import "@{theme}/sortable.less";
+@import "@{theme}/countdown.less";
+
+@import "@{theme}/grid.less";
+
+// Navs
+@import "@{theme}/nav.less";
+@import "@{theme}/navbar.less";
+@import "@{theme}/subnav.less";
+@import "@{theme}/breadcrumb.less";
+@import "@{theme}/pagination.less";
+@import "@{theme}/tab.less";
+@import "@{theme}/slidenav.less";
+@import "@{theme}/dotnav.less";
+@import "@{theme}/thumbnav.less";
+@import "@{theme}/iconnav.less";
+
+@import "@{theme}/lightbox.less";
+
+// Utilities
+@import "@{theme}/animation.less";
+@import "@{theme}/width.less";
+@import "@{theme}/height.less";
+@import "@{theme}/text.less";
+@import "@{theme}/column.less";
+@import "@{theme}/background.less";
+@import "@{theme}/align.less";
+@import "@{theme}/utility.less";
+@import "@{theme}/margin.less";
+@import "@{theme}/padding.less";
+@import "@{theme}/position.less";
+@import "@{theme}/transition.less";
+@import "@{theme}/inverse.less";

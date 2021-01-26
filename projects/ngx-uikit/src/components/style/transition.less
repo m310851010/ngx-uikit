@@ -1,22 +1,22 @@
 // Name:            Transition
 // Description:     Utilities for transitions
 //
-// Component:       `uk-transition-*`
+// Component:       `nk-transition-*`
 //
-// Modifiers:       `uk-transition-fade`
-//                  `uk-transition-scale-up`
-//                  `uk-transition-scale-down`
-//                  `uk-transition-slide-top-*`
-//                  `uk-transition-slide-bottom-*`
-//                  `uk-transition-slide-left-*`
-//                  `uk-transition-slide-right-*`
-//                  `uk-transition-opaque`
-//                  `uk-transition-slow`
+// Modifiers:       `nk-transition-fade`
+//                  `nk-transition-scale-up`
+//                  `nk-transition-scale-down`
+//                  `nk-transition-slide-top-*`
+//                  `nk-transition-slide-bottom-*`
+//                  `nk-transition-slide-left-*`
+//                  `nk-transition-slide-right-*`
+//                  `nk-transition-opaque`
+//                  `nk-transition-slow`
 //
-// Sub-objects:     `uk-transition-toggle`,
-//                  `uk-transition-active`
+// Sub-objects:     `nk-transition-toggle`,
+//                  `nk-transition-active`
 //
-// States:          `uk-active`
+// States:          `nk-active`
 //
 // ========================================================================
 
@@ -46,7 +46,7 @@
  * 1. Prevent tab highlighting on iOS.
  */
 
-.uk-transition-toggle {
+.nk-transition-toggle {
     /* 1 */
     -webkit-tap-highlight-color: transparent;
 }
@@ -55,7 +55,7 @@
  * Remove outline for `tabindex`
  */
 
-.uk-transition-toggle:focus { outline: none; }
+.nk-transition-toggle:focus { outline: none; }
 
 
 /* Transitions
@@ -67,13 +67,13 @@
  * 2. Using `:hover` and a `touchstart` event listener registered on the document
  *    (Doesn't work on Surface touch devices)
  *
- * Note: Transitions don't work with `uk-postion-center-*` classes because they also use `transform`,
+ * Note: Transitions don't work with `nk-postion-center-*` classes because they also use `transform`,
  *       therefore it's recommended to use an extra `div` for the transition.
  */
 
-.uk-transition-fade,
-[class*='uk-transition-scale'],
-[class*='uk-transition-slide'] {
+.nk-transition-fade,
+[class*='nk-transition-scale'],
+[class*='nk-transition-slide'] {
     transition: @transition-duration ease-out;
     transition-property: opacity, transform, filter;
     opacity: 0;
@@ -83,28 +83,28 @@
  * Fade
  */
 
-.uk-transition-toggle:hover .uk-transition-fade,
-.uk-transition-toggle:focus .uk-transition-fade,
-.uk-transition-active.uk-active .uk-transition-fade { opacity: 1; }
+.nk-transition-toggle:hover .nk-transition-fade,
+.nk-transition-toggle:focus .nk-transition-fade,
+.nk-transition-active.nk-active .nk-transition-fade { opacity: 1; }
 
 /*
  * Scale
  */
 
-.uk-transition-scale-up { transform: scale(1,1); }
-.uk-transition-scale-down { transform: scale(@transition-scale,@transition-scale); }
+.nk-transition-scale-up { transform: scale(1,1); }
+.nk-transition-scale-down { transform: scale(@transition-scale,@transition-scale); }
 
 /* Show */
-.uk-transition-toggle:hover .uk-transition-scale-up,
-.uk-transition-toggle:focus .uk-transition-scale-up,
-.uk-transition-active.uk-active .uk-transition-scale-up {
+.nk-transition-toggle:hover .nk-transition-scale-up,
+.nk-transition-toggle:focus .nk-transition-scale-up,
+.nk-transition-active.nk-active .nk-transition-scale-up {
     opacity: 1;
     transform: scale(@transition-scale,@transition-scale);
 }
 
-.uk-transition-toggle:hover .uk-transition-scale-down,
-.uk-transition-toggle:focus .uk-transition-scale-down,
-.uk-transition-active.uk-active .uk-transition-scale-down {
+.nk-transition-toggle:hover .nk-transition-scale-down,
+.nk-transition-toggle:focus .nk-transition-scale-down,
+.nk-transition-active.nk-active .nk-transition-scale-down {
     opacity: 1;
     transform: scale(1,1);
 }
@@ -113,25 +113,25 @@
  * Slide
  */
 
-.uk-transition-slide-top { transform: translateY(-100%); }
-.uk-transition-slide-bottom { transform: translateY(100%); }
-.uk-transition-slide-left { transform: translateX(-100%); }
-.uk-transition-slide-right { transform: translateX(100%); }
+.nk-transition-slide-top { transform: translateY(-100%); }
+.nk-transition-slide-bottom { transform: translateY(100%); }
+.nk-transition-slide-left { transform: translateX(-100%); }
+.nk-transition-slide-right { transform: translateX(100%); }
 
-.uk-transition-slide-top-small { transform: translateY(-@transition-slide-small-translate); }
-.uk-transition-slide-bottom-small { transform: translateY(@transition-slide-small-translate); }
-.uk-transition-slide-left-small { transform: translateX(-@transition-slide-small-translate); }
-.uk-transition-slide-right-small { transform: translateX(@transition-slide-small-translate); }
+.nk-transition-slide-top-small { transform: translateY(-@transition-slide-small-translate); }
+.nk-transition-slide-bottom-small { transform: translateY(@transition-slide-small-translate); }
+.nk-transition-slide-left-small { transform: translateX(-@transition-slide-small-translate); }
+.nk-transition-slide-right-small { transform: translateX(@transition-slide-small-translate); }
 
-.uk-transition-slide-top-medium { transform: translateY(-@transition-slide-medium-translate); }
-.uk-transition-slide-bottom-medium { transform: translateY(@transition-slide-medium-translate); }
-.uk-transition-slide-left-medium { transform: translateX(-@transition-slide-medium-translate); }
-.uk-transition-slide-right-medium { transform: translateX(@transition-slide-medium-translate); }
+.nk-transition-slide-top-medium { transform: translateY(-@transition-slide-medium-translate); }
+.nk-transition-slide-bottom-medium { transform: translateY(@transition-slide-medium-translate); }
+.nk-transition-slide-left-medium { transform: translateX(-@transition-slide-medium-translate); }
+.nk-transition-slide-right-medium { transform: translateX(@transition-slide-medium-translate); }
 
 /* Show */
-.uk-transition-toggle:hover [class*='uk-transition-slide'],
-.uk-transition-toggle:focus [class*='uk-transition-slide'],
-.uk-transition-active.uk-active [class*='uk-transition-slide'] {
+.nk-transition-toggle:hover [class*='nk-transition-slide'],
+.nk-transition-toggle:focus [class*='nk-transition-slide'],
+.nk-transition-active.nk-active [class*='nk-transition-slide'] {
     opacity: 1;
     transform: translate(0,0);
 }
@@ -140,13 +140,13 @@
 /* Opacity modifier
  ========================================================================== */
 
-.uk-transition-opaque { opacity: 1; }
+.nk-transition-opaque { opacity: 1; }
 
 
 /* Duration modifiers
  ========================================================================== */
 
-.uk-transition-slow { transition-duration: @transition-slow-duration; }
+.nk-transition-slow { transition-duration: @transition-slow-duration; }
 
 
 // Hooks

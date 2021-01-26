@@ -1,21 +1,21 @@
 // Name:            Notification
 // Description:     Component to create notification messages
 //
-// Component:       `uk-notification`
+// Component:       `nk-notification`
 //
-// Sub-objects:     `uk-notification-message`
+// Sub-objects:     `nk-notification-message`
 //
-// Adopted:         `uk-notification-close`
+// Adopted:         `nk-notification-close`
 //
-// Modifiers:       `uk-notification-top-center`
-//                  `uk-notification-top-right`
-//                  `uk-notification-bottom-left`
-//                  `uk-notification-bottom-center`
-//                  `uk-notification-bottom-right`
-//                  `uk-notification-message-primary`
-//                  `uk-notification-message-success`
-//                  `uk-notification-message-warning`
-//                  `uk-notification-message-danger`
+// Modifiers:       `nk-notification-top-center`
+//                  `nk-notification-top-right`
+//                  `nk-notification-bottom-left`
+//                  `nk-notification-bottom-center`
+//                  `nk-notification-bottom-right`
+//                  `nk-notification-message-primary`
+//                  `nk-notification-message-success`
+//                  `nk-notification-message-warning`
+//                  `nk-notification-message-danger`
 //
 // ========================================================================
 
@@ -52,7 +52,7 @@
  * 2. Dimensions
  */
 
-.uk-notification {
+.nk-notification {
     /* 1 */
     position: fixed;
     top: @notification-position;
@@ -68,21 +68,21 @@
 /* Position modifiers
 ========================================================================== */
 
-.uk-notification-top-right,
-.uk-notification-bottom-right {
+.nk-notification-top-right,
+.nk-notification-bottom-right {
     left: auto;
     right: @notification-position;
 }
 
-.uk-notification-top-center,
-.uk-notification-bottom-center {
+.nk-notification-top-center,
+.nk-notification-bottom-center {
     left: 50%;
     margin-left: (@notification-width / -2);
 }
 
-.uk-notification-bottom-left,
-.uk-notification-bottom-right,
-.uk-notification-bottom-center {
+.nk-notification-bottom-left,
+.nk-notification-bottom-right,
+.nk-notification-bottom-center {
     top: auto;
     bottom: @notification-position;
 }
@@ -94,7 +94,7 @@
 /* Phones portrait and smaller */
 @media (max-width: @breakpoint-xsmall-max) {
 
-    .uk-notification {
+    .nk-notification {
         left: @notification-position;
         right: @notification-position;
         width: auto;
@@ -107,7 +107,7 @@
 /* Message
 ========================================================================== */
 
-.uk-notification-message {
+.nk-notification-message {
     position: relative;
     padding: @notification-message-padding;
     background: @notification-message-background;
@@ -118,14 +118,14 @@
     .hook-notification-message;
 }
 
-* + .uk-notification-message { margin-top: @notification-message-margin-top; }
+* + .nk-notification-message { margin-top: @notification-message-margin-top; }
 
 
 /* Close
- * Adopts `uk-close`
+ * Adopts `nk-close`
  ========================================================================== */
 
-.uk-notification-close {
+.nk-notification-close {
     display: none;
     position: absolute;
     top: @notification-close-top;
@@ -133,7 +133,7 @@
     .hook-notification-close;
 }
 
-.uk-notification-message:hover .uk-notification-close { display: block; }
+.nk-notification-message:hover .nk-notification-close { display: block; }
 
 
 /* Style modifiers
@@ -143,7 +143,7 @@
  * Primary
  */
 
-.uk-notification-message-primary {
+.nk-notification-message-primary {
     color: @notification-message-primary-color;
     .hook-notification-message-primary;
 }
@@ -152,7 +152,7 @@
  * Success
  */
 
-.uk-notification-message-success {
+.nk-notification-message-success {
     color: @notification-message-success-color;
     .hook-notification-message-success;
 }
@@ -161,7 +161,7 @@
  * Warning
  */
 
-.uk-notification-message-warning {
+.nk-notification-message-warning {
     color: @notification-message-warning-color;
     .hook-notification-message-warning;
 }
@@ -170,7 +170,7 @@
  * Danger
  */
 
-.uk-notification-message-danger {
+.nk-notification-message-danger {
     color: @notification-message-danger-color;
     .hook-notification-message-danger;
 }

@@ -1,11 +1,11 @@
 // Name:            Slideshow
 // Description:     Component to create slideshows
 //
-// Component:       `uk-slideshow`
+// Component:       `nk-slideshow`
 //
-// Sub-objects:     `uk-slideshow-items`
+// Sub-objects:     `nk-slideshow-items`
 //
-// States:          `uk-active`
+// States:          `nk-active`
 //
 // ========================================================================
 
@@ -18,7 +18,7 @@
  * 1. Prevent tab highlighting on iOS.
  */
 
-.uk-slideshow {
+.nk-slideshow {
     /* 1 */
     -webkit-tap-highlight-color: transparent;
     .hook-slideshow;
@@ -35,7 +35,7 @@
  * 4. Prevent displaying the callout information on iOS.
  */
 
-.uk-slideshow-items {
+.nk-slideshow-items {
     /* 1 */
     position: relative;
     z-index: 0;
@@ -56,13 +56,13 @@
 /*
  * 1. Position items above each other
  * 2. Take the full width
- * 3. Clip child elements, e.g. for `uk-cover`
+ * 3. Clip child elements, e.g. for `nk-cover`
  * 4. Optimize animation
  * 5. Disable horizontal panning gestures in IE11 and Edge
  * 6. Suppress outline on focus
  */
 
-.uk-slideshow-items > * {
+.nk-slideshow-items > * {
     /* 1 */
     position: absolute;
     top: 0;
@@ -79,13 +79,13 @@
 }
 
 /* 6 */
-.uk-slideshow-items > :focus { outline: none; }
+.nk-slideshow-items > :focus { outline: none; }
 
 /*
  * Hide not active items
  */
 
-.uk-slideshow-items > :not(.uk-active) { display: none; }
+.nk-slideshow-items > :not(.nk-active) { display: none; }
 
 
 // Hooks

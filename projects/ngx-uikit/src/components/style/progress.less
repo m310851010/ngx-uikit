@@ -1,7 +1,7 @@
 // Name:            Progress
 // Description:     Component to create progress bars
 //
-// Component:       `uk-progress`
+// Component:       `nk-progress`
 //
 // ========================================================================
 
@@ -29,7 +29,7 @@
  * 6. Style
  */
 
-.uk-progress {
+.nk-progress {
     /* 1 */
     vertical-align: baseline;
     /* 2 */
@@ -49,44 +49,44 @@
 }
 
 /* Add margin if adjacent element */
-* + .uk-progress { margin-top: @progress-margin-vertical; }
+* + .nk-progress { margin-top: @progress-margin-vertical; }
 
 /*
  * Remove animated circles for indeterminate state in IE11 and Edge
  */
 
-.uk-progress:indeterminate { color: transparent; }
+.nk-progress:indeterminate { color: transparent; }
 
 /*
  * Progress container
  * 2. Remove progress bar for indeterminate state in Firefox
  */
 
-.uk-progress::-webkit-progress-bar {
+.nk-progress::-webkit-progress-bar {
   background-color: @progress-background;
   .hook-progress;
 }
 
 /* 2 */
-.uk-progress:indeterminate::-moz-progress-bar { width: 0; }
+.nk-progress:indeterminate::-moz-progress-bar { width: 0; }
 
 /*
  * Progress bar
  * 1. Remove right border in IE11 and Edge
  */
 
-.uk-progress::-webkit-progress-value {
+.nk-progress::-webkit-progress-value {
     background-color: @progress-bar-background;
     transition: width 0.6s ease;
     .hook-progress-bar;
 }
 
-.uk-progress::-moz-progress-bar {
+.nk-progress::-moz-progress-bar {
     background-color: @progress-bar-background;
     .hook-progress-bar;
 }
 
-.uk-progress::-ms-fill {
+.nk-progress::-ms-fill {
     background-color: @progress-bar-background;
     transition: width 0.6s ease;
     /* 1 */

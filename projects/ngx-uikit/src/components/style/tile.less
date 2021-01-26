@@ -1,18 +1,18 @@
 // Name:            Tile
 // Description:     Component to create tiled boxes
 //
-// Component:       `uk-tile`
+// Component:       `nk-tile`
 //
-// Modifiers:       `uk-tile-xsmall`
-//                  `uk-tile-small`
-//                  `uk-tile-large`
-//                  `uk-tile-xlarge`
-//                  `uk-tile-default`
-//                  `uk-tile-muted`
-//                  `uk-tile-primary`
-//                  `uk-tile-secondary`
+// Modifiers:       `nk-tile-xsmall`
+//                  `nk-tile-small`
+//                  `nk-tile-large`
+//                  `nk-tile-xlarge`
+//                  `nk-tile-default`
+//                  `nk-tile-muted`
+//                  `nk-tile-primary`
+//                  `nk-tile-secondary`
 //
-// States:          `uk-preserve-color`
+// States:          `nk-preserve-color`
 //
 // ========================================================================
 
@@ -51,7 +51,7 @@
    Component: Tile
  ========================================================================== */
 
-.uk-tile {
+.nk-tile {
     display: flow-root;
     position: relative;
     box-sizing: border-box;
@@ -65,7 +65,7 @@
 /* Phone landscape and bigger */
 @media (min-width: @breakpoint-small) {
 
-    .uk-tile {
+    .nk-tile {
         padding-left: @tile-padding-horizontal-s;
         padding-right: @tile-padding-horizontal-s;
     }
@@ -75,7 +75,7 @@
 /* Tablet landscape and bigger */
 @media (min-width: @breakpoint-medium) {
 
-    .uk-tile {
+    .nk-tile {
         padding-left: @tile-padding-horizontal-m;
         padding-right: @tile-padding-horizontal-m;
         padding-top: @tile-padding-vertical-m;
@@ -88,7 +88,7 @@
  * Remove margin from the last-child
  */
 
-.uk-tile > :last-child { margin-bottom: 0; }
+.nk-tile > :last-child { margin-bottom: 0; }
 
 
 /* Size modifiers
@@ -98,7 +98,7 @@
  * XSmall
  */
 
-.uk-tile-xsmall {
+.nk-tile-xsmall {
     padding-top: @tile-xsmall-padding-vertical;
     padding-bottom: @tile-xsmall-padding-vertical;
 }
@@ -107,7 +107,7 @@
  * Small
  */
 
-.uk-tile-small {
+.nk-tile-small {
     padding-top: @tile-small-padding-vertical;
     padding-bottom: @tile-small-padding-vertical;
 }
@@ -116,7 +116,7 @@
  * Large
  */
 
-.uk-tile-large {
+.nk-tile-large {
     padding-top: @tile-large-padding-vertical;
     padding-bottom: @tile-large-padding-vertical;
 }
@@ -124,7 +124,7 @@
 /* Tablet landscape and bigger */
 @media (min-width: @breakpoint-medium) {
 
-    .uk-tile-large {
+    .nk-tile-large {
         padding-top: @tile-large-padding-vertical-m;
         padding-bottom: @tile-large-padding-vertical-m;
     }
@@ -136,7 +136,7 @@
  * XLarge
  */
 
-.uk-tile-xlarge {
+.nk-tile-xlarge {
     padding-top: @tile-xlarge-padding-vertical;
     padding-bottom: @tile-xlarge-padding-vertical;
 }
@@ -144,7 +144,7 @@
 /* Tablet landscape and bigger */
 @media (min-width: @breakpoint-medium) {
 
-    .uk-tile-xlarge {
+    .nk-tile-xlarge {
         padding-top: @tile-xlarge-padding-vertical-m;
         padding-bottom: @tile-xlarge-padding-vertical-m;
     }
@@ -159,7 +159,7 @@
  * Default
  */
 
-.uk-tile-default {
+.nk-tile-default {
     background: @tile-default-background;
     .hook-tile-default;
 }
@@ -168,7 +168,7 @@
  * Muted
  */
 
-.uk-tile-muted {
+.nk-tile-muted {
     background: @tile-muted-background;
     .hook-tile-muted;
 }
@@ -177,27 +177,27 @@
  * Primary
  */
 
-.uk-tile-primary {
+.nk-tile-primary {
     background: @tile-primary-background;
     .hook-tile-primary;
 }
 
 // Color Mode
-.uk-tile-primary:not(.uk-preserve-color):extend(.uk-light all) when (@tile-primary-color-mode = light) {}
-.uk-tile-primary:not(.uk-preserve-color):extend(.uk-dark all) when (@tile-primary-color-mode = dark) {}
+.nk-tile-primary:not(.nk-preserve-color):extend(.nk-light all) when (@tile-primary-color-mode = light) {}
+.nk-tile-primary:not(.nk-preserve-color):extend(.nk-dark all) when (@tile-primary-color-mode = dark) {}
 
 /*
  * Secondary
  */
 
-.uk-tile-secondary {
+.nk-tile-secondary {
     background: @tile-secondary-background;
     .hook-tile-secondary;
 }
 
 // Color Mode
-.uk-tile-secondary:not(.uk-preserve-color):extend(.uk-light all) when (@tile-secondary-color-mode = light) {}
-.uk-tile-secondary:not(.uk-preserve-color):extend(.uk-dark all) when (@tile-secondary-color-mode = dark) {}
+.nk-tile-secondary:not(.nk-preserve-color):extend(.nk-light all) when (@tile-secondary-color-mode = light) {}
+.nk-tile-secondary:not(.nk-preserve-color):extend(.nk-dark all) when (@tile-secondary-color-mode = dark) {}
 
 
 // Hooks

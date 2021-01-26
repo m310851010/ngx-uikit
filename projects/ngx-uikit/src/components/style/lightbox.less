@@ -1,17 +1,17 @@
 // Name:            Lightbox
 // Description:     Component to create an lightbox image gallery
 //
-// Component:       `uk-lightbox`
+// Component:       `nk-lightbox`
 //
-// Sub-objects:     `uk-lightbox-page`
-//                  `uk-lightbox-items`
-//                  `uk-lightbox-toolbar`
-//                  `uk-lightbox-toolbar-icon`
-//                  `uk-lightbox-button`
-//                  `uk-lightbox-caption`
-//                  `uk-lightbox-iframe`
+// Sub-objects:     `nk-lightbox-page`
+//                  `nk-lightbox-items`
+//                  `nk-lightbox-toolbar`
+//                  `nk-lightbox-toolbar-icon`
+//                  `nk-lightbox-button`
+//                  `nk-lightbox-caption`
+//                  `nk-lightbox-iframe`
 //
-// States:          `uk-open`
+// States:          `nk-open`
 //
 // ========================================================================
 
@@ -57,7 +57,7 @@
  * 7. Prevent cancellation of pointer events while dragging
  */
 
-.uk-lightbox {
+.nk-lightbox {
     /* 1 */
     display: none;
     /* 2 */
@@ -83,7 +83,7 @@
  * 2. Fade-in
  */
 
-.uk-lightbox.uk-open {
+.nk-lightbox.nk-open {
     display: block;
     /* 2 */
     opacity: 1;
@@ -97,7 +97,7 @@
  * Prevent scrollbars
  */
 
-.uk-lightbox-page { overflow: hidden; }
+.nk-lightbox-page { overflow: hidden; }
 
 
 /* Item
@@ -114,7 +114,7 @@
  * 6. Suppress outline on focus
  */
 
-.uk-lightbox-items > * {
+.nk-lightbox-items > * {
     /* 1 */
     position: absolute;
     top: 0;
@@ -133,38 +133,38 @@
 }
 
 /* 5 */
-.uk-lightbox-items > * > * {
+.nk-lightbox-items > * > * {
     max-width: @lightbox-item-max-width;
     max-height: @lightbox-item-max-height;
 }
 
 /* 6 */
-.uk-lightbox-items > :focus { outline: none; }
+.nk-lightbox-items > :focus { outline: none; }
 
-.uk-lightbox-items > * > :not(iframe) {
+.nk-lightbox-items > * > :not(iframe) {
     width: auto;
     height: auto;
 }
 
-.uk-lightbox-items > .uk-active { display: flex; }
+.nk-lightbox-items > .nk-active { display: flex; }
 
 /* Toolbar
  ========================================================================== */
 
-.uk-lightbox-toolbar {
+.nk-lightbox-toolbar {
     padding: @lightbox-toolbar-padding-vertical @lightbox-toolbar-padding-horizontal;
     background: @lightbox-toolbar-background;
     color: @lightbox-toolbar-color;
     .hook-lightbox-toolbar;
 }
 
-.uk-lightbox-toolbar > * { color: @lightbox-toolbar-color; }
+.nk-lightbox-toolbar > * { color: @lightbox-toolbar-color; }
 
 
 /* Toolbar Icon (Close)
  ========================================================================== */
 
-.uk-lightbox-toolbar-icon {
+.nk-lightbox-toolbar-icon {
     padding: @lightbox-toolbar-icon-padding;
     color: @lightbox-toolbar-icon-color;
     .hook-lightbox-toolbar-icon;
@@ -174,7 +174,7 @@
  * Hover
  */
 
-.uk-lightbox-toolbar-icon:hover {
+.nk-lightbox-toolbar-icon:hover {
     color: @lightbox-toolbar-icon-hover-color;
     .hook-lightbox-toolbar-icon-hover;
 }
@@ -188,7 +188,7 @@
  * 1. Center icon vertically and horizontally
  */
 
-.uk-lightbox-button {
+.nk-lightbox-button {
     box-sizing: border-box;
     width: @lightbox-button-size;
     height: @lightbox-button-size;
@@ -202,14 +202,14 @@
 }
 
 /* Hover + Focus */
-.uk-lightbox-button:hover,
-.uk-lightbox-button:focus {
+.nk-lightbox-button:hover,
+.nk-lightbox-button:focus {
     color: @lightbox-button-hover-color;
     .hook-lightbox-button-hover;
 }
 
 /* OnClick */
-.uk-lightbox-button:active {
+.nk-lightbox-button:active {
     .hook-lightbox-button-active;
 }
 
@@ -217,13 +217,13 @@
 /* Caption
  ========================================================================== */
 
-.uk-lightbox-caption:empty { display: none; }
+.nk-lightbox-caption:empty { display: none; }
 
 
 /* Iframe
  ========================================================================== */
 
-.uk-lightbox-iframe {
+.nk-lightbox-iframe {
     width: 80%;
     height: 80%;
 }

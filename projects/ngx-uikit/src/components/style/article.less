@@ -1,10 +1,10 @@
 // Name:            Article
 // Description:     Component to create articles
 //
-// Component:       `uk-article`
+// Component:       `nk-article`
 //
-// Sub-objects:     `uk-article-title`
-//                  `uk-article-meta`
+// Sub-objects:     `nk-article-title`
+//                  `nk-article-meta`
 //
 // ========================================================================
 
@@ -27,7 +27,7 @@
    Component: Article
  ========================================================================== */
 
-.uk-article {
+.nk-article {
     display: flow-root;
     .hook-article;
 }
@@ -36,13 +36,13 @@
  * Remove margin from the last-child
  */
 
-.uk-article > :last-child { margin-bottom: 0; }
+.nk-article > :last-child { margin-bottom: 0; }
 
 
 /* Adjacent sibling
  ========================================================================== */
 
-.uk-article + .uk-article {
+.nk-article + .nk-article {
     margin-top: @article-margin-top;
     .hook-article-adjacent;
 }
@@ -51,7 +51,7 @@
 /* Title
  ========================================================================== */
 
-.uk-article-title {
+.nk-article-title {
     font-size: @article-title-font-size;
     line-height: @article-title-line-height;
     .hook-article-title;
@@ -60,7 +60,7 @@
 /* Tablet landscape and bigger */
 @media (min-width: @breakpoint-medium) {
 
-    .uk-article-title { font-size: @article-title-font-size-m; }
+    .nk-article-title { font-size: @article-title-font-size-m; }
 
 }
 
@@ -68,7 +68,7 @@
 /* Meta
  ========================================================================== */
 
-.uk-article-meta {
+.nk-article-meta {
     font-size: @article-meta-font-size;
     line-height: @article-meta-line-height;
     color: @article-meta-color;
@@ -95,11 +95,11 @@
 
 .hook-inverse() {
 
-    .uk-article-title  {
+    .nk-article-title  {
         .hook-inverse-article-title;
     }
 
-    .uk-article-meta  {
+    .nk-article-meta  {
         color: @inverse-article-meta-color;
         .hook-inverse-article-meta;
     }

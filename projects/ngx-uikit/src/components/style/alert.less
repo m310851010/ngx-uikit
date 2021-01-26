@@ -1,14 +1,14 @@
 // Name:            Alert
 // Description:     Component to create alert messages
 //
-// Component:       `uk-alert`
+// Component:       `nk-alert`
 //
-// Adopted:         `uk-alert-close`
+// Adopted:         `nk-alert-close`
 //
-// Modifiers:       `uk-alert-primary`
-//                  `uk-alert-success`
-//                  `uk-alert-warning`
-//                  `uk-alert-danger`
+// Modifiers:       `nk-alert-primary`
+//                  `nk-alert-success`
+//                  `nk-alert-warning`
+//                  `nk-alert-danger`
 //
 // ========================================================================
 
@@ -42,7 +42,7 @@
    Component: Alert
  ========================================================================== */
 
-.uk-alert {
+.nk-alert {
     position: relative;
     margin-bottom: @alert-margin-vertical;
     padding: @alert-padding @alert-padding-right @alert-padding @alert-padding;
@@ -52,20 +52,20 @@
 }
 
 /* Add margin if adjacent element */
-* + .uk-alert { margin-top: @alert-margin-vertical; }
+* + .nk-alert { margin-top: @alert-margin-vertical; }
 
 /*
  * Remove margin from the last-child
  */
 
-.uk-alert > :last-child { margin-bottom: 0; }
+.nk-alert > :last-child { margin-bottom: 0; }
 
 
 /* Close
- * Adopts `uk-close`
+ * Adopts `nk-close`
  ========================================================================== */
 
-.uk-alert-close {
+.nk-alert-close {
     position: absolute;
     top: @alert-close-top;
     right: @alert-close-right;
@@ -76,14 +76,14 @@
  * Remove margin from adjacent element
  */
 
-.uk-alert-close:first-child + * { margin-top: 0; }
+.nk-alert-close:first-child + * { margin-top: 0; }
 
 /*
  * Hover + Focus
  */
 
-.uk-alert-close:hover,
-.uk-alert-close:focus {
+.nk-alert-close:hover,
+.nk-alert-close:focus {
     .hook-alert-close-hover;
 }
 
@@ -95,7 +95,7 @@
  * Primary
  */
 
-.uk-alert-primary {
+.nk-alert-primary {
     background: @alert-primary-background;
     color: @alert-primary-color;
     .hook-alert-primary;
@@ -105,7 +105,7 @@
  * Success
  */
 
-.uk-alert-success {
+.nk-alert-success {
     background: @alert-success-background;
     color: @alert-success-color;
     .hook-alert-success;
@@ -115,7 +115,7 @@
  * Warning
  */
 
-.uk-alert-warning {
+.nk-alert-warning {
     background: @alert-warning-background;
     color: @alert-warning-color;
     .hook-alert-warning;
@@ -125,7 +125,7 @@
  * Danger
  */
 
-.uk-alert-danger {
+.nk-alert-danger {
     background: @alert-danger-background;
     color: @alert-danger-color;
     .hook-alert-danger;

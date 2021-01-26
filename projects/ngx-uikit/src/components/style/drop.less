@@ -1,16 +1,16 @@
 // Name:            Drop
 // Description:     Component to position any element next to any other element.
 //
-// Component:       `uk-drop`
+// Component:       `nk-drop`
 //
-// Modifiers:       `uk-drop-top-*`
-//                  `uk-drop-bottom-*`
-//                  `uk-drop-left-*`
-//                  `uk-drop-right-*`
-//                  `uk-drop-stack`
-//                  `uk-drop-grid`
+// Modifiers:       `nk-drop-top-*`
+//                  `nk-drop-bottom-*`
+//                  `nk-drop-left-*`
+//                  `nk-drop-right-*`
+//                  `nk-drop-stack`
+//                  `nk-drop-grid`
 //
-// States:          `uk-open`
+// States:          `nk-open`
 //
 // Uses:            Animation
 //
@@ -35,7 +35,7 @@
  * 3. Set a default width
  */
 
-.uk-drop {
+.nk-drop {
     /* 1 */
     display: none;
     /* 2 */
@@ -47,23 +47,23 @@
 }
 
 /* Show */
-.uk-drop.uk-open { display: block; }
+.nk-drop.nk-open { display: block; }
 
 
 /* Direction / Alignment modifiers
  ========================================================================== */
 
 /* Direction */
-[class*='uk-drop-top'] { margin-top: -@drop-margin; }
-[class*='uk-drop-bottom'] { margin-top: @drop-margin; }
-[class*='uk-drop-left'] { margin-left: -@drop-margin; }
-[class*='uk-drop-right'] { margin-left: @drop-margin; }
+[class*='nk-drop-top'] { margin-top: -@drop-margin; }
+[class*='nk-drop-bottom'] { margin-top: @drop-margin; }
+[class*='nk-drop-left'] { margin-left: -@drop-margin; }
+[class*='nk-drop-right'] { margin-left: @drop-margin; }
 
 
 /* Grid modifiers
  ========================================================================== */
 
-.uk-drop-stack .uk-drop-grid > * { width: 100% !important; }
+.nk-drop-stack .nk-drop-grid > * { width: 100% !important; }
 
 
 // Hooks

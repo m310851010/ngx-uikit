@@ -108,6 +108,7 @@
       "options": [
         "ban-keywords",
         "check-format",
+        "allow-leading-underscore",
         "allow-pascal-case"
       ]
     },
@@ -126,7 +127,7 @@
     "directive-class-suffix": true,
     "no-conflicting-lifecycle": true,
     "no-host-metadata-property": true,
-    "no-input-rename": true,
+    "no-input-rename": false,
     "no-inputs-metadata-property": true,
     "no-output-native": true,
     "no-output-on-prefix": true,
@@ -138,6 +139,43 @@
     "use-pipe-transform-interface": true,
     "object-literal-sort-keys": false,
     "trailing-comma": false,
-    "ordered-imports": false
+    "ordered-imports": false,
+    "member-access": false,
+    "no-unnecessary-initializer": true,
+    "jsdoc-format": false,
+    "new-parens":true,
+    "encoding":false,
+    "no-unused-expression":true,
+    "no-use-before-declare":true,
+    "no-var-keyword":true,
+    "triple-equals": true,
+    "comment-format":[true, "check-space"],
+    "interface-name": [
+      true,
+      "never-prefix"
+    ],
+    "arrow-parens": false,
+    "no-any": [true],
+    "no-trailing-whitespace": [
+      true,
+      "ignore-comments",
+      "ignore-jsdoc"
+    ],
+    "forin": true,
+    "no-arg":true,
+    "no-debugger":true,
+    "no-duplicate-super":true,
+    "no-eval":true,
+    "no-for-in-array":true,
+    "no-invalid-this":true,
+    "no-duplicate-imports":true,
+    "ban-types": [
+      true,
+      ["Object", "Use {} instead."],
+      ["String", "Use string instead."],
+      ["Number", "Use number instead."],
+      ["Boolean", "Use boolean instead."],
+      ["Function", "Use specific callable interface instead."]
+    ]
   }
 }

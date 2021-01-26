@@ -79,7 +79,7 @@
                   "maximumError": "1mb"
                 },
                 {
-                  "type": "anyComponentStyle",
+                  "type": "any",
                   "maximumWarning": "2kb",
                   "maximumError": "4kb"
                 }
@@ -150,12 +150,42 @@
     },
     "ngx-uikit": {
       "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "less",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
       "root": "projects/ngx-uikit",
       "sourceRoot": "projects/ngx-uikit/src",
-      "prefix": "ngx",
+      "prefix": "nk",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
             "tsConfig": "projects/ngx-uikit/tsconfig.lib.json",
             "project": "projects/ngx-uikit/ng-package.json"

@@ -1,7 +1,7 @@
 // Name:            Close
 // Description:     Component to create a close button
 //
-// Component:       `uk-close`
+// Component:       `nk-close`
 //
 // ========================================================================
 
@@ -18,17 +18,17 @@
  ========================================================================== */
 
 /*
- * Adopts `uk-icon`
+ * Adopts `nk-icon`
  */
 
-.uk-close {
+.nk-close {
     color: @close-color;
     .hook-close;
 }
 
 /* Hover + Focus */
-.uk-close:hover,
-.uk-close:focus {
+.nk-close:hover,
+.nk-close:focus {
     color: @close-hover-color;
     outline: none;
     .hook-close-hover;
@@ -53,13 +53,13 @@
 
 .hook-inverse() {
 
-    .uk-close {
+    .nk-close {
         color: @inverse-close-color;
         .hook-inverse-close;
     }
 
-    .uk-close:hover,
-    .uk-close:focus {
+    .nk-close:hover,
+    .nk-close:focus {
         color: @inverse-close-hover-color;
         .hook-inverse-close-hover;
     }

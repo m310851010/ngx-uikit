@@ -1,7 +1,7 @@
 // Name:            Marker
 // Description:     Component to create a marker icon
 //
-// Component:       `uk-marker`
+// Component:       `nk-marker`
 //
 // ========================================================================
 
@@ -21,10 +21,10 @@
  ========================================================================== */
 
 /*
- * Addopts `uk-icon`
+ * Addopts `nk-icon`
  */
 
-.uk-marker {
+.nk-marker {
     padding: @marker-padding;
     background: @marker-background;
     color: @marker-color;
@@ -32,8 +32,8 @@
 }
 
 /* Hover + Focus */
-.uk-marker:hover,
-.uk-marker:focus {
+.nk-marker:hover,
+.nk-marker:focus {
     color: @marker-hover-color;
     outline: none;
     .hook-marker-hover;
@@ -59,14 +59,14 @@
 
 .hook-inverse() {
 
-    .uk-marker {
+    .nk-marker {
         background: @inverse-marker-background;
         color: @inverse-marker-color;
         .hook-inverse-marker;
     }
 
-    .uk-marker:hover,
-    .uk-marker:focus {
+    .nk-marker:hover,
+    .nk-marker:focus {
         color: @inverse-marker-hover-color;
         .hook-inverse-marker-hover;
     }

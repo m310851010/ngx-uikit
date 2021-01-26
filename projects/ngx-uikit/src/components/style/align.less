@@ -1,9 +1,9 @@
 // Name:            Align
 // Description:     Utilities to align embedded content
 //
-// Component:       `uk-align-left-*`
-//                  `uk-align-right-*`
-//                  `uk-align-center`
+// Component:       `nk-align-left-*`
+//                  `nk-align-right-*`
+//                  `nk-align-center`
 //
 // ========================================================================
 
@@ -25,18 +25,18 @@
  * Default
  */
 
-[class*='uk-align'] {
+[class*='nk-align'] {
     display: block;
     margin-bottom: @align-margin-vertical;
 }
 
-* + [class*='uk-align'] { margin-top: @align-margin-vertical; }
+* + [class*='nk-align'] { margin-top: @align-margin-vertical; }
 
 /*
  * Center
  */
 
-.uk-align-center {
+.nk-align-center {
     margin-left: auto;
     margin-right: auto;
 }
@@ -45,13 +45,13 @@
  * Left/Right
  */
 
-.uk-align-left {
+.nk-align-left {
     margin-top: 0;
     margin-right: @align-margin-horizontal;
     float: left;
 }
 
-.uk-align-right {
+.nk-align-right {
     margin-top: 0;
     margin-left: @align-margin-horizontal;
     float: right;
@@ -60,13 +60,13 @@
 /* Phone landscape and bigger */
 @media (min-width: @breakpoint-small) {
 
-    .uk-align-left\@s {
+    .nk-align-left\@s {
         margin-top: 0;
         margin-right: @align-margin-horizontal;
         float: left;
     }
 
-    .uk-align-right\@s {
+    .nk-align-right\@s {
         margin-top: 0;
         margin-left: @align-margin-horizontal;
         float: right;
@@ -77,13 +77,13 @@
 /* Tablet landscape and bigger */
 @media (min-width: @breakpoint-medium) {
 
-    .uk-align-left\@m {
+    .nk-align-left\@m {
         margin-top: 0;
         margin-right: @align-margin-horizontal;
         float: left;
     }
 
-    .uk-align-right\@m {
+    .nk-align-right\@m {
         margin-top: 0;
         margin-left: @align-margin-horizontal;
         float: right;
@@ -94,38 +94,38 @@
 /* Desktop and bigger */
 @media (min-width: @breakpoint-large) {
 
-    .uk-align-left\@l {
+    .nk-align-left\@l {
         margin-top: 0;
         float: left;
     }
 
-    .uk-align-right\@l {
+    .nk-align-right\@l {
         margin-top: 0;
         float: right;
     }
 
-    .uk-align-left,
-    .uk-align-left\@s,
-    .uk-align-left\@m,
-    .uk-align-left\@l { margin-right: @align-margin-horizontal-l; }
+    .nk-align-left,
+    .nk-align-left\@s,
+    .nk-align-left\@m,
+    .nk-align-left\@l { margin-right: @align-margin-horizontal-l; }
 
-    .uk-align-right,
-    .uk-align-right\@s,
-    .uk-align-right\@m,
-    .uk-align-right\@l { margin-left: @align-margin-horizontal-l; }
+    .nk-align-right,
+    .nk-align-right\@s,
+    .nk-align-right\@m,
+    .nk-align-right\@l { margin-left: @align-margin-horizontal-l; }
 
 }
 
 /* Large screen and bigger */
 @media (min-width: @breakpoint-xlarge) {
 
-    .uk-align-left\@xl {
+    .nk-align-left\@xl {
         margin-top: 0;
         margin-right: @align-margin-horizontal-l;
         float: left;
     }
 
-    .uk-align-right\@xl {
+    .nk-align-right\@xl {
         margin-top: 0;
         margin-left: @align-margin-horizontal-l;
         float: right;

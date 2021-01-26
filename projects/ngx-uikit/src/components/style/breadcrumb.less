@@ -1,9 +1,9 @@
 // Name:            Breadcrumb
 // Description:     Component to create a breadcrumb navigation
 //
-// Component:       `uk-breadcrumb`
+// Component:       `nk-breadcrumb`
 //
-// States:          `uk-disabled`
+// States:          `nk-disabled`
 //
 // ========================================================================
 
@@ -31,7 +31,7 @@
  * Reset list
  */
 
-.uk-breadcrumb {
+.nk-breadcrumb {
     padding: 0;
     list-style: none;
     .hook-breadcrumb;
@@ -41,34 +41,34 @@
  * 1. Doesn't generate any box and replaced by child boxes
  */
 
-.uk-breadcrumb > * { display: contents; }
+.nk-breadcrumb > * { display: contents; }
 
 
 /* Items
  ========================================================================== */
 
-.uk-breadcrumb > * > * {
+.nk-breadcrumb > * > * {
     font-size: @breadcrumb-item-font-size;
     color: @breadcrumb-item-color;
     .hook-breadcrumb-item;
 }
 
 /* Hover + Focus */
-.uk-breadcrumb > * > :hover,
-.uk-breadcrumb > * > :focus {
+.nk-breadcrumb > * > :hover,
+.nk-breadcrumb > * > :focus {
     color: @breadcrumb-item-hover-color;
     text-decoration: @breadcrumb-item-hover-text-decoration;
     .hook-breadcrumb-item-hover;
 }
 
 /* Disabled */
-.uk-breadcrumb > .uk-disabled > * {
+.nk-breadcrumb > .nk-disabled > * {
     .hook-breadcrumb-item-disabled;
 }
 
 /* Active */
-.uk-breadcrumb > :last-child > span,
-.uk-breadcrumb > :last-child > a:not([href]) {
+.nk-breadcrumb > :last-child > span,
+.nk-breadcrumb > :last-child > a:not([href]) {
     color: @breadcrumb-item-active-color;
     .hook-breadcrumb-item-active;
 }
@@ -80,7 +80,7 @@
  * 2. Style
  */
 
-.uk-breadcrumb > :nth-child(n+2):not(.uk-first-column)::before {
+.nk-breadcrumb > :nth-child(n+2):not(.nk-first-column)::before {
     content: @breadcrumb-divider;
     display: inline-block;
     /* 1 */
@@ -116,23 +116,23 @@
 
 .hook-inverse() {
 
-    .uk-breadcrumb > * > * {
+    .nk-breadcrumb > * > * {
         color: @inverse-breadcrumb-item-color;
         .hook-inverse-breadcrumb-item;
     }
 
-    .uk-breadcrumb > * > :hover,
-    .uk-breadcrumb > * > :focus {
+    .nk-breadcrumb > * > :hover,
+    .nk-breadcrumb > * > :focus {
         color: @inverse-breadcrumb-item-hover-color;
         .hook-inverse-breadcrumb-item-hover;
     }
 
 
-    .uk-breadcrumb > .uk-disabled > * {
+    .nk-breadcrumb > .nk-disabled > * {
         .hook-inverse-breadcrumb-item-disabled;
     }
 
-    .uk-breadcrumb > :last-child > * {
+    .nk-breadcrumb > :last-child > * {
         color: @inverse-breadcrumb-item-active-color;
         .hook-inverse-breadcrumb-item-active;
     }
@@ -141,7 +141,7 @@
     // Divider
     //
 
-    .uk-breadcrumb > :nth-child(n+2):not(.uk-first-column)::before {
+    .nk-breadcrumb > :nth-child(n+2):not(.nk-first-column)::before {
         color: @inverse-breadcrumb-divider-color;
         .hook-inverse-breadcrumb-divider;
     }

@@ -1,24 +1,24 @@
 // Name:            Animation
 // Description:     Utilities for keyframe animations
 //
-// Component:       `uk-animation-*`
+// Component:       `nk-animation-*`
 //
-// Modifiers:       `uk-animation-fade`
-//                  `uk-animation-scale-up`
-//                  `uk-animation-scale-down`
-//                  `uk-animation-slide-top-*`
-//                  `uk-animation-slide-bottom-*`
-//                  `uk-animation-slide-left-*`
-//                  `uk-animation-slide-right-*`
-//                  `uk-animation-kenburns`
-//                  `uk-animation-shake`
-//                  `uk-animation-stroke`
-//                  `uk-animation-reverse`
-//                  `uk-animation-fast`
+// Modifiers:       `nk-animation-fade`
+//                  `nk-animation-scale-up`
+//                  `nk-animation-scale-down`
+//                  `nk-animation-slide-top-*`
+//                  `nk-animation-slide-bottom-*`
+//                  `nk-animation-slide-left-*`
+//                  `nk-animation-slide-right-*`
+//                  `nk-animation-kenburns`
+//                  `nk-animation-shake`
+//                  `nk-animation-stroke`
+//                  `nk-animation-reverse`
+//                  `nk-animation-fast`
 //
-// Sub-objects:     `uk-animation-toggle`
+// Sub-objects:     `nk-animation-toggle`
 //
-// States:          `uk-active`
+// States:          `nk-active`
 //
 // ========================================================================
 
@@ -40,7 +40,7 @@
    Component: Animation
  ========================================================================== */
 
-[class*='uk-animation-'] {
+[class*='nk-animation-'] {
     animation-duration: @animation-duration;
     animation-timing-function: ease-out;
     animation-fill-mode: both;
@@ -54,8 +54,8 @@
  * Fade
  */
 
-.uk-animation-fade {
-    animation-name: uk-fade;
+.nk-animation-fade {
+    animation-name: nk-fade;
     animation-duration: @animation-fade-duration;
     animation-timing-function: linear;
 }
@@ -64,42 +64,42 @@
  * Scale
  */
 
-.uk-animation-scale-up { animation-name: uk-fade-scale-02; }
-.uk-animation-scale-down { animation-name: uk-fade-scale-18; }
+.nk-animation-scale-up { animation-name: nk-fade-scale-02; }
+.nk-animation-scale-down { animation-name: nk-fade-scale-18; }
 
 /*
  * Slide
  */
 
-.uk-animation-slide-top { animation-name: uk-fade-top; }
-.uk-animation-slide-bottom { animation-name: uk-fade-bottom; }
-.uk-animation-slide-left { animation-name: uk-fade-left; }
-.uk-animation-slide-right { animation-name: uk-fade-right; }
+.nk-animation-slide-top { animation-name: nk-fade-top; }
+.nk-animation-slide-bottom { animation-name: nk-fade-bottom; }
+.nk-animation-slide-left { animation-name: nk-fade-left; }
+.nk-animation-slide-right { animation-name: nk-fade-right; }
 
 /*
  * Slide Small
  */
 
-.uk-animation-slide-top-small { animation-name: uk-fade-top-small; }
-.uk-animation-slide-bottom-small { animation-name: uk-fade-bottom-small; }
-.uk-animation-slide-left-small { animation-name: uk-fade-left-small; }
-.uk-animation-slide-right-small { animation-name: uk-fade-right-small; }
+.nk-animation-slide-top-small { animation-name: nk-fade-top-small; }
+.nk-animation-slide-bottom-small { animation-name: nk-fade-bottom-small; }
+.nk-animation-slide-left-small { animation-name: nk-fade-left-small; }
+.nk-animation-slide-right-small { animation-name: nk-fade-right-small; }
 
 /*
  * Slide Medium
  */
 
-.uk-animation-slide-top-medium { animation-name: uk-fade-top-medium; }
-.uk-animation-slide-bottom-medium { animation-name: uk-fade-bottom-medium; }
-.uk-animation-slide-left-medium { animation-name: uk-fade-left-medium; }
-.uk-animation-slide-right-medium { animation-name: uk-fade-right-medium; }
+.nk-animation-slide-top-medium { animation-name: nk-fade-top-medium; }
+.nk-animation-slide-bottom-medium { animation-name: nk-fade-bottom-medium; }
+.nk-animation-slide-left-medium { animation-name: nk-fade-left-medium; }
+.nk-animation-slide-right-medium { animation-name: nk-fade-right-medium; }
 
 /*
  * Kenburns
  */
 
-.uk-animation-kenburns {
-    animation-name: uk-scale-kenburns;
+.nk-animation-kenburns {
+    animation-name: nk-scale-kenburns;
     animation-duration: @animation-kenburns-duration;
 }
 
@@ -107,19 +107,19 @@
  * Shake
  */
 
-.uk-animation-shake { animation-name: uk-shake; }
+.nk-animation-shake { animation-name: nk-shake; }
 
 /*
  * SVG Stroke
- * The `--uk-animation-stroke` custom property contains the longest path length.
- * Set it manually or use `uk-svg="stroke-animation: true"` to set it automatically.
+ * The `--nk-animation-stroke` custom property contains the longest path length.
+ * Set it manually or use `nk-svg="stroke-animation: true"` to set it automatically.
  * All strokes are animated by the same pace and doesn't end simultaneously.
  * To end simultaneously, `pathLength="1"` could be used, but it's not working in Safari yet.
  */
 
-.uk-animation-stroke {
-    animation-name: uk-stroke;
-    stroke-dasharray: var(--uk-animation-stroke);
+.nk-animation-stroke {
+    animation-name: nk-stroke;
+    stroke-dasharray: var(--nk-animation-stroke);
     animation-duration: @animation-stroke-duration;
 }
 
@@ -127,7 +127,7 @@
 /* Direction modifier
  ========================================================================== */
 
- .uk-animation-reverse {
+ .nk-animation-reverse {
     animation-direction: reverse;
     animation-timing-function: ease-in;
 }
@@ -136,7 +136,7 @@
 /* Duration modifier
  ========================================================================== */
 
- .uk-animation-fast { animation-duration: @animation-fast-duration; }
+ .nk-animation-fast { animation-duration: @animation-fast-duration; }
 
 
 /* Toggle (Hover + Focus)
@@ -146,13 +146,13 @@
  * The toggle is triggered on touch devices using `:focus` and tabindex
  */
 
-.uk-animation-toggle:not(:hover):not(:focus) [class*='uk-animation-'] { animation-name: none; }
+.nk-animation-toggle:not(:hover):not(:focus) [class*='nk-animation-'] { animation-name: none; }
 
 /*
  * 1. Prevent tab highlighting on iOS.
  */
 
-.uk-animation-toggle {
+.nk-animation-toggle {
     /* 1 */
     -webkit-tap-highlight-color: transparent;
 }
@@ -161,7 +161,7 @@
  * Remove outline for `tabindex`
  */
 
-.uk-animation-toggle:focus { outline: none; }
+.nk-animation-toggle:focus { outline: none; }
 
 
 /* Keyframes used by animation classes
@@ -171,7 +171,7 @@
  * Fade
  */
 
-@keyframes uk-fade {
+@keyframes nk-fade {
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
@@ -180,7 +180,7 @@
  * Slide Top
  */
 
-@keyframes uk-fade-top {
+@keyframes nk-fade-top {
     0% {
         opacity: 0;
         transform: translateY(-100%);
@@ -195,7 +195,7 @@
  * Slide Bottom
  */
 
-@keyframes uk-fade-bottom {
+@keyframes nk-fade-bottom {
     0% {
         opacity: 0;
         transform: translateY(100%);
@@ -210,7 +210,7 @@
  * Slide Left
  */
 
-@keyframes uk-fade-left {
+@keyframes nk-fade-left {
     0% {
         opacity: 0;
         transform: translateX(-100%);
@@ -225,7 +225,7 @@
  * Slide Right
  */
 
-@keyframes uk-fade-right {
+@keyframes nk-fade-right {
     0% {
         opacity: 0;
         transform: translateX(100%);
@@ -240,7 +240,7 @@
  * Slide Top Small
  */
 
-@keyframes uk-fade-top-small {
+@keyframes nk-fade-top-small {
     0% {
         opacity: 0;
         transform: translateY(-@animation-slide-small-translate);
@@ -255,7 +255,7 @@
  * Slide Bottom Small
  */
 
-@keyframes uk-fade-bottom-small {
+@keyframes nk-fade-bottom-small {
     0% {
         opacity: 0;
         transform: translateY(@animation-slide-small-translate);
@@ -270,7 +270,7 @@
  * Slide Left Small
  */
 
-@keyframes uk-fade-left-small {
+@keyframes nk-fade-left-small {
     0% {
         opacity: 0;
         transform: translateX(-@animation-slide-small-translate);
@@ -285,7 +285,7 @@
  * Slide Right Small
  */
 
-@keyframes uk-fade-right-small {
+@keyframes nk-fade-right-small {
     0% {
         opacity: 0;
         transform: translateX(@animation-slide-small-translate);
@@ -300,7 +300,7 @@
  * Slide Top Medium
  */
 
-@keyframes uk-fade-top-medium {
+@keyframes nk-fade-top-medium {
     0% {
         opacity: 0;
         transform: translateY(-@animation-slide-medium-translate);
@@ -315,7 +315,7 @@
  * Slide Bottom Medium
  */
 
-@keyframes uk-fade-bottom-medium {
+@keyframes nk-fade-bottom-medium {
     0% {
         opacity: 0;
         transform: translateY(@animation-slide-medium-translate);
@@ -330,7 +330,7 @@
  * Slide Left Medium
  */
 
-@keyframes uk-fade-left-medium {
+@keyframes nk-fade-left-medium {
     0% {
         opacity: 0;
         transform: translateX(-@animation-slide-medium-translate);
@@ -345,7 +345,7 @@
  * Slide Right Medium
  */
 
-@keyframes uk-fade-right-medium {
+@keyframes nk-fade-right-medium {
     0% {
         opacity: 0;
         transform: translateX(@animation-slide-medium-translate);
@@ -360,7 +360,7 @@
  * Scale Up
  */
 
-@keyframes uk-fade-scale-02 {
+@keyframes nk-fade-scale-02 {
     0% {
         opacity: 0;
         transform: scale(0.2);
@@ -375,7 +375,7 @@
  * Scale Down
  */
 
-@keyframes uk-fade-scale-18 {
+@keyframes nk-fade-scale-18 {
     0% {
         opacity: 0;
         transform: scale(1.8);
@@ -390,7 +390,7 @@
  * Kenburns
  */
 
-@keyframes uk-scale-kenburns {
+@keyframes nk-scale-kenburns {
     0% { transform: scale(1); }
     100% { transform: scale(1.2); }
 }
@@ -399,7 +399,7 @@
  * Shake
  */
 
-@keyframes uk-shake {
+@keyframes nk-shake {
     0%, 100% { transform: translateX(0); }
     10% { transform: translateX(-9px); }
     20% { transform: translateX(8px); }
@@ -416,8 +416,8 @@
  * Stroke
  */
 
- @keyframes uk-stroke {
-    0% { stroke-dashoffset: var(--uk-animation-stroke); }
+ @keyframes nk-stroke {
+    0% { stroke-dashoffset: var(--nk-animation-stroke); }
     100% { stroke-dashoffset: 0; }
 }
 

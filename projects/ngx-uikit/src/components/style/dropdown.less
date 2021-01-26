@@ -1,18 +1,18 @@
 // Name:            Dropdown
 // Description:     Component to create dropdown menus
 //
-// Component:       `uk-dropdown`
+// Component:       `nk-dropdown`
 //
-// Adopted:         `uk-dropdown-nav`
+// Adopted:         `nk-dropdown-nav`
 //
-// Modifiers:       `uk-dropdown-top-*`
-//                  `uk-dropdown-bottom-*`
-//                  `uk-dropdown-left-*`
-//                  `uk-dropdown-right-*`
-//                  `uk-dropdown-stack`
-//                  `uk-dropdown-grid`
+// Modifiers:       `nk-dropdown-top-*`
+//                  `nk-dropdown-bottom-*`
+//                  `nk-dropdown-left-*`
+//                  `nk-dropdown-right-*`
+//                  `nk-dropdown-stack`
+//                  `nk-dropdown-grid`
 //
-// States:          `uk-active`
+// States:          `nk-active`
 //
 // ========================================================================
 
@@ -47,7 +47,7 @@
  * 4. Style
  */
 
-.uk-dropdown {
+.nk-dropdown {
     /* 1 */
     display: none;
     /* 2 */
@@ -64,14 +64,14 @@
 }
 
 /* Show */
-.uk-dropdown.uk-open { display: block; }
+.nk-dropdown.nk-open { display: block; }
 
 
 /* Nav
- * Adopts `uk-nav`
+ * Adopts `nk-nav`
  ========================================================================== */
 
-.uk-dropdown-nav {
+.nk-dropdown-nav {
     white-space: nowrap;
     .hook-dropdown-nav;
 }
@@ -80,15 +80,15 @@
  * Items
  */
 
-.uk-dropdown-nav > li > a {
+.nk-dropdown-nav > li > a {
     color: @dropdown-nav-item-color;
     .hook-dropdown-nav-item;
 }
 
 /* Hover + Focus + Active */
-.uk-dropdown-nav > li > a:hover,
-.uk-dropdown-nav > li > a:focus,
-.uk-dropdown-nav > li.uk-active > a {
+.nk-dropdown-nav > li > a:hover,
+.nk-dropdown-nav > li > a:focus,
+.nk-dropdown-nav > li.nk-active > a {
     color: @dropdown-nav-item-hover-color;
     .hook-dropdown-nav-item-hover;
 }
@@ -97,7 +97,7 @@
  * Header
  */
 
-.uk-dropdown-nav .uk-nav-header {
+.nk-dropdown-nav .nk-nav-header {
     color: @dropdown-nav-header-color;
     .hook-dropdown-nav-header;
 }
@@ -106,7 +106,7 @@
  * Divider
  */
 
-.uk-dropdown-nav .uk-nav-divider {
+.nk-dropdown-nav .nk-nav-divider {
     border-top: @dropdown-nav-divider-border-width solid @dropdown-nav-divider-border;
     .hook-dropdown-nav-divider;
 }
@@ -115,27 +115,27 @@
  * Sublists
  */
 
-.uk-dropdown-nav .uk-nav-sub a { color: @dropdown-nav-sublist-item-color; }
+.nk-dropdown-nav .nk-nav-sub a { color: @dropdown-nav-sublist-item-color; }
 
-.uk-dropdown-nav .uk-nav-sub a:hover,
-.uk-dropdown-nav .uk-nav-sub a:focus,
-.uk-dropdown-nav .uk-nav-sub li.uk-active > a { color: @dropdown-nav-sublist-item-hover-color; }
+.nk-dropdown-nav .nk-nav-sub a:hover,
+.nk-dropdown-nav .nk-nav-sub a:focus,
+.nk-dropdown-nav .nk-nav-sub li.nk-active > a { color: @dropdown-nav-sublist-item-hover-color; }
 
 
 /* Direction / Alignment modifiers
  ========================================================================== */
 
 /* Direction */
-[class*='uk-dropdown-top'] { margin-top: -@dropdown-margin; }
-[class*='uk-dropdown-bottom'] { margin-top: @dropdown-margin; }
-[class*='uk-dropdown-left'] { margin-left: -@dropdown-margin; }
-[class*='uk-dropdown-right'] { margin-left: @dropdown-margin; }
+[class*='nk-dropdown-top'] { margin-top: -@dropdown-margin; }
+[class*='nk-dropdown-bottom'] { margin-top: @dropdown-margin; }
+[class*='nk-dropdown-left'] { margin-left: -@dropdown-margin; }
+[class*='nk-dropdown-right'] { margin-left: @dropdown-margin; }
 
 
 /* Grid modifiers
  ========================================================================== */
 
-.uk-dropdown-stack .uk-dropdown-grid > * { width: 100% !important; }
+.nk-dropdown-stack .nk-dropdown-grid > * { width: 100% !important; }
 
 
 

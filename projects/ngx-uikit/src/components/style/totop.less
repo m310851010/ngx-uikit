@@ -1,7 +1,7 @@
 // Name:            Totop
 // Description:     Component to create an icon to scroll back to top
 //
-// Component:       `uk-totop`
+// Component:       `nk-totop`
 //
 // ========================================================================
 
@@ -22,25 +22,25 @@
  ========================================================================== */
 
 /*
- * Addopts `uk-icon`
+ * Addopts `nk-icon`
  */
 
-.uk-totop {
+.nk-totop {
     padding: @totop-padding;
     color: @totop-color;
     .hook-totop;
 }
 
 /* Hover + Focus */
-.uk-totop:hover,
-.uk-totop:focus {
+.nk-totop:hover,
+.nk-totop:focus {
     color: @totop-hover-color;
     outline: none;
     .hook-totop-hover;
 }
 
 /* OnClick */
-.uk-totop:active {
+.nk-totop:active {
     color: @totop-active-color;
     .hook-totop-active;
 }
@@ -66,18 +66,18 @@
 
 .hook-inverse() {
 
-    .uk-totop {
+    .nk-totop {
         color: @inverse-totop-color;
         .hook-inverse-totop;
     }
 
-    .uk-totop:hover,
-    .uk-totop:focus {
+    .nk-totop:hover,
+    .nk-totop:focus {
         color: @inverse-totop-hover-color;
         .hook-inverse-totop-hover;
     }
 
-    .uk-totop:active {
+    .nk-totop:active {
         color: @inverse-totop-active-color;
         .hook-inverse-totop-active;
     }

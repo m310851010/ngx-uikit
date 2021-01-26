@@ -1,16 +1,16 @@
 // Name:            Search
 // Description:     Component to create the search
 //
-// Component:       `uk-search`
+// Component:       `nk-search`
 //
-// Sub-objects:     `uk-search-input`
-//                  `uk-search-toggle`
+// Sub-objects:     `nk-search-input`
+//                  `nk-search-toggle`
 //
-// Adopted:         `uk-search-icon`
+// Adopted:         `nk-search-icon`
 //
-// Modifier:        `uk-search-default`
-//                  `uk-search-navbar`
-//                  `uk-search-large`
+// Modifier:        `nk-search-default`
+//                  `nk-search-navbar`
+//                  `nk-search-large`
 //
 // ========================================================================
 
@@ -60,7 +60,7 @@
  * 4. Reset `form`
  */
 
-.uk-search {
+.nk-search {
     /* 1 */
     display: inline-block;
     /* 2 */
@@ -79,14 +79,14 @@
  * Remove the inner padding and cancel buttons in Chrome on OS X and Safari on OS X.
  */
 
-.uk-search-input::-webkit-search-cancel-button,
-.uk-search-input::-webkit-search-decoration { -webkit-appearance: none; }
+.nk-search-input::-webkit-search-cancel-button,
+.nk-search-input::-webkit-search-decoration { -webkit-appearance: none; }
 
 /*
  * Removes placeholder transparency in Firefox.
  */
 
-.uk-search-input::-moz-placeholder { opacity: 1; }
+.nk-search-input::-moz-placeholder { opacity: 1; }
 
 /*
  * 1. Define consistent box sizing.
@@ -100,7 +100,7 @@
  * 9. Style
  */
 
-.uk-search-input {
+.nk-search-input {
     /* 1 */
     box-sizing: border-box;
     /* 2 */
@@ -123,21 +123,21 @@
     .hook-search-input;
 }
 
-.uk-search-input:focus { outline: none; }
+.nk-search-input:focus { outline: none; }
 
 /* Placeholder */
-.uk-search-input:-ms-input-placeholder { color: @search-placeholder-color !important; }
-.uk-search-input::placeholder { color: @search-placeholder-color; }
+.nk-search-input:-ms-input-placeholder { color: @search-placeholder-color !important; }
+.nk-search-input::placeholder { color: @search-placeholder-color; }
 
 
-/* Icon (Adopts `uk-icon`)
+/* Icon (Adopts `nk-icon`)
  ========================================================================== */
 
 /*
  * Remove default focus style
  */
 
-.uk-search-icon:focus { outline: none; }
+.nk-search-icon:focus { outline: none; }
 
 /*
  * Position above input
@@ -146,7 +146,7 @@
  * 3. Style
  */
 
-.uk-search .uk-search-icon {
+.nk-search .nk-search-icon {
     /* 1 */
     position: absolute;
     top: 0;
@@ -164,19 +164,19 @@
  * Required for `a`.
  */
 
-.uk-search .uk-search-icon:hover { color: @search-icon-color; }
+.nk-search .nk-search-icon:hover { color: @search-icon-color; }
 
 /*
  * Make `input` element clickable through icon, e.g. if it's a `span`
  */
 
-.uk-search .uk-search-icon:not(a):not(button):not(input) { pointer-events: none; }
+.nk-search .nk-search-icon:not(a):not(button):not(input) { pointer-events: none; }
 
 /*
  * Position modifier
  */
 
-.uk-search .uk-search-icon-flip {
+.nk-search .nk-search-icon-flip {
     right: 0;
     left: auto;
 }
@@ -185,13 +185,13 @@
 /* Default modifier
  ========================================================================== */
 
-.uk-search-default { width: @search-default-width; }
+.nk-search-default { width: @search-default-width; }
 
 /*
  * Input
  */
 
-.uk-search-default .uk-search-input {
+.nk-search-default .nk-search-input {
     height: @search-default-height;
     padding-left: @search-default-padding-horizontal;
     padding-right: @search-default-padding-horizontal;
@@ -200,7 +200,7 @@
 }
 
 /* Focus */
-.uk-search-default .uk-search-input:focus {
+.nk-search-default .nk-search-input:focus {
     background-color: @search-default-focus-background;
     .hook-search-default-input-focus;
 }
@@ -209,22 +209,22 @@
  * Icon
  */
 
-.uk-search-default .uk-search-icon { width: @search-default-icon-width; }
+.nk-search-default .nk-search-icon { width: @search-default-icon-width; }
 
-.uk-search-default .uk-search-icon:not(.uk-search-icon-flip) ~ .uk-search-input { padding-left: (@search-default-icon-width); }
-.uk-search-default .uk-search-icon-flip ~ .uk-search-input { padding-right: (@search-default-icon-width); }
+.nk-search-default .nk-search-icon:not(.nk-search-icon-flip) ~ .nk-search-input { padding-left: (@search-default-icon-width); }
+.nk-search-default .nk-search-icon-flip ~ .nk-search-input { padding-right: (@search-default-icon-width); }
 
 
 /* Navbar modifier
  ========================================================================== */
 
-.uk-search-navbar { width: @search-navbar-width; }
+.nk-search-navbar { width: @search-navbar-width; }
 
 /*
  * Input
  */
 
-.uk-search-navbar .uk-search-input {
+.nk-search-navbar .nk-search-input {
     height: @search-navbar-height;
     background: @search-navbar-background;
     font-size: @search-navbar-font-size;
@@ -235,22 +235,22 @@
  * Icon
  */
 
-.uk-search-navbar .uk-search-icon { width: @search-navbar-icon-width; }
+.nk-search-navbar .nk-search-icon { width: @search-navbar-icon-width; }
 
-.uk-search-navbar .uk-search-icon:not(.uk-search-icon-flip) ~ .uk-search-input { padding-left: (@search-navbar-icon-width); }
-.uk-search-navbar .uk-search-icon-flip ~ .uk-search-input { padding-right: (@search-navbar-icon-width); }
+.nk-search-navbar .nk-search-icon:not(.nk-search-icon-flip) ~ .nk-search-input { padding-left: (@search-navbar-icon-width); }
+.nk-search-navbar .nk-search-icon-flip ~ .nk-search-input { padding-right: (@search-navbar-icon-width); }
 
 
 /* Large modifier
  ========================================================================== */
 
-.uk-search-large { width: @search-large-width; }
+.nk-search-large { width: @search-large-width; }
 
 /*
  * Input
  */
 
-.uk-search-large .uk-search-input {
+.nk-search-large .nk-search-input {
     height: @search-large-height;
     background: @search-large-background;
     font-size: @search-large-font-size;
@@ -261,23 +261,23 @@
  * Icon
  */
 
-.uk-search-large .uk-search-icon { width: @search-large-icon-width; }
+.nk-search-large .nk-search-icon { width: @search-large-icon-width; }
 
-.uk-search-large .uk-search-icon:not(.uk-search-icon-flip) ~ .uk-search-input { padding-left: (@search-large-icon-width); }
-.uk-search-large .uk-search-icon-flip ~ .uk-search-input { padding-right: (@search-large-icon-width); }
+.nk-search-large .nk-search-icon:not(.nk-search-icon-flip) ~ .nk-search-input { padding-left: (@search-large-icon-width); }
+.nk-search-large .nk-search-icon-flip ~ .nk-search-input { padding-right: (@search-large-icon-width); }
 
 
 /* Toggle
  ========================================================================== */
 
-.uk-search-toggle {
+.nk-search-toggle {
     color: @search-toggle-color;
     .hook-search-toggle;
 }
 
 /* Hover + Focus */
-.uk-search-toggle:hover,
-.uk-search-toggle:focus {
+.nk-search-toggle:hover,
+.nk-search-toggle:focus {
     color: @search-toggle-hover-color;
     .hook-search-toggle-hover;
 }
@@ -324,39 +324,39 @@
     // Input
     //
 
-    .uk-search-input { color: @inverse-search-color; }
+    .nk-search-input { color: @inverse-search-color; }
 
-    .uk-search-input:-ms-input-placeholder { color: @inverse-search-placeholder-color !important; }
-    .uk-search-input::placeholder { color: @inverse-search-placeholder-color; }
+    .nk-search-input:-ms-input-placeholder { color: @inverse-search-placeholder-color !important; }
+    .nk-search-input::placeholder { color: @inverse-search-placeholder-color; }
 
 
     //
     // Icon
     //
 
-    .uk-search .uk-search-icon { color: @inverse-search-icon-color; }
-    .uk-search .uk-search-icon:hover { color: @inverse-search-icon-color; }
+    .nk-search .nk-search-icon { color: @inverse-search-icon-color; }
+    .nk-search .nk-search-icon:hover { color: @inverse-search-icon-color; }
 
     //
     // Style modifier
     //
 
-    .uk-search-default .uk-search-input {
+    .nk-search-default .nk-search-input {
         background-color: @inverse-search-default-background;
         .hook-inverse-search-default-input;
     }
-    
-    .uk-search-default .uk-search-input:focus {
+
+    .nk-search-default .nk-search-input:focus {
         background-color: @inverse-search-default-focus-background;
         .hook-inverse-search-default-input-focus;
     }
 
-    .uk-search-navbar .uk-search-input {
+    .nk-search-navbar .nk-search-input {
         background-color: @inverse-search-navbar-background;
         .hook-inverse-search-navbar-input;
     }
 
-    .uk-search-large .uk-search-input {
+    .nk-search-large .nk-search-input {
         background-color: @inverse-search-large-background;
         .hook-inverse-search-large-input;
     }
@@ -365,13 +365,13 @@
     // Toggle
     //
 
-    .uk-search-toggle {
+    .nk-search-toggle {
         color: @inverse-search-toggle-color;
         .hook-inverse-search-toggle;
     }
 
-    .uk-search-toggle:hover,
-    .uk-search-toggle:focus {
+    .nk-search-toggle:hover,
+    .nk-search-toggle:focus {
         color: @inverse-search-toggle-hover-color;
         .hook-inverse-search-toggle-hover;
     }

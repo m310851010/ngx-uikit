@@ -1,27 +1,27 @@
 // Name:            Position
 // Description:     Utilities to position content
 //
-// Component:       `uk-position-absolute`
-//                  `uk-position-relative`
-//                  `uk-position-z-index`
-//                  `uk-position-top`
-//                  `uk-position-bottom`
-//                  `uk-position-left`
-//                  `uk-position-right`
-//                  `uk-position-top-left`
-//                  `uk-position-top-center`
-//                  `uk-position-top-right`
-//                  `uk-position-bottom-left`
-//                  `uk-position-bottom-center`
-//                  `uk-position-bottom-right`
-//                  `uk-position-center`
-//                  `uk-position-center-left`
-//                  `uk-position-center-right`
-//                  `uk-position-cover`
+// Component:       `nk-position-absolute`
+//                  `nk-position-relative`
+//                  `nk-position-z-index`
+//                  `nk-position-top`
+//                  `nk-position-bottom`
+//                  `nk-position-left`
+//                  `nk-position-right`
+//                  `nk-position-top-left`
+//                  `nk-position-top-center`
+//                  `nk-position-top-right`
+//                  `nk-position-bottom-left`
+//                  `nk-position-bottom-center`
+//                  `nk-position-bottom-right`
+//                  `nk-position-center`
+//                  `nk-position-center-left`
+//                  `nk-position-center-right`
+//                  `nk-position-cover`
 //
-// Modifiers:       `uk-position-small`
-//                  `uk-position-medium`
-//                  `uk-position-large`
+// Modifiers:       `nk-position-small`
+//                  `nk-position-medium`
+//                  `nk-position-large`
 //
 // ========================================================================
 
@@ -47,11 +47,11 @@
  * 1. Prevent content overflow if `max-width: 100%` is used inside position container.
  */
 
-[class*='uk-position-top'],
-[class*='uk-position-bottom'],
-[class*='uk-position-left'],
-[class*='uk-position-right'],
-[class*='uk-position-center'] {
+[class*='nk-position-top'],
+[class*='nk-position-bottom'],
+[class*='nk-position-left'],
+[class*='nk-position-right'],
+[class*='nk-position-center'] {
     position: absolute !important;
     /* 1 */
     max-width: 100%;
@@ -62,25 +62,25 @@
  ========================================================================== */
 
 /* Don't use `width: 100%` because it is wrong if the parent has padding. */
-.uk-position-top {
+.nk-position-top {
     top: 0;
     left: 0;
     right: 0;
 }
 
-.uk-position-bottom {
+.nk-position-bottom {
     bottom: 0;
     left: 0;
     right: 0;
 }
 
-.uk-position-left {
+.nk-position-left {
     top: 0;
     bottom: 0;
     left: 0;
 }
 
-.uk-position-right {
+.nk-position-right {
     top: 0;
     bottom: 0;
     right: 0;
@@ -90,22 +90,22 @@
 /* Corners
  ========================================================================== */
 
-.uk-position-top-left {
+.nk-position-top-left {
     top: 0;
     left: 0;
 }
 
-.uk-position-top-right {
+.nk-position-top-right {
     top: 0;
     right: 0;
 }
 
-.uk-position-bottom-left {
+.nk-position-bottom-left {
     bottom: 0;
     left: 0;
 }
 
-.uk-position-bottom-right {
+.nk-position-bottom-right {
     bottom: 0;
     right: 0;
 }
@@ -115,7 +115,7 @@
  * 1. Fix text wrapping if content is larger than 50% of the container.
  */
 
-.uk-position-center {
+.nk-position-center {
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -126,28 +126,28 @@
 }
 
 /* Vertical */
-[class*='uk-position-center-left'],
-[class*='uk-position-center-right'] {
+[class*='nk-position-center-left'],
+[class*='nk-position-center-right'] {
     top: 50%;
     transform: translateY(-50%);
 }
 
-.uk-position-center-left { left: 0; }
-.uk-position-center-right { right: 0; }
+.nk-position-center-left { left: 0; }
+.nk-position-center-right { right: 0; }
 
-.uk-position-center-left-out {
+.nk-position-center-left-out {
     right: 100%;
     width: max-content;
 }
 
-.uk-position-center-right-out {
+.nk-position-center-right-out {
     left: 100%;
     width: max-content;
 }
 
 /* Horizontal */
-.uk-position-top-center,
-.uk-position-bottom-center {
+.nk-position-top-center,
+.nk-position-bottom-center {
     left: 50%;
     transform: translateX(-50%);
     /* 1 */
@@ -156,14 +156,14 @@
     box-sizing: border-box;
 }
 
-.uk-position-top-center { top: 0; }
-.uk-position-bottom-center { bottom: 0; }
+.nk-position-top-center { top: 0; }
+.nk-position-bottom-center { bottom: 0; }
 
 
 /* Cover
  ========================================================================== */
 
-.uk-position-cover {
+.nk-position-cover {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -175,13 +175,13 @@
 /* Utility
  ========================================================================== */
 
-.uk-position-relative { position: relative !important; }
+.nk-position-relative { position: relative !important; }
 
-.uk-position-absolute { position: absolute !important; }
+.nk-position-absolute { position: absolute !important; }
 
-.uk-position-fixed { position: fixed !important; }
+.nk-position-fixed { position: fixed !important; }
 
-.uk-position-z-index { z-index: 1; }
+.nk-position-z-index { z-index: 1; }
 
 
 /* Margin modifier
@@ -191,68 +191,68 @@
  * Small
  */
 
-.uk-position-small {
+.nk-position-small {
     max-width: ~'calc(100% - (@{position-small-margin} * 2))';
     margin: @position-small-margin;
 }
 
-.uk-position-small.uk-position-center { transform: translate(-50%, -50%) translate(-@position-small-margin, -@position-small-margin); }
+.nk-position-small.nk-position-center { transform: translate(-50%, -50%) translate(-@position-small-margin, -@position-small-margin); }
 
-.uk-position-small[class*='uk-position-center-left'],
-.uk-position-small[class*='uk-position-center-right'] { transform: translateY(-50%) translateY(-@position-small-margin); }
+.nk-position-small[class*='nk-position-center-left'],
+.nk-position-small[class*='nk-position-center-right'] { transform: translateY(-50%) translateY(-@position-small-margin); }
 
-.uk-position-small.uk-position-top-center,
-.uk-position-small.uk-position-bottom-center { transform: translateX(-50%) translateX(-@position-small-margin); }
+.nk-position-small.nk-position-top-center,
+.nk-position-small.nk-position-bottom-center { transform: translateX(-50%) translateX(-@position-small-margin); }
 
 /*
  * Medium
  */
 
-.uk-position-medium {
+.nk-position-medium {
     max-width: ~'calc(100% - (@{position-medium-margin} * 2))';
     margin: @position-medium-margin;
 }
 
-.uk-position-medium.uk-position-center { transform: translate(-50%, -50%) translate(-@position-medium-margin, -@position-medium-margin); }
+.nk-position-medium.nk-position-center { transform: translate(-50%, -50%) translate(-@position-medium-margin, -@position-medium-margin); }
 
-.uk-position-medium[class*='uk-position-center-left'],
-.uk-position-medium[class*='uk-position-center-right'] { transform: translateY(-50%) translateY(-@position-medium-margin); }
+.nk-position-medium[class*='nk-position-center-left'],
+.nk-position-medium[class*='nk-position-center-right'] { transform: translateY(-50%) translateY(-@position-medium-margin); }
 
-.uk-position-medium.uk-position-top-center,
-.uk-position-medium.uk-position-bottom-center { transform: translateX(-50%) translateX(-@position-medium-margin); }
+.nk-position-medium.nk-position-top-center,
+.nk-position-medium.nk-position-bottom-center { transform: translateX(-50%) translateX(-@position-medium-margin); }
 
 /*
  * Large
  */
 
-.uk-position-large {
+.nk-position-large {
     max-width: ~'calc(100% - (@{position-large-margin} * 2))';
     margin: @position-large-margin;
 }
 
-.uk-position-large.uk-position-center { transform: translate(-50%, -50%) translate(-@position-large-margin, -@position-large-margin); }
+.nk-position-large.nk-position-center { transform: translate(-50%, -50%) translate(-@position-large-margin, -@position-large-margin); }
 
-.uk-position-large[class*='uk-position-center-left'],
-.uk-position-large[class*='uk-position-center-right'] { transform: translateY(-50%) translateY(-@position-large-margin); }
+.nk-position-large[class*='nk-position-center-left'],
+.nk-position-large[class*='nk-position-center-right'] { transform: translateY(-50%) translateY(-@position-large-margin); }
 
-.uk-position-large.uk-position-top-center,
-.uk-position-large.uk-position-bottom-center { transform: translateX(-50%) translateX(-@position-large-margin); }
+.nk-position-large.nk-position-top-center,
+.nk-position-large.nk-position-bottom-center { transform: translateX(-50%) translateX(-@position-large-margin); }
 
 /* Desktop and bigger */
 @media (min-width: @breakpoint-large) {
 
-    .uk-position-large {
+    .nk-position-large {
         max-width: ~'calc(100% - (@{position-large-margin-l} * 2))';
         margin: @position-large-margin-l;
     }
 
-    .uk-position-large.uk-position-center { transform: translate(-50%, -50%) translate(-@position-large-margin-l, -@position-large-margin-l); }
+    .nk-position-large.nk-position-center { transform: translate(-50%, -50%) translate(-@position-large-margin-l, -@position-large-margin-l); }
 
-    .uk-position-large[class*='uk-position-center-left'],
-    .uk-position-large[class*='uk-position-center-right'] { transform: translateY(-50%) translateY(-@position-large-margin-l); }
+    .nk-position-large[class*='nk-position-center-left'],
+    .nk-position-large[class*='nk-position-center-right'] { transform: translateY(-50%) translateY(-@position-large-margin-l); }
 
-    .uk-position-large.uk-position-top-center,
-    .uk-position-large.uk-position-bottom-center { transform: translateX(-50%) translateX(-@position-large-margin-l); }
+    .nk-position-large.nk-position-top-center,
+    .nk-position-large.nk-position-bottom-center { transform: translateX(-50%) translateX(-@position-large-margin-l); }
 
 }
 

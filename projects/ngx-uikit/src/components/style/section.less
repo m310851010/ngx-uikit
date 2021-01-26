@@ -1,19 +1,19 @@
 // Name:            Section
 // Description:     Component to create horizontal layout section
 //
-// Component:       `uk-section`
+// Component:       `nk-section`
 //
-// Modifiers:       `uk-section-xsmall`
-//                  `uk-section-small`
-//                  `uk-section-large`
-//                  `uk-section-xlarge`
-//                  `uk-section-default`
-//                  `uk-section-muted`
-//                  `uk-section-primary`
-//                  `uk-section-secondary`
-//                  `uk-section-overlap`
+// Modifiers:       `nk-section-xsmall`
+//                  `nk-section-small`
+//                  `nk-section-large`
+//                  `nk-section-xlarge`
+//                  `nk-section-default`
+//                  `nk-section-muted`
+//                  `nk-section-primary`
+//                  `nk-section-secondary`
+//                  `nk-section-overlap`
 //
-// States:          `uk-preserve-color`
+// States:          `nk-preserve-color`
 //
 // ========================================================================
 
@@ -53,7 +53,7 @@
  * 1. Make it work with `100vh` and height in general
  */
 
-.uk-section {
+.nk-section {
     display: flow-root;
     box-sizing: border-box; /* 1 */
     padding-top: @section-padding-vertical;
@@ -64,7 +64,7 @@
 /* Desktop and bigger */
 @media (min-width: @breakpoint-medium) {
 
-    .uk-section {
+    .nk-section {
         padding-top: @section-padding-vertical-m;
         padding-bottom: @section-padding-vertical-m;
     }
@@ -75,7 +75,7 @@
  * Remove margin from the last-child
  */
 
-.uk-section > :last-child { margin-bottom: 0; }
+.nk-section > :last-child { margin-bottom: 0; }
 
 
 /* Size modifiers
@@ -85,7 +85,7 @@
  * XSmall
  */
 
-.uk-section-xsmall {
+.nk-section-xsmall {
     padding-top: @section-xsmall-padding-vertical;
     padding-bottom: @section-xsmall-padding-vertical;
 }
@@ -94,7 +94,7 @@
  * Small
  */
 
-.uk-section-small {
+.nk-section-small {
     padding-top: @section-small-padding-vertical;
     padding-bottom: @section-small-padding-vertical;
 }
@@ -103,7 +103,7 @@
  * Large
  */
 
-.uk-section-large {
+.nk-section-large {
     padding-top: @section-large-padding-vertical;
     padding-bottom: @section-large-padding-vertical;
 }
@@ -111,7 +111,7 @@
 /* Tablet landscape and bigger */
 @media (min-width: @breakpoint-medium) {
 
-    .uk-section-large {
+    .nk-section-large {
         padding-top: @section-large-padding-vertical-m;
         padding-bottom: @section-large-padding-vertical-m;
     }
@@ -123,7 +123,7 @@
  * XLarge
  */
 
-.uk-section-xlarge {
+.nk-section-xlarge {
     padding-top: @section-xlarge-padding-vertical;
     padding-bottom: @section-xlarge-padding-vertical;
 }
@@ -131,7 +131,7 @@
 /* Tablet landscape and bigger */
 @media (min-width: @breakpoint-medium) {
 
-    .uk-section-xlarge {
+    .nk-section-xlarge {
         padding-top: @section-xlarge-padding-vertical-m;
         padding-bottom: @section-xlarge-padding-vertical-m;
     }
@@ -146,7 +146,7 @@
  * Default
  */
 
-.uk-section-default {
+.nk-section-default {
     background: @section-default-background;
     .hook-section-default;
 }
@@ -155,7 +155,7 @@
  * Muted
  */
 
-.uk-section-muted {
+.nk-section-muted {
     background: @section-muted-background;
     .hook-section-muted;
 }
@@ -164,26 +164,26 @@
  * Primary
  */
 
-.uk-section-primary {
+.nk-section-primary {
     background: @section-primary-background;
     .hook-section-primary;
 }
 
-.uk-section-primary:not(.uk-preserve-color):extend(.uk-light all) when (@section-primary-color-mode = light) {}
-.uk-section-primary:not(.uk-preserve-color):extend(.uk-dark all) when (@section-primary-color-mode = dark) {}
+.nk-section-primary:not(.nk-preserve-color):extend(.nk-light all) when (@section-primary-color-mode = light) {}
+.nk-section-primary:not(.nk-preserve-color):extend(.nk-dark all) when (@section-primary-color-mode = dark) {}
 
 
 /*
  * Secondary
  */
 
-.uk-section-secondary {
+.nk-section-secondary {
     background: @section-secondary-background;
     .hook-section-secondary;
 }
 
-.uk-section-secondary:not(.uk-preserve-color):extend(.uk-light all) when (@section-secondary-color-mode = light) {}
-.uk-section-secondary:not(.uk-preserve-color):extend(.uk-dark all) when (@section-secondary-color-mode = dark) {}
+.nk-section-secondary:not(.nk-preserve-color):extend(.nk-light all) when (@section-secondary-color-mode = light) {}
+.nk-section-secondary:not(.nk-preserve-color):extend(.nk-dark all) when (@section-secondary-color-mode = dark) {}
 
 
 /* Overlap modifier
@@ -194,7 +194,7 @@
  * Implemented by the theme
  */
 
-.uk-section-overlap {
+.nk-section-overlap {
     .hook-section-overlap;
 }
 

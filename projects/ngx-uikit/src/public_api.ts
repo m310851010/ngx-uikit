@@ -2,6 +2,7 @@
  * Public API Surface of ngx-uikit
  */
 
-export * from './components/ngx-uikit.service';
-export * from './components/ngx-uikit.component';
-export * from './components/ngx-uikit.module';
+export * from './components/core/public_api';
+export * from './components/i18n/public_api';
+export * from './components/icon/public_api';
+export * from './components/nk-uikit.module';

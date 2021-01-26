@@ -1,12 +1,12 @@
 // Name:            Accordion
 // Description:     Component to create accordions
 //
-// Component:       `uk-accordion`
+// Component:       `nk-accordion`
 //
-// Sub-objects:     `uk-accordion-title`
-//                  `uk-accordion-content`
+// Sub-objects:     `nk-accordion-title`
+//                  `nk-accordion-content`
 //
-// States:          `uk-open`
+// States:          `nk-open`
 //
 // ========================================================================
 
@@ -28,7 +28,7 @@
    Component: Accordion
  ========================================================================== */
 
-.uk-accordion {
+.nk-accordion {
     padding: 0;
     list-style: none;
     .hook-accordion;
@@ -38,7 +38,7 @@
 /* Item
  ========================================================================== */
 
-.uk-accordion > :nth-child(n+2) {
+.nk-accordion > :nth-child(n+2) {
     margin-top: @accordion-item-margin-top;
     .hook-accordion-item;
 }
@@ -47,7 +47,7 @@
 /* Title
  ========================================================================== */
 
-.uk-accordion-title {
+.nk-accordion-title {
     display: block;
     font-size: @accordion-title-font-size;
     line-height: @accordion-title-line-height;
@@ -56,8 +56,8 @@
 }
 
 /* Hover + Focus */
-.uk-accordion-title:hover,
-.uk-accordion-title:focus {
+.nk-accordion-title:hover,
+.nk-accordion-title:focus {
     color: @accordion-title-hover-color;
     text-decoration: none;
     outline: none;
@@ -68,7 +68,7 @@
 /* Content
  ========================================================================== */
 
-.uk-accordion-content {
+.nk-accordion-content {
     display: flow-root;
     margin-top: @accordion-content-margin-top;
     .hook-accordion-content;
@@ -78,7 +78,7 @@
  * Remove margin from the last-child
  */
 
- .uk-accordion-content > :last-child { margin-bottom: 0; }
+ .nk-accordion-content > :last-child { margin-bottom: 0; }
 
 
 // Hooks
@@ -102,17 +102,17 @@
 
 .hook-inverse() {
 
-    .uk-accordion > :nth-child(n+2) {
+    .nk-accordion > :nth-child(n+2) {
         .hook-inverse-accordion-item;
     }
 
-    .uk-accordion-title {
+    .nk-accordion-title {
         color: @inverse-accordion-title-color;
         .hook-inverse-accordion-title;
     }
 
-    .uk-accordion-title:hover,
-    .uk-accordion-title:focus {
+    .nk-accordion-title:hover,
+    .nk-accordion-title:focus {
         color: @inverse-accordion-title-hover-color;
         .hook-inverse-accordion-title-hover;
     }

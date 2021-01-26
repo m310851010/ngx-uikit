@@ -1,13 +1,13 @@
 // Name:            Subnav
 // Description:     Component to create a sub navigation
 //
-// Component:       `uk-subnav`
+// Component:       `nk-subnav`
 //
-// Modifiers:       `uk-subnav-divider`
-//                  `uk-subnav-pill`
+// Modifiers:       `nk-subnav-divider`
+//                  `nk-subnav-pill`
 //
-// States:          `uk-active`
-//                  `uk-first-column`
+// States:          `nk-active`
+//                  `nk-first-column`
 //
 // ========================================================================
 
@@ -51,7 +51,7 @@
  * 3. Reset list
  */
 
-.uk-subnav {
+.nk-subnav {
     display: flex;
     /* 1 */
     flex-wrap: wrap;
@@ -69,7 +69,7 @@
  * 3. Create position context for dropdowns
  */
 
-.uk-subnav > * {
+.nk-subnav > * {
     /* 1 */
     flex: none;
     /* 2 */
@@ -89,7 +89,7 @@
  * 2. Style
  */
 
-.uk-subnav > * > :first-child {
+.nk-subnav > * > :first-child {
     /* 1 */
     display: block;
     /* 2 */
@@ -98,8 +98,8 @@
 }
 
 /* Hover + Focus */
-.uk-subnav > * > a:hover,
-.uk-subnav > * > a:focus {
+.nk-subnav > * > a:hover,
+.nk-subnav > * > a:focus {
     color: @subnav-item-hover-color;
     text-decoration: @subnav-item-hover-text-decoration;
     outline: none;
@@ -107,7 +107,7 @@
 }
 
 /* Active */
-.uk-subnav > .uk-active > a {
+.nk-subnav > .nk-active > a {
     color: @subnav-item-active-color;
     .hook-subnav-item-active;
 }
@@ -117,16 +117,16 @@
  ========================================================================== */
 
 /*
- * Set gutter 
+ * Set gutter
  */
 
-.uk-subnav-divider { margin-left: -((@subnav-divider-margin-horizontal * 2) + @subnav-divider-border-width); }
+.nk-subnav-divider { margin-left: -((@subnav-divider-margin-horizontal * 2) + @subnav-divider-border-width); }
 
 /*
  * Align items and divider vertically
  */
 
-.uk-subnav-divider > * {
+.nk-subnav-divider > * {
     display: flex;
     align-items: center;
 }
@@ -136,7 +136,7 @@
  * 1. `nth-child` makes it also work without JS if it's only one row
  */
 
-.uk-subnav-divider > ::before {
+.nk-subnav-divider > ::before {
     content: "";
     height: @subnav-divider-border-height;
     margin-left: (@subnav-divider-margin-horizontal - @subnav-margin-horizontal);
@@ -145,7 +145,7 @@
 }
 
 /* 1 */
-.uk-subnav-divider > :nth-child(n+2):not(.uk-first-column)::before {
+.nk-subnav-divider > :nth-child(n+2):not(.nk-first-column)::before {
     border-left-color: @subnav-divider-border;
     .hook-subnav-divider;
 }
@@ -154,7 +154,7 @@
 /* Pill modifier
  ========================================================================== */
 
-.uk-subnav-pill > * > :first-child {
+.nk-subnav-pill > * > :first-child {
     padding: @subnav-pill-item-padding-vertical @subnav-pill-item-padding-horizontal;
     background: @subnav-pill-item-background;
     color: @subnav-pill-item-color;
@@ -162,22 +162,22 @@
 }
 
 /* Hover + Focus */
-.uk-subnav-pill > * > a:hover,
-.uk-subnav-pill > * > a:focus {
+.nk-subnav-pill > * > a:hover,
+.nk-subnav-pill > * > a:focus {
     background-color: @subnav-pill-item-hover-background;
     color: @subnav-pill-item-hover-color;
     .hook-subnav-pill-item-hover;
 }
 
 /* OnClick */
-.uk-subnav-pill > * > a:active {
+.nk-subnav-pill > * > a:active {
     background-color: @subnav-pill-item-onclick-background;
     color: @subnav-pill-item-onclick-color;
     .hook-subnav-pill-item-onclick;
 }
 
 /* Active */
-.uk-subnav-pill > .uk-active > a {
+.nk-subnav-pill > .nk-active > a {
     background-color: @subnav-pill-item-active-background;
     color: @subnav-pill-item-active-color;
     .hook-subnav-pill-item-active;
@@ -188,7 +188,7 @@
  * The same for all style modifiers
  ========================================================================== */
 
-.uk-subnav > .uk-disabled > a {
+.nk-subnav > .nk-disabled > a {
     color: @subnav-item-disabled-color;
     .hook-subnav-item-disabled;
 }
@@ -231,18 +231,18 @@
 
 .hook-inverse() {
 
-    .uk-subnav > * > :first-child {
+    .nk-subnav > * > :first-child {
         color: @inverse-subnav-item-color;
         .hook-inverse-subnav-item;
     }
 
-    .uk-subnav > * > a:hover,
-    .uk-subnav > * > a:focus {
+    .nk-subnav > * > a:hover,
+    .nk-subnav > * > a:focus {
         color: @inverse-subnav-item-hover-color;
         .hook-inverse-subnav-item-hover;
     }
 
-    .uk-subnav > .uk-active > a {
+    .nk-subnav > .nk-active > a {
         color: @inverse-subnav-item-active-color;
         .hook-inverse-subnav-item-active;
     }
@@ -251,7 +251,7 @@
     // Divider
     //
 
-    .uk-subnav-divider > :nth-child(n+2):not(.uk-first-column)::before {
+    .nk-subnav-divider > :nth-child(n+2):not(.nk-first-column)::before {
         border-left-color: @inverse-subnav-divider-border;
         .hook-inverse-subnav-divider;
     }
@@ -260,26 +260,26 @@
     // Pill
     //
 
-    .uk-subnav-pill > * > :first-child {
+    .nk-subnav-pill > * > :first-child {
         background-color: @inverse-subnav-pill-item-background;
         color: @inverse-subnav-pill-item-color;
         .hook-inverse-subnav-pill-item;
     }
 
-    .uk-subnav-pill > * > a:hover,
-    .uk-subnav-pill > * > a:focus {
+    .nk-subnav-pill > * > a:hover,
+    .nk-subnav-pill > * > a:focus {
         background-color: @inverse-subnav-pill-item-hover-background;
         color: @inverse-subnav-pill-item-hover-color;
         .hook-inverse-subnav-pill-item-hover;
     }
 
-    .uk-subnav-pill > * > a:active {
+    .nk-subnav-pill > * > a:active {
         background-color: @inverse-subnav-pill-item-onclick-background;
         color: @inverse-subnav-pill-item-onclick-color;
         .hook-inverse-subnav-pill-item-onclick;
     }
 
-    .uk-subnav-pill > .uk-active > a {
+    .nk-subnav-pill > .nk-active > a {
         background-color: @inverse-subnav-pill-item-active-background;
         color: @inverse-subnav-pill-item-active-color;
         .hook-inverse-subnav-pill-item-active;
@@ -289,7 +289,7 @@
     // Disabled
     //
 
-    .uk-subnav > .uk-disabled > a {
+    .nk-subnav > .nk-disabled > a {
         color: @inverse-subnav-item-disabled-color;
         .hook-inverse-subnav-item-disabled;
     }

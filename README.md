@@ -30,13 +30,13 @@ $ npm i ngx-uikit --save
 
 ## 使用
 
-在每一个需要使用组件的 module 中引入 `NgxUIkitModule`。
+在每一个需要使用组件的 module 中引入 `NkUikitModule`。
 
 ```ts
-import { NgxUIkitModule } from 'ngx-uikit';
+import { NkUikitModule } from 'nk-uikit';
 
 @NgModule({
-  imports: [ NgxUIkitModule ]
+  imports: [ NkUikitModule ]
 })
 export class AppModule {
 }
@@ -49,12 +49,12 @@ export class AppModule {
   "assets": [
 +   {
 +     "glob": "**/*",
-+     "input": "./node_modules/ngx-uikit/src/icons/",
++     "input": "./node_modules/nk-uikit/src/icons/",
 +     "output": "/assets/"
 +   }
   ],
   "styles": [
-+   "node_modules/ngx-uikit/src/uikit.min.css"
++   "node_modules/ngx-uikit/src/nk-uikit.min.css"
   ]
 }
 ```

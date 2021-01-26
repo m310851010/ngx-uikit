@@ -1,11 +1,11 @@
 // Name:            Iconnav
 // Description:     Component to create icon navigations
 //
-// Component:       `uk-iconnav`
+// Component:       `nk-iconnav`
 //
-// Modifier:        `uk-iconnav-vertical`
+// Modifier:        `nk-iconnav-vertical`
 //
-// States:          `uk-active`
+// States:          `nk-active`
 //
 // ========================================================================
 
@@ -33,7 +33,7 @@
  * 3. Gutter
  */
 
-.uk-iconnav {
+.nk-iconnav {
     display: flex;
     /* 1 */
     flex-wrap: wrap;
@@ -51,7 +51,7 @@
  * 1. Gutter
  */
 
-.uk-iconnav > * {
+.nk-iconnav > * {
     /* 1 */
     padding-left: @iconnav-margin-horizontal;
 }
@@ -66,7 +66,7 @@
  * 2. Style
  */
 
-.uk-iconnav > * > a {
+.nk-iconnav > * > a {
     /* 1 */
     display: block;
     /* 2 */
@@ -75,21 +75,21 @@
 }
 
 /* Hover + Focus */
-.uk-iconnav > * > a:hover,
-.uk-iconnav > * > a:focus {
+.nk-iconnav > * > a:hover,
+.nk-iconnav > * > a:focus {
     color: @iconnav-item-hover-color;
     outline: none;
     .hook-iconnav-item-hover;
 }
 
 /* Active */
-.uk-iconnav > .uk-active > a {
+.nk-iconnav > .nk-active > a {
     color: @iconnav-item-active-color;
     .hook-iconnav-item-active;
 }
 
 
-/* Modifier: 'uk-iconnav-vertical'
+/* Modifier: 'nk-iconnav-vertical'
  ========================================================================== */
 
 /*
@@ -97,7 +97,7 @@
  * 2. Gutter
  */
 
-.uk-iconnav-vertical {
+.nk-iconnav-vertical {
     /* 1 */
     flex-direction: column;
     /* 2 */
@@ -106,7 +106,7 @@
 }
 
 /* 2 */
-.uk-iconnav-vertical > * {
+.nk-iconnav-vertical > * {
     padding-left: 0;
     padding-top: @iconnav-margin-vertical;
 }
@@ -133,18 +133,18 @@
 
 .hook-inverse() {
 
-    .uk-iconnav > * > a {
+    .nk-iconnav > * > a {
         color: @inverse-iconnav-item-color;
         .hook-inverse-iconnav-item;
     }
 
-    .uk-iconnav > * > a:hover,
-    .uk-iconnav > * > a:focus {
+    .nk-iconnav > * > a:hover,
+    .nk-iconnav > * > a:focus {
         color: @inverse-iconnav-item-hover-color;
         .hook-inverse-iconnav-item-hover;
     }
 
-    .uk-iconnav > .uk-active > a {
+    .nk-iconnav > .nk-active > a {
         color: @inverse-iconnav-item-active-color;
         .hook-inverse-iconnav-item-active;
     }

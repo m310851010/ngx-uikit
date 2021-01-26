@@ -1,12 +1,12 @@
 // Name:            Overlay
 // Description:     Component to create content areas overlaying an image
 //
-// Component:       `uk-overlay`
+// Component:       `nk-overlay`
 //
-// Adopted:         `uk-overlay-icon`
+// Adopted:         `nk-overlay-icon`
 //
-// Modifier:        `uk-overlay-default`
-//                  `uk-overlay-primary`
+// Modifier:        `nk-overlay-default`
+//                  `nk-overlay-primary`
 //
 // ========================================================================
 
@@ -27,7 +27,7 @@
    Component: Overlay
  ========================================================================== */
 
-.uk-overlay {
+.nk-overlay {
     padding: @overlay-padding-vertical @overlay-padding-horizontal;
     .hook-overlay;
 }
@@ -36,13 +36,13 @@
  * Remove margin from the last-child
  */
 
-.uk-overlay > :last-child { margin-bottom: 0; }
+.nk-overlay > :last-child { margin-bottom: 0; }
 
 
 /* Icon
  ========================================================================== */
 
-.uk-overlay-icon {
+.nk-overlay-icon {
     .hook-overlay-icon;
 }
 
@@ -54,7 +54,7 @@
  * Default
  */
 
-.uk-overlay-default {
+.nk-overlay-default {
     background: @overlay-default-background;
     .hook-overlay-default;
 }
@@ -63,14 +63,14 @@
  * Primary
  */
 
-.uk-overlay-primary {
+.nk-overlay-primary {
     background: @overlay-primary-background;
     .hook-overlay-primary;
 }
 
 // Color Mode
-.uk-overlay-primary:extend(.uk-light all) when (@overlay-primary-color-mode = light) {}
-.uk-overlay-primary:extend(.uk-dark all) when (@overlay-primary-color-mode = dark) {}
+.nk-overlay-primary:extend(.nk-light all) when (@overlay-primary-color-mode = light) {}
+.nk-overlay-primary:extend(.nk-dark all) when (@overlay-primary-color-mode = dark) {}
 
 
 // Hooks

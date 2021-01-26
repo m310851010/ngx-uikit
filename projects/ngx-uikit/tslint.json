@@ -3,14 +3,14 @@
   "rules": {
     "directive-selector": [
       true,
-      "attribute",
-      "ngx",
+      ["element", "attribute"],
+      "nk",
       "camelCase"
     ],
     "component-selector": [
       true,
-      "element",
-      "ngx",
+      ["element", "attribute"],
+      "nk",
       "kebab-case"
     ]
   }

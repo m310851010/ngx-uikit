@@ -1,15 +1,15 @@
 // Name:            Sortable
 // Description:     Component to create sortable grids and lists
 //
-// Component:       `uk-sortable`
+// Component:       `nk-sortable`
 //
-// Sub-objects:     `uk-sortable-drag`
-//                  `uk-sortable-placeholder`
-//                  `uk-sortable-handle`
+// Sub-objects:     `nk-sortable-drag`
+//                  `nk-sortable-placeholder`
+//                  `nk-sortable-handle`
 //
-// Modifiers:       `uk-sortable-empty`
+// Modifiers:       `nk-sortable-empty`
 //
-// States:          `uk-drag`
+// States:          `nk-drag`
 //
 // ========================================================================
 
@@ -28,7 +28,7 @@
    Component: Sortable
  ========================================================================== */
 
-.uk-sortable {
+.nk-sortable {
     position: relative;
     .hook-sortable;
 }
@@ -37,13 +37,13 @@
  * Remove margin from the last-child
  */
 
-.uk-sortable > :last-child { margin-bottom: 0; }
+.nk-sortable > :last-child { margin-bottom: 0; }
 
 
 /* Drag
  ========================================================================== */
 
-.uk-sortable-drag {
+.nk-sortable-drag {
     position: fixed !important;
     z-index: @sortable-dragged-z-index !important;
     pointer-events: none;
@@ -54,7 +54,7 @@
 /* Placeholder
  ========================================================================== */
 
-.uk-sortable-placeholder {
+.nk-sortable-placeholder {
     opacity: @sortable-placeholder-opacity;
     pointer-events: none;
     .hook-sortable-placeholder;
@@ -64,7 +64,7 @@
 /* Empty modifier
  ========================================================================== */
 
-.uk-sortable-empty {
+.nk-sortable-empty {
     min-height: @sortable-empty-height;
     .hook-sortable-empty;
 }
@@ -74,7 +74,7 @@
  ========================================================================== */
 
 /* Hover */
-.uk-sortable-handle:hover { cursor: move; }
+.nk-sortable-handle:hover { cursor: move; }
 
 
 
