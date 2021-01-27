@@ -59,7 +59,31 @@ export type OptionFormat<T> = string | ((item: T) => string | number | any);
 
 /**
  * 默认格式化函数
- * @param item
+ * @param item 单个数据项
  */
 // tslint:disable-next-line
 export const defaultOptionFormat: OptionFormat<any> = item => item;
+
+/**
+ * option类型基本数据定义
+ */
+// tslint:disable-next-line
+export interface NkOption extends NkKeyValue<any> {
+  /**
+   * 是否选中
+   */
+  checked?: boolean;
+  /**
+   * 是否禁用
+   */
+  disabled?: boolean;
+  /**
+   * 值
+   */
+  // tslint:disable-next-line
+  value: any;
+  /**
+   * 标签文本
+   */
+  label: string;
+}

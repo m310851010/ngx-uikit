@@ -43,9 +43,7 @@ export function isArray<T>(input: any): input is T[] {
 
 // tslint:disable-next-line:no-any
 export function isObject<T>(input: any): input is T {
-  return (
-    isNotEmpty(input) && Object.prototype.toString.call(input) === '[object Object]'
-  );
+  return Object.prototype.toString.call(input) === '[object Object]';
 }
 
 // tslint:disable-next-line:no-any
@@ -131,9 +129,32 @@ export function isEmptyObject( obj?: any ) {
 }
 
 /**
+ * 判断对象是否是Plain对象
+ * @param obj 待验证对象
+ */
+// tslint:disable-next-line
+export function isPlainObject(obj?: any) {
+  if (!obj || !isObject(obj)) {
+    return false;
+  }
+
+  const hasOwn = Object.prototype.hasOwnProperty;
+  const hasOwnConstructor = hasOwn.call(obj, 'constructor');
+  const hasIsPrototypeOf = obj.constructor && obj.constructor.prototype && hasOwn.call(obj.constructor.prototype, 'isPrototypeOf');
+  if (obj.constructor && !hasOwnConstructor && !hasIsPrototypeOf) {
+    return false;
+  }
+
+  let key;
+  for (key in obj) { /**/ }
+
+  return typeof key === 'undefined' || hasOwn.call(obj, key);
+}
+
+/**
  * 使用 === 深度比较两个对象的值是否相等
- * @param o1
- * @param o2
+ * @param o1 第一个对象
+ * @param o2 第二个对象
  */
 // tslint:disable-next-line
 export function equals(o1: any, o2: any): boolean {
@@ -178,6 +199,7 @@ export function equals(o1: any, o2: any): boolean {
   }
 
   const keySet = Object.create(null);
+  // tslint:disable-next-line
   for (key in o1) {
     if (!equals(o1[key], o2[key])) {
       return false;

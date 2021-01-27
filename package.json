@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build-lib:ngx-uikit": "ng build ngx-uikit",
+    "build-lib:ngx-uikit": "ng build ngx-uikit --prod",
     "build-site:ngx-uikit-site": "ng build ngx-uikit",
     "generate-icon": "node projects/ngx-uikit/scripts/generate-icon.js",
     "test": "ng test ngx-uikit",
@@ -44,6 +44,7 @@
     "karma-coverage-istanbul-reporter": "^1.4.3",
     "karma-jasmine": "^1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "less": "^2.7.3",
     "ng-packagr": "^3.0.0-rc.2",
     "protractor": "^5.3.2",
     "ts-node": "^5.0.1",

@@ -86,7 +86,7 @@ export class NkIconService {
 
   constructor(
     protected _sanitizer: DomSanitizer,
-    @Inject(DOCUMENT) protected  _document: Document,
+    @Inject(DOCUMENT) protected  _document: any,
     @Optional() @Inject(NK_ICON_ROOT_URL_TOKEN) protected _urlRoot: string,
     @Optional() @Inject(NK_ICON_TOKEN) protected _icons: NkIcon[]
   ) {

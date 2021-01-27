@@ -7,7 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "less",
+          "styleext": "less",
           "skipTests": true
         },
         "@schematics/angular:class": {
@@ -152,7 +152,7 @@
       "projectType": "library",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "less",
+          "styleext": "less",
           "skipTests": true
         },
         "@schematics/angular:class": {
