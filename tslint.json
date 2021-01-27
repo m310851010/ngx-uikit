@@ -159,7 +159,8 @@
     "no-trailing-whitespace": [
       true,
       "ignore-comments",
-      "ignore-jsdoc"
+      "ignore-jsdoc",
+      "ignore-blank-lines"
     ],
     "forin": true,
     "no-arg":true,

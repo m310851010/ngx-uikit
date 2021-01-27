@@ -27,8 +27,11 @@ async function generateIconFile() {
 
     const content = fs.readFileSync(data.path, 'utf8');
     const icon = content.replace(/<svg[^>]*>/, '').replace('</svg>', '').trim();
+    const iconPath = path.resolve(__dirname, `../src/components/icon/icon-type/${svgName}.ts`);
+    console.log(`创建图标"${svgName}"文件=>${iconPath}`);
+
     fs.writeFileSync(
-      path.resolve(__dirname, `../src/components/icon/icon-type/${svgName}.ts`),
+      iconPath,
       `// 该文件由generate.js生成
 // tslint:disable
 
@@ -50,8 +53,11 @@ export const ${iconExportName}: NkIcon = {
 
   listDir(iconsDir, callback, filter);
 
+  const iconNamesPath = path.resolve(__dirname, `../src/components/icon/nk-icon-names.ts`)
+  console.log(`创建nk-icon-names.ts文件=>${iconNamesPath}`);
+
   fs.writeFileSync(
-    path.resolve(__dirname, `../src/components/icon/nk-icon-names.ts`),
+    iconNamesPath,
     `export const nkIconNames = [
   ${iconNames.map(value => `'${value}'`).join(',\n')}
   ];
@@ -64,8 +70,12 @@ export const ${iconExportName}: NkIcon = {
     exportStr += `export { ${iconExportNames[i]} } from './${iconNames[i]}';\n`
   }
 
+
+  const publicApiPath = path.resolve(__dirname, `../src/components/icon/icon-type/public_api.ts`)
+  console.log(`创建public_api.ts文件=>${iconNamesPath}`);
+
   fs.writeFileSync(
-    path.resolve(__dirname, `../src/components/icon/icon-type/public_api.ts`),
+    publicApiPath,
     exportStr, {encoding: 'utf8', flag: 'w+'});
 
 }

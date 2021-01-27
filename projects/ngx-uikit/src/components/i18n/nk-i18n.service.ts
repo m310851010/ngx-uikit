@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import zh_CN from './locale/zh_CN';
 import { DateLocale, NkI18n } from './nk-i18n';
 import { NK_DATE_TOKEN, NK_I18N_TOKEN } from './nk-i18n.token';
-import {NkTypes} from '../core/type/nk-types';
+import {NkKeyValue} from '../core/type/nk-key-value';
 import {NK_LOCALES} from './nk-locale';
 import {getSystemLocaleId, isEmpty, isString} from '../core/util/nk-util';
 
@@ -22,15 +22,12 @@ export class NkI18nService {
   }
 
   constructor(@Optional() @Inject(NK_I18N_TOKEN) locale: NkI18n, @Optional() @Inject(NK_DATE_TOKEN) dateLocale: DateLocale) {
-    if (locale) {
-      this.setLocale(locale || this.getDefaultLocale());
-    }
-
+    this.setLocale(locale || this.getDefaultLocale());
     this.setDateLocale(dateLocale || null);
   }
 
   // tslint:disable-next-line:no-any
-  translate(path: string, data?: NkTypes<any>): string {
+  translate(path: string, data?: NkKeyValue<any>): string {
     let content = this._getObjectPath(this._locale, path);
     if (typeof content === 'string') {
       if (data) {
@@ -86,7 +83,7 @@ export class NkI18nService {
   }
 
   // tslint:disable-next-line:no-any
-  private _getObjectPath(obj: NkTypes<any>, path: string): string | object | any {
+  private _getObjectPath(obj: NkKeyValue<any>, path: string): string | object | any {
     let res = obj;
     const paths = path.split('.');
     const depth = paths.length;

@@ -5,4 +5,4 @@
 export * from './components/core/public_api';
 export * from './components/i18n/public_api';
 export * from './components/icon/public_api';
-export * from './components/nk-uikit.module';
+export * from './components/ngx-uikit.module';

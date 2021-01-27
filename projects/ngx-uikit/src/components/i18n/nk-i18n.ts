@@ -1,26 +1,26 @@
 
 export interface NkI18n {
   locale?: string;
-  Pagination: nkPaginationI18n;
-  DatePicker: nkDatePickerI18n;
-  TimePicker: nkTimePickerI18n;
-  Calendar: nkCalendarI18n;
-  Table: nkTableI18n;
-  Modal: nkModalI18n;
-  Confirm: nkConfirmI18n;
-  Transfer: nkTransferI18n;
-  Upload: nkUploadI18n;
-  Empty: nkEmptyI18n;
+  Pagination: NkPaginationI18n;
+  DatePicker: NkDatePickerI18n;
+  TimePicker: NkTimePickerI18n;
+  Calendar: NkCalendarI18n;
+  Table: NkTableI18n;
+  Modal: NkModalI18n;
+  Confirm: NkConfirmI18n;
+  Transfer: NkTransferI18n;
+  Upload: NkUploadI18n;
+  Empty: NkEmptyI18n;
 }
 
-export interface nkPaginationI18n {
+export interface NkPaginationI18n {
   items_per_page: string;
   jump_to: string;
   jump_to_confirm: string;
   page: string;
 }
 
-export interface nkTableI18n {
+export interface NkTableI18n {
   filterTitle: string;
   filterConfirm: string;
   filterReset: string;
@@ -28,49 +28,49 @@ export interface nkTableI18n {
   selectInvert: string;
 }
 
-export interface nkTransferI18n {
+export interface NkTransferI18n {
   titles?: string[];
   searchPlaceholder: string;
   itemUnit: string;
   itemsUnit: string;
 }
-export interface nkUploadI18n {
+export interface NkUploadI18n {
   uploading: string;
   removeFile: string;
   uploadError: string;
   previewFile: string;
 }
 
-export interface nkEmptyI18n {
+export interface NkEmptyI18n {
   description: string;
 }
 
-export interface nkModalI18n {
+export interface NkModalI18n {
   okText: string;
   cancelText: string;
   justOkText: string;
 }
 
-export interface  nkConfirmI18n {
+export interface NkConfirmI18n {
   okText: string;
   cancelText: string;
 }
 
-export interface nkDatePickerI18n {
-  lang: nkDatePickerLangI18n;
-  timePickerLocale: nkTimePickerI18n;
+export interface NkDatePickerI18n {
+  lang: NkDatePickerLangI18n;
+  timePickerLocale: NkTimePickerI18n;
 }
 
-export interface nkDatePickerLangI18n extends nkCalendarI18n {
+export interface NkDatePickerLangI18n extends NkCalendarI18n {
   placeholder: string;
   rangePlaceholder: string[];
 }
 
-export interface nkTimePickerI18n {
+export interface NkTimePickerI18n {
   placeholder: string;
 }
 
-export interface nkCalendarI18n {
+export interface NkCalendarI18n {
   today: string;
   now: string;
   backToToday: string;

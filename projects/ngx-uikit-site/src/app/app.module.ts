@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {NkI18nModule} from '../../../ngx-uikit/src/components/i18n/nk-i18n.module';
 import {NK_I18N_TOKEN} from '../../../ngx-uikit/src/components/i18n/nk-i18n.token';
+import {NgxUikitModule} from '../../../ngx-uikit/src/components/ngx-uikit.module';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,9 +14,11 @@ import {NK_I18N_TOKEN} from '../../../ngx-uikit/src/components/i18n/nk-i18n.toke
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NkI18nModule
+    FormsModule,
+    ReactiveFormsModule,
+    NgxUikitModule
   ],
-  providers: [{provide: NK_I18N_TOKEN, useValue: 'en_US'}],
+  providers: [{provide: NK_I18N_TOKEN, useValue: 'zh_CN'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
