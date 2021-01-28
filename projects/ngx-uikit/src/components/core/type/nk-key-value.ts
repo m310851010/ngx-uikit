@@ -72,22 +72,22 @@ export interface NkCheckable extends NkKeyValue<any> {
   /**
    * 是否选中
    */
-  nkChecked?: boolean;
+  nkChecked?: boolean | null;
   /**
    * 是否禁用
    */
-  nkDisabled?: boolean;
+  nkDisabled?: boolean | null;
   /**
    * 值
    */
   // tslint:disable-next-line
-  nkValue: any;
+  nkValue?: any | null;
   /**
    * 标签文本
    */
-  nkLabel?: string;
+  nkLabel?: string | null;
   /**
    * 是否半选
    */
-  nkIndeterminate?: boolean;
+  nkIndeterminate?: boolean | null;
 }

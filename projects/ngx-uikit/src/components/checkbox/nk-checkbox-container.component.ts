@@ -109,11 +109,10 @@ export class NkCheckboxContainerComponent implements OnInit, ControlValueAccesso
     const checkedValues = checkedItems.map(it => it.nkValue);
     this.modelValue = isEmpty(checkedValues) ? null : checkedValues;
     const checkedOptions = checkedItems.map<NkCheckable>(this._checkboxToNkCheckable);
-    this.nkOnChange.emit(checkedOptions);
-
     if (emit) {
       this._onChange(this.modelValue);
     }
+    this.nkOnChange.emit(checkedOptions);
   }
 
   /**
@@ -124,8 +123,8 @@ export class NkCheckboxContainerComponent implements OnInit, ControlValueAccesso
     this._checkboxChildren.push(checkbox);
     this._checkboxRegister.next(checkbox);
     checkbox.nkOnChange.subscribe(() => {
-      this.nkOnItemChange.emit(this._checkboxToNkCheckable(checkbox));
       this.updateModelValue();
+      this.nkOnItemChange.emit(this._checkboxToNkCheckable(checkbox));
     });
   }
 

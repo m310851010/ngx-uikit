@@ -1,7 +1,7 @@
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  Component, EventEmitter,
+  Component, DoCheck, EventEmitter,
   forwardRef,
   Input, OnChanges,
   OnDestroy,
@@ -23,7 +23,7 @@ import {getValueFormatFn} from '../core/util/ui-util';
   selector: 'nk-checkbox-group',
   templateUrl: './nk-checkbox-group.component.html',
   exportAs: 'nkCheckboxGroup',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   providers: [
     {
@@ -64,20 +64,20 @@ export class NkCheckboxGroupComponent implements OnInit, OnDestroy, OnChanges, C
   @Input() nkOptions: any[] | Observable<any[]>;
 
   /**
-   * 比较器
+   * 比较器, (o1=当前项, o2=当前值) => boolean
    */
   @Input() compareWith: CompareWith<{}> = defaultCompareWith;
   /**
    * label格式化
    */
-  @Input() set labelFormat(format: ValueFormat<{}>) {
+  @Input() set nkLabelFormat(format: ValueFormat<{}>) {
     this._labelFormat = getValueFormatFn(format);
   }
 
   /**
    * 值的格式化
    */
-  @Input() set valueFormat( format: ValueFormat<{}>) {
+  @Input() set nkValueFormat( format: ValueFormat<{}>) {
     this._valueFormat = getValueFormatFn(format);
   }
 
@@ -136,8 +136,12 @@ export class NkCheckboxGroupComponent implements OnInit, OnDestroy, OnChanges, C
    */
   // tslint:disable-next-line
   _mapToCheckboxOptions(value: any[]): NkCheckable[] {
-    if (isEmpty(value) || !isArray(value)) {
+    if (isEmpty(value)) {
       return [];
+    }
+
+    if (!isArray(value)) {
+      value = [value];
     }
 
     const fnChecked = this.getCheckFn(this.modelValue);
@@ -159,7 +163,11 @@ export class NkCheckboxGroupComponent implements OnInit, OnDestroy, OnChanges, C
       });
     }
 
-    return value.map<NkCheckable>(it => ({nkLabel: it, nkValue: it, nkChecked: fnChecked(it)} as NkCheckable));
+    return value.map<NkCheckable>(it => ({
+      nkLabel: it,
+      nkValue: it,
+      nkChecked: fnChecked(it)
+    } as NkCheckable));
   }
 
   /**
@@ -171,7 +179,7 @@ export class NkCheckboxGroupComponent implements OnInit, OnDestroy, OnChanges, C
       // tslint:disable-next-line
       ? (_v: any) => false
       // tslint:disable-next-line
-      : (_v: any) => (value as any[]).some(it => this.compareWith(it, _v));
+      : (_v: any) => (value as any[]).some(it => this.compareWith(_v, it));
   }
 
   /**
@@ -184,8 +192,8 @@ export class NkCheckboxGroupComponent implements OnInit, OnDestroy, OnChanges, C
   itemViewChange(checked: boolean, indeterminate: boolean, item: NkCheckable): void {
     item.nkChecked = checked;
     item.nkIndeterminate = indeterminate;
-    this.nkOnItemChange.emit(item);
     this.updateModelValue();
+    this.nkOnItemChange.emit(item);
   }
 
   /**
@@ -196,11 +204,10 @@ export class NkCheckboxGroupComponent implements OnInit, OnDestroy, OnChanges, C
     const checkedItems = this._options.filter(val => val.nkChecked);
     const checkedValues = checkedItems.map(val => val.nkValue);
     this.modelValue = checkedValues.length ? checkedValues : null;
-    this.nkOnChange.emit(checkedItems);
-
     if (emit) {
       this._onChange(this.modelValue);
     }
+    this.nkOnChange.emit(checkedItems);
   }
 
   registerOnChange(fn: (_: object | null) => { }): void {

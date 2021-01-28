@@ -1,0 +1,33 @@
+stringOptions
+<nk-checkbox-group [nkOptions]="stringOptions"></nk-checkbox-group>
+
+<br>numberOptions
+<nk-checkbox-group [nkOptions]="numberOptions"></nk-checkbox-group>
+
+<br>singleString
+<nk-checkbox-group [nkOptions]="singleString"></nk-checkbox-group>
+
+<br>singleNumber
+<nk-checkbox-group [nkOptions]="singleNumber"></nk-checkbox-group>
+
+<br>objectOptions
+<nk-checkbox-group [nkOptions]="objectOptions"></nk-checkbox-group>
+
+<br>asyncOptions
+<nk-checkbox-group [nkOptions]="asyncOptions"></nk-checkbox-group>
+
+<br>anyObjectOptions
+<nk-checkbox-group [nkOptions]="anyObjectOptions" nkLabelFormat="name" nkValueFormat="code"></nk-checkbox-group>
+
+<br>anyValueOptions
+<nk-checkbox-group [(ngModel)]="anyValueModel" [nkOptions]="anyValueOptions" nkLabelFormat="name" nkValueFormat="info"></nk-checkbox-group>
+
+<br>checked/disabled
+<nk-checkbox-group [nkOptions]="checkedOptions"></nk-checkbox-group>
+
+<br>custom label/value
+<nk-checkbox-group [nkOptions]="customOptions" [nkLabelFormat]="nkLabelFormat" nkValueFormat="id"></nk-checkbox-group>
+
+<br>object value checked
+<nk-checkbox-group [nkOptions]="objectCheckedOptions" [(ngModel)]="objectCheckedModel" [compareWith]="compareWith"></nk-checkbox-group>
+

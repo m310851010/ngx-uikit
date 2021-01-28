@@ -1,7 +1,7 @@
 import {Directive, ElementRef, Input, OnChanges, Renderer2, SimpleChange, SimpleChanges} from '@angular/core';
 import {NkIconService} from './nk-icon.service';
 import {NkIcon} from '../core/type/nk-key-value';
-import {isEmpty} from '../core/util/nk-util';
+import {isEmpty, isNotEmpty} from '../core/util/nk-util';
 
 /**
  * 图标指令
@@ -20,8 +20,9 @@ export class NkIconDirective implements OnChanges {
 
   @Input('nk-icon') nkIcon: string | NkIcon;
   @Input() nkRotate = 0;
-  @Input() nkWidth: number;
-  @Input() nkHeight: number;
+  @Input() nkWidth: string;
+  @Input() nkHeight: string;
+  _svg: SVGElement;
 
   constructor(
     public iconService: NkIconService,
@@ -39,10 +40,18 @@ export class NkIconDirective implements OnChanges {
       const icon = this.iconService.getIconElement(this.nkIcon);
       if (icon) {
         icon.subscribe( svg => {
+          this._svg = svg;
           this.renderer.appendChild(this.elementRef.nativeElement, svg);
           this.handleRotate(svg);
+          this.handleWidthHeight(svg);
         });
       }
+      return;
+    }
+
+    if (this._svg) {
+      this.handleRotate(this._svg);
+      this.handleWidthHeight(this._svg);
     }
   }
 
@@ -61,6 +70,20 @@ export class NkIconDirective implements OnChanges {
       this.renderer.setStyle(svg, 'transform', `rotate(${this.nkRotate}deg)`);
     } else {
       this.renderer.removeStyle(svg, 'transform');
+    }
+  }
+
+  private handleWidthHeight(svg: SVGElement): void {
+    if (isNotEmpty(this.nkWidth)) {
+      this.renderer.setAttribute(svg, 'width', this.nkWidth);
+    } else {
+      this.renderer.removeAttribute(svg, 'width');
+    }
+
+    if (isNotEmpty(this.nkHeight)) {
+      this.renderer.setAttribute(svg, 'height', this.nkHeight);
+    } else {
+      this.renderer.removeAttribute(svg, 'height');
     }
   }
 }

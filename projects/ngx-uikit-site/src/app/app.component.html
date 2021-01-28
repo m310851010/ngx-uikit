@@ -1,71 +1,108 @@
-<div class="nk-card nk-card-default nk-card-body nk-width-1-2@m">
-  <h3 class="nk-card-title">Default</h3>
-  <p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<div class="nk-navbar-container tm-navbar-container" nk-sticky="media: 960">
+  <div class="nk-container nk-container-expand">
+    <nav class="nk-navbar">
+
+      <div class="nk-navbar-left">
+
+        <a href="../" class="nk-navbar-item nk-logo">
+          <i nk-icon="uikit-logo" class="nk-margin-small-right" [nkWidth]="28" [nkHeight]="34"></i> ngx-uikit
+        </a>
+
+      </div>
+
+      <div class="nk-navbar-right">
+
+        <ul class="nk-navbar-nav nk-visible@m">
+          <li><a href="../pro">首页</a></li>
+          <li class="nk-active"><a href="./">文档</a></li>
+          <li><a href="../changelog">变更记录</a></li>
+        </ul>
+
+        <div class="nk-navbar-item nk-visible@m">
+          <a class="nk-button nk-button-default tm-button-default nk-icon" href="../download">Download <canvas nk-icon="download" width="20" height="20"></canvas>
+          </a>
+        </div>
+
+        <a class="nk-navbar-toggle nk-hidden@m" nk-navbar-toggle-icon href="#offcanvas" nk-toggle></a>
+
+      </div>
+
+    </nav>
+  </div>
 </div>
 
-<button class="nk-button nk-button-default nk-button-small">Small button</button>
+<div class="tm-sidebar-left nk-visible@m">
 
-<p nk-margin>
-  <button class="nk-button nk-button-default nk-button-large">Large button</button>
-  <button class="nk-button nk-button-primary nk-button-large">Large button</button>
-  <button class="nk-button nk-button-secondary nk-button-large">Large button</button>
-</p>
+  <h3>Documentation</h3>
 
-<dl class="nk-description-list nk-description-list-divider">
-  <dt>Description term</dt>
-  <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</dd>
-  <dt>Description term</dt>
-  <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</dd>
-  <dt>Description term</dt>
-  <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</dd>
-</dl>
-<div nk-filter="target: .js-filter">
-
-  <ul class="nk-subnav nk-subnav-pill">
-    <li nk-filter-control=".tag-white"><a href="#">White</a></li>
-    <li nk-filter-control=".tag-blue"><a href="#">Blue</a></li>
-    <li nk-filter-control=".tag-black"><a href="#">Black</a></li>
-  </ul>
-
-  <ul class="js-filter nk-child-width-1-2 nk-child-width-1-3@m nk-text-center" nk-grid>
-    <li class="tag-white">
-      <div class="nk-card nk-card-default nk-card-body">Item</div>
-    </li>
-    <li class="tag-blue">
-      <div class="nk-card nk-card-primary nk-card-body">Item</div>
-    </li>
-    <li class="tag-white">
-      <div class="nk-card nk-card-default nk-card-body">Item</div>
-    </li>
-    <li class="tag-white">
-      <div class="nk-card nk-card-default nk-card-body">Item</div>
-    </li>
-    <li class="tag-black">
-      <div class="nk-card nk-card-secondary nk-card-body">Item</div>
-    </li>
-    <li class="tag-black">
-      <div class="nk-card nk-card-secondary nk-card-body">Item</div>
-    </li>
-    <li class="tag-blue">
-      <div class="nk-card nk-card-primary nk-card-body">Item</div>
-    </li>
-    <li class="tag-black">
-      <div class="nk-card nk-card-secondary nk-card-body">Item</div>
-    </li>
-    <li class="tag-blue">
-      <div class="nk-card nk-card-primary nk-card-body">Item</div>
-    </li>
-    <li class="tag-white">
-      <div class="nk-card nk-card-default nk-card-body">Item</div>
-    </li>
-    <li class="tag-blue">
-      <div class="nk-card nk-card-primary nk-card-body">Item</div>
-    </li>
-    <li class="tag-black">
-      <div class="nk-card nk-card-secondary nk-card-body">Item</div>
-    </li>
+  <ul v-for="(pages, category, index) in navigation" class="nk-nav nk-nav-default tm-nav" :class="{'nk-margin-top': index}">
+    <li class="nk-nav-header">{{ category }}</li>
+    <!--<router-link v-for="(p, label) in pages" :key="p" tag="li" :to="p"><a>{{ label }}</a></router-link>-->
   </ul>
 
 </div>
 
-<router-outlet></router-outlet>
+<div class="tm-main nk-section nk-section-default">
+  <div class="nk-container nk-container-small nk-position-relative">
+
+    <router-outlet></router-outlet>
+
+    <div class="tm-sidebar-right nk-visible@l">
+      <div nk-sticky="offset: 160">
+
+        <ul class="nk-nav nk-nav-default tm-nav nk-nav-parent-icon" nk-scrollspy-nav="closest: li; scroll: true; offset: 100">
+          <li v-for="(id, subject) in ids">
+            <a :href="`#${id}`">{{ subject }}</a>
+          </li>
+          <li class="nk-nav-divider"></li>
+          <li v-if="component">
+            <a :href="`../assets/uikit/tests/${component}.html`" target="_blank">
+              <span class="nk-margin-small-right" nk-icon="push"></span>
+              <span class="nk-text-middle">Open test</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/uikit/uikit/issues" target="_blank">
+              <span class="nk-margin-small-right" nk-icon="warning"></span>
+              <span class="nk-text-middle">Report issue</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://discordapp.com/invite/NEt4Pv7" target="_blank">
+              <span class="nk-margin-small-right" nk-icon="commenting"></span>
+              <span class="nk-text-middle">Get help</span>
+            </a>
+          </li>
+          <li>
+            <a :href="`https://github.com/uikit/uikit-site/tree/develop/docs/pages/${page}.md`" target="_blank">
+              <span class="nk-margin-small-right" nk-icon="pencil"></span>
+              <span class="nk-text-middle">Edit this page</span>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="offcanvas" nk-offcanvas="mode: push; overlay: true">
+  <div class="nk-offcanvas-bar">
+    <div class="nk-panel">
+
+      <ul class="nk-nav nk-nav-default tm-nav">
+        <li class="nk-nav-header">General</li>
+        <li><a href="../index">首页</a></li>
+        <li><a href="../pro">Pro</a></li>
+        <li><a href="../changelog">变更记录</a></li>
+        <li><a href="../download">下载</a></li>
+      </ul>
+
+      <ul v-for="(pages, category) in navigation" class="nk-nav nk-nav-default tm-nav nk-margin-top">
+        <li class="nk-nav-header">{{ category }}</li>
+        <!--<router-link v-for="(p, label) in pages" :key="p" tag="li" :to="p"><a>{{ label }}</a></router-link>-->
+      </ul>
+    </div>
+  </div>
+</div>

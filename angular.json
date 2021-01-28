@@ -37,7 +37,7 @@
       },
       "root": "projects/ngx-uikit-site",
       "sourceRoot": "projects/ngx-uikit-site/src",
-      "prefix": "ngx",
+      "prefix": "demo",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
