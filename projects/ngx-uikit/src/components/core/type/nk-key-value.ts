@@ -39,7 +39,7 @@ export class IconNotFoundError extends NkError {
 }
 
 /**
- * 比较器函数
+ * 比较器函数, 与 SelectControlValueAccessor 相同
  */
 export type CompareWith<T> = (o1: T, o2: T) => boolean;
 
@@ -55,35 +55,39 @@ export const defaultCompareWith: CompareWith<any> = (o1, o2) => o1 === o2;
  * 格式化函数
  */
 // tslint:disable-next-line
-export type OptionFormat<T> = string | ((item: T) => string | number | any);
+export type ValueFormat<T> = string | ((item: T) => string | number | any);
 
 /**
  * 默认格式化函数
  * @param item 单个数据项
  */
 // tslint:disable-next-line
-export const defaultOptionFormat: OptionFormat<any> = item => item;
+export const defaultValueFormat: ValueFormat<any> = item => item;
 
 /**
  * option类型基本数据定义
  */
 // tslint:disable-next-line
-export interface NkOption extends NkKeyValue<any> {
+export interface NkCheckable extends NkKeyValue<any> {
   /**
    * 是否选中
    */
-  checked?: boolean;
+  nkChecked?: boolean;
   /**
    * 是否禁用
    */
-  disabled?: boolean;
+  nkDisabled?: boolean;
   /**
    * 值
    */
   // tslint:disable-next-line
-  value: any;
+  nkValue: any;
   /**
    * 标签文本
    */
-  label: string;
+  nkLabel?: string;
+  /**
+   * 是否半选
+   */
+  nkIndeterminate?: boolean;
 }

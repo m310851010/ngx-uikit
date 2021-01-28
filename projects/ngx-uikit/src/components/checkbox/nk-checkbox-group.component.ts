@@ -9,11 +9,11 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {CompareWith, defaultCompareWith, NkKeyValue, NkOption, OptionFormat} from '../core/type/nk-key-value';
+import {CompareWith, defaultCompareWith, NkKeyValue, NkCheckable, ValueFormat} from '../core/type/nk-key-value';
 import {Observable, of, Subscription} from 'rxjs';
 import {map, share} from 'rxjs/operators';
-import {isObservable, isEmpty, isNotEmpty, isPlainObject, isArray} from '../core/util/nk-util';
-import {getOptionFormatFn} from '../core/util/ui-util';
+import {isObservable, isEmpty, isNotEmpty, isPlainObject, isArray, isNil} from '../core/util/nk-util';
+import {getValueFormatFn} from '../core/util/ui-util';
 
 /**
  * 复选框组。 设计思想是,通过给定任意数组或Observable发射的数组创建多个复选框
@@ -21,9 +21,9 @@ import {getOptionFormatFn} from '../core/util/ui-util';
  */
 @Component({
   selector: 'nk-checkbox-group',
+  templateUrl: './nk-checkbox-group.component.html',
   exportAs: 'nkCheckboxGroup',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './nk-checkbox-group.component.html',
   encapsulation: ViewEncapsulation.None,
   providers: [
     {
@@ -40,22 +40,22 @@ export class NkCheckboxGroupComponent implements OnInit, OnDestroy, OnChanges, C
    * 如果列表为空,则设置为null,为了适应表单的required
    */
   // tslint:disable-next-line
-  value: any[] | null = null;
+  modelValue: any[] | null = null;
   /**
    * label格式化, 默认取label属性
    */
   // tslint:disable-next-line
-  _labelFormat = getOptionFormatFn('label');
+  _labelFormat = getValueFormatFn('nkLabel');
   /**
    * 值的格式化,默认取 value属性
    */
   // tslint:disable-next-line
-  _valueFormat = getOptionFormatFn('value');
+  _valueFormat = getValueFormatFn('nkValue');
   /**
    * 界面显示使用的数据
    */
   // tslint:disable-next-line
-  _options: NkOption[];
+  _options: NkCheckable[];
   private _optionsSubscription: Subscription | null;
   /**
    * 所有复选框列表
@@ -70,31 +70,31 @@ export class NkCheckboxGroupComponent implements OnInit, OnDestroy, OnChanges, C
   /**
    * label格式化
    */
-  @Input() set labelFormat(format: OptionFormat<{}>) {
-    this._labelFormat = getOptionFormatFn(format);
+  @Input() set labelFormat(format: ValueFormat<{}>) {
+    this._labelFormat = getValueFormatFn(format);
   }
 
   /**
    * 值的格式化
    */
-  @Input() set valueFormat( format: OptionFormat<{}>) {
-    this._valueFormat = getOptionFormatFn(format);
+  @Input() set valueFormat( format: ValueFormat<{}>) {
+    this._valueFormat = getValueFormatFn(format);
   }
 
   /**
    * 触发ngModelChange的同时触发该事件,当所有复选框都没被选中时返回空数组
    */
-  @Output() nkChange = new EventEmitter<NkOption[]>();
+  @Output() nkOnChange = new EventEmitter<NkCheckable[]>();
   /**
    * 当前复选框状态改变时触发该事件
    */
-  @Output() nkItemChange = new EventEmitter<NkOption>();
+  @Output() nkOnItemChange = new EventEmitter<NkCheckable>();
   /**
    * 复选框点击事件
    * 触发该事件时,并不能正确判断checked状态
    * 要获取正确的checked状态,请使用nkItemChange
    */
-  @Output() nkItemClick = new EventEmitter<{nkOption: NkOption, clickEvent: MouseEvent}>();
+  @Output() nkOnItemClick = new EventEmitter<{nkOption: NkCheckable, clickEvent: MouseEvent}>();
 
   /**
    * 是否禁用,用于全局设置,数据的disabled和全局只要有一个为true则禁用
@@ -115,7 +115,7 @@ export class NkCheckboxGroupComponent implements OnInit, OnDestroy, OnChanges, C
 
     this._optionsSubscription = obs.pipe(
       // tslint:disable-next-line
-      map<any[], NkOption[]>(this._mapToCheckboxOptions.bind(this)),
+      map<any[], NkCheckable[]>(this._mapToCheckboxOptions.bind(this)),
       share())
       .subscribe(value => {
         this._options = value;
@@ -131,63 +131,76 @@ export class NkCheckboxGroupComponent implements OnInit, OnDestroy, OnChanges, C
   }
 
   /**
-   * 把原始值转换为 NkOption[]
+   * 把原始值转换为 NkCheckable[]
    * @param value 原始值
    */
   // tslint:disable-next-line
-  _mapToCheckboxOptions(value: any[]): NkOption[] {
+  _mapToCheckboxOptions(value: any[]): NkCheckable[] {
     if (isEmpty(value) || !isArray(value)) {
       return [];
     }
 
-    const fnChecked = this.getCheckFn();
+    const fnChecked = this.getCheckFn(this.modelValue);
     // 对象类型
     if (isPlainObject(value[0])) {
-      return value.map<NkOption>(itValue => {
+      return value.map<NkCheckable>(itValue => {
         // tslint:disable-next-line
         const it = itValue as NkKeyValue<any>;
-        if (!it.hasOwnProperty('label')) {
-          it.label = this._labelFormat(it);
+        if (isNil(it.nkLabel)) {
+          it.nkLabel = this._labelFormat(it);
         }
-        if (!it.hasOwnProperty('value')) {
-          it.value = this._valueFormat(it);
+        if (isNil(it.nkValue)) {
+          it.nkValue = this._valueFormat(it);
         }
-        if (!it.hasOwnProperty('checked')) {
-          it.checked = fnChecked(it.value);
+        if (isNil(it.nkChecked)) {
+          it.nkChecked = fnChecked(it.nkValue);
         }
-        return it as NkOption;
+        return it as NkCheckable;
       });
     }
 
-    return value.map<NkOption>(it => ({label: it, value: it, checked: fnChecked(it)} as NkOption));
+    return value.map<NkCheckable>(it => ({nkLabel: it, nkValue: it, nkChecked: fnChecked(it)} as NkCheckable));
   }
 
   /**
    * 获取用于检测是否选中的函数
    */
   // tslint:disable-next-line
-  private getCheckFn(): (_v: any) => boolean {
-    return isEmpty(this.value)
+  private getCheckFn(value: any[] | null): (_v: any) => boolean {
+    return isEmpty(value)
       // tslint:disable-next-line
       ? (_v: any) => false
       // tslint:disable-next-line
-      : (_v: any) => (this.value as any[]).some(it => this.compareWith(it, _v));
+      : (_v: any) => (value as any[]).some(it => this.compareWith(it, _v));
   }
 
   /**
-   * 当个checkbox状态变化事件
+   * 当个界面checkbox状态变化事件
    * @param checked 是否被选中
+   * @param indeterminate 是否半选
    * @param item 当前数据
    */
   // tslint:disable-next-line
-  itemChange(checked: boolean, item: NkOption): void {
-    item.checked = checked;
-    const checkedItems = this._options.filter(val => val.checked);
-    const checkedValues = checkedItems.map(val => val.value);
-    this.value = checkedValues.length ? checkedValues : null;
-    this.nkChange.emit(checkedItems);
-    this.nkItemChange.emit(item);
-    this._onChange(this.value);
+  itemViewChange(checked: boolean, indeterminate: boolean, item: NkCheckable): void {
+    item.nkChecked = checked;
+    item.nkIndeterminate = indeterminate;
+    this.nkOnItemChange.emit(item);
+    this.updateModelValue();
+  }
+
+  /**
+   * 更新ngModel
+   * @param emit 是否发布ngModelChange事件
+   */
+  updateModelValue(emit: boolean = true): void {
+    const checkedItems = this._options.filter(val => val.nkChecked);
+    const checkedValues = checkedItems.map(val => val.nkValue);
+    this.modelValue = checkedValues.length ? checkedValues : null;
+    this.nkOnChange.emit(checkedItems);
+
+    if (emit) {
+      this._onChange(this.modelValue);
+    }
   }
 
   registerOnChange(fn: (_: object | null) => { }): void {
@@ -204,12 +217,19 @@ export class NkCheckboxGroupComponent implements OnInit, OnDestroy, OnChanges, C
 
   // tslint:disable-next-line
   writeValue(obj: any[]): void {
-    this.value = obj;
+    this.updateCheckedState(obj);
+  }
 
+  /**
+   * 更新value
+   */
+  // tslint:disable-next-line
+  updateCheckedState(value: any[] | null): void {
+    this.modelValue = isEmpty(value) ? null : (isArray(value) ? value : [value]);
     if (isNotEmpty(this._options)) {
-      const fnChecked = this.getCheckFn();
+      const fnChecked = this.getCheckFn(this.modelValue);
       this._options.forEach(it => {
-        it.checked = fnChecked(it.value);
+        it.nkChecked = fnChecked(it.nkValue);
       });
     }
   }

@@ -9,7 +9,8 @@ import {isEmpty} from '../core/util/nk-util';
  * <i nk-icon="close"></i>
  */
 @Directive({
-  selector: 'i.nk-icon, [nk-icon]',
+  // tslint:disable-next-line
+  selector: '[nk-icon]',
   exportAs: 'nkIcon',
   host: {
     class: 'nk-icon',

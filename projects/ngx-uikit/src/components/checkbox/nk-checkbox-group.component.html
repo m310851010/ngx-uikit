@@ -2,10 +2,11 @@
   <input
     class="nk-checkbox"
     type="checkbox"
-    (change)="itemChange($event.target.checked, item)"
-    [checked]="item.checked"
-    [disabled]="_disabled || item.disabled"
-    (click)="nkItemClick.emit({nkOption: item, clickEvent: $event})"
+    (change)="itemViewChange($event.target.checked, $event.target.indeterminate, item)"
+    [checked]="item.nkChecked"
+    [indeterminate]="item.nkIndeterminate"
+    [disabled]="_disabled || item.nkDisabled"
+    (click)="nkOnItemClick.emit({nkOption: item, clickEvent: $event})"
     (blur)="_onTouched()">
-  {{item.label}}
+  {{item.nkLabel}}
 </label>

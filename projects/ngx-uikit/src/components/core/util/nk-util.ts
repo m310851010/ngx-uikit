@@ -65,22 +65,42 @@ export function isObjectEmpty(obj: any): boolean {
 export function isUndefined(input: any): boolean {
   return input === void 0;
 }
+
 /**
  * 判断数据是否是null或者undefined或者.length为0
- * @param value 一个可为null的值
+ * 字符串和数组长度为0,返回true
+ * @param value 任意值
  */
 // tslint:disable-next-line:no-any
 export function isEmpty(value: any): boolean {
-  return value === undefined || value === null || value.length === 0;
+  return isNil(value) || value.length === 0;
 }
 
 /**
  * 判断数据是否不为null或者undefined
- * @param value 一个可为null的值
+ * @param value 任意值
  */
 // tslint:disable-next-line:no-any
 export function isNotEmpty(value: any): boolean {
   return !isEmpty(value);
+}
+
+/**
+ * 数据是否为null或者undefined
+ * @param value 任意值
+ */
+// tslint:disable-next-line:no-any
+export function isNil(value: any): boolean {
+  return value === undefined || value === null;
+}
+
+/**
+ * 数据是否不为null或者undefined
+ * @param value 任意值
+ */
+// tslint:disable-next-line:no-any
+export function isNotNil(value: any): boolean {
+  return !isNil(value);
 }
 
 // tslint:disable-next-line:no-any
