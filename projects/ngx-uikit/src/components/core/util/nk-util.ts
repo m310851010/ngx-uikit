@@ -7,6 +7,11 @@ export function isString(str: any): str is string {
 }
 
 // tslint:disable-next-line:no-any
+export function isNotString(input: any): input is string {
+  return !isString(input);
+}
+
+// tslint:disable-next-line:no-any
 export function isDate(value: any): value is Date {
   return value instanceof Date || Object.prototype.toString.call(value) === '[object Date]';
 }
@@ -34,6 +39,11 @@ export function isNumber(value?: any): value is number {
 }
 
 // tslint:disable-next-line:no-any
+export function isNotNumber(input: any): input is number {
+  return !isNumber(input);
+}
+
+// tslint:disable-next-line:no-any
 export function isArray<T>(input: any): input is T[] {
   return (
     input instanceof Array ||
@@ -42,8 +52,18 @@ export function isArray<T>(input: any): input is T[] {
 }
 
 // tslint:disable-next-line:no-any
+export function isNotArray<T>(input: any): input is T {
+  return !isArray(input);
+}
+
+// tslint:disable-next-line:no-any
 export function isObject<T>(input: any): input is T {
   return Object.prototype.toString.call(input) === '[object Object]';
+}
+
+// tslint:disable-next-line:no-any
+export function isNotObject<T>(input: any): input is T {
+  return !isObject(input);
 }
 
 // tslint:disable-next-line:no-any

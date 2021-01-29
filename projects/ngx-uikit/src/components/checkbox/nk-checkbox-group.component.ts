@@ -1,5 +1,4 @@
 import {
-  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component, DoCheck, EventEmitter,
   forwardRef,
@@ -23,7 +22,6 @@ import {getValueFormatFn} from '../core/util/ui-util';
   selector: 'nk-checkbox-group',
   templateUrl: './nk-checkbox-group.component.html',
   exportAs: 'nkCheckboxGroup',
-  // changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   providers: [
     {

@@ -20,8 +20,8 @@ export class NkIconDirective implements OnChanges {
 
   @Input('nk-icon') nkIcon: string | NkIcon;
   @Input() nkRotate = 0;
-  @Input() nkWidth: string;
-  @Input() nkHeight: string;
+  @Input() nkWidth: number;
+  @Input() nkHeight: number;
   _svg: SVGElement;
 
   constructor(
@@ -75,13 +75,13 @@ export class NkIconDirective implements OnChanges {
 
   private handleWidthHeight(svg: SVGElement): void {
     if (isNotEmpty(this.nkWidth)) {
-      this.renderer.setAttribute(svg, 'width', this.nkWidth);
+      this.renderer.setAttribute(svg, 'width', this.nkWidth.toString());
     } else {
       this.renderer.removeAttribute(svg, 'width');
     }
 
     if (isNotEmpty(this.nkHeight)) {
-      this.renderer.setAttribute(svg, 'height', this.nkHeight);
+      this.renderer.setAttribute(svg, 'height', this.nkHeight.toString());
     } else {
       this.renderer.removeAttribute(svg, 'height');
     }

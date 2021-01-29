@@ -1,6 +1,7 @@
 // tslint:disable-next-line
 import {ValueFormat} from '../type/nk-key-value';
-import {isFunction, isString} from './nk-util';
+import {isFunction, isNotNil, isString} from './nk-util';
+import {TemplateRef} from '@angular/core';
 
 /**
  * 根据ValueFormat转换为函数
@@ -35,4 +36,35 @@ export function insertAfter(newElement: Node | HTMLElement, targetElement: Node 
     parent.insertBefore(newElement, targetElement.nextSibling);
   }
   return true;
+}
+
+// tslint:disable-next-line:no-any
+export function isTemplateRef(value: any): boolean {
+  return value instanceof TemplateRef;
+}
+
+export function findFirstNotEmptyNode(element: HTMLElement): Node | null {
+  const children = element.childNodes;
+  for (let i = 0; i < children.length; i++) {
+    const node = children.item(i);
+    if (filterNotEmptyNode(node)) {
+      return node;
+    }
+  }
+  return null;
+}
+
+export function filterNotEmptyNode(node: Node): Node | null {
+  if (!node) {
+    return null;
+  }
+
+  if (node.nodeType === 1 && (node as HTMLElement).outerHTML.toString().trim().length !== 0) {
+    // ELEMENT_NODE
+    return node;
+  } else if (node.nodeType === 3 && node.textContent !== null && node.textContent.toString().trim().length !== 0) {
+    // TEXT_NODE
+    return node;
+  }
+  return null;
 }

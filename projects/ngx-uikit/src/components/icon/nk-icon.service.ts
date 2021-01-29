@@ -35,6 +35,7 @@ import { NkIconTotop } from './icon-type/totop';
 import {DOCUMENT} from '@angular/common';
 import {NK_ICON_ROOT_URL_TOKEN, NK_ICON_TOKEN} from './nk-icon.token';
 import {NkIconAccordionClose} from './icon-type/accordion-close';
+import {NkIconLoading} from './icon-type/loading';
 
 export const NK_ICONS_USED_COMPONENT: NkIcon[] = [
   NkIconAccordionOpen,
@@ -63,7 +64,8 @@ export const NK_ICONS_USED_COMPONENT: NkIcon[] = [
   NkIconSlidenavPreviousLarge,
   NkIconSlidenavPrevious,
   NkIconSpinner,
-  NkIconTotop
+  NkIconTotop,
+  NkIconLoading
 ];
 
 @Injectable({
@@ -86,6 +88,7 @@ export class NkIconService {
 
   constructor(
     protected _sanitizer: DomSanitizer,
+    // tslint:disable-next-line:no-any
     @Inject(DOCUMENT) protected  _document: any,
     @Optional() @Inject(NK_ICON_ROOT_URL_TOKEN) protected _urlRoot: string,
     @Optional() @Inject(NK_ICON_TOKEN) protected _icons: NkIcon[]
