@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {DemoCheckboxComponent} from './demo-checkbox/demo-checkbox.component';
+import {DemoButtonComponent} from './demo-button/demo-button.component';
 
 const routes: Routes = [
-  {path: 'checkbox', loadChildren: './demo-checkbox/demo-checkbox.module#DemoCheckboxModule'}
+  {path: 'checkbox', component: DemoCheckboxComponent, data: {name: 'Checkbox', cnName: '复选框'}},
+  {path: 'button', component: DemoButtonComponent, data: {name: 'Button', cnName: '复选框'}},
   ];
 
 @NgModule({

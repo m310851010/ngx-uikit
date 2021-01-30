@@ -1,6 +1,6 @@
 import {
   ChangeDetectorRef,
-  Component, DoCheck, EventEmitter,
+  Component, EventEmitter,
   forwardRef,
   Input, OnChanges,
   OnDestroy,

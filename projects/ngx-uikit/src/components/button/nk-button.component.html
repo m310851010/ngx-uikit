@@ -1,2 +1,2 @@
-<i [nk-icon]="nkIcon" *ngIf="nkIcon" [nkWidth]="16" [nkHeight]="18" [class.nk-spin]="nkLoading"></i>
-<span  [class.nk-margin-small-left]="_hasContent && nkIcon" (cdkObserveContent)="nkIcon && contentChange()" #content><ng-content></ng-content></span>
+<i [nk-icon]="(nkLoading && !nkIcon) ? 'loading' : nkIcon" *ngIf="nkIcon || nkLoading" [nkWidth]="16" [nkHeight]="18" [class.nk-spin]="nkLoading"></i>
+<span [class.inner-button-element]="nkIcon || nkLoading"><ng-content></ng-content></span>

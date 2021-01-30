@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable, timer} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {CompareWith, NkCheckable, ValueFormat} from '../../../../../ngx-uikit/src/components/core/type/nk-key-value';
+import {CompareWith, NkCheckable, ValueFormat} from '../../../../ngx-uikit/src/components/core/type/nk-key-value';
 
 @Component({
   selector: 'demo-checkbox',
@@ -51,14 +51,14 @@ export class DemoCheckboxComponent implements OnInit {
 
   ngOnInit(): void {
     this.anyValueModel = [this.anyValueOptions[1].info];
+    setTimeout(() => this.changeData(), 5000);
   }
 
   changeData(): void {
     this.singleString = '测试';
-    this.objectOptions[0].nkLabel = '修改为地理';
-    // this.objectOptions = [...this.objectOptions];
   }
 
+  // tslint:disable-next-line
   trace(evt: any, tag: string) {
     console.log(`[${tag}] `, evt);
     console.log(this.anyValueModel);

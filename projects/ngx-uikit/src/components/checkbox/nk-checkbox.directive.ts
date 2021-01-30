@@ -1,5 +1,4 @@
 import {
-  ChangeDetectionStrategy,
   Directive,
   ElementRef,
   EventEmitter,

@@ -1,0 +1,57 @@
+
+@import "../global-component.less";
+@import "../style/margin.less";
+@import "../style/button.less";
+
+@button-text-transform:                         none;
+
+.inner-button-element:not(:empty){
+  .nk-margin-small-left();
+}
+
+/*
+ * Disabled
+ */
+
+
+@buttonTypes: default, primary, secondary, danger, link, text;
+// extend无法使用变量, fuck
+.make-button-disabled(@i: length(@buttonTypes)) when (@i > 0) {
+  .make-button-disabled(@i - 1);
+  @btnType: extract(@buttonTypes, @i);
+  .nk-button-@{btnType}.disabled {
+    &:extend(.nk-button-@{btnType}:disabled);
+  }
+}
+
+.make-button-disabled();
+
+
+.nk-button-default.disabled {
+  &:extend(.nk-button-default:disabled);
+}
+.nk-button-primary.disabled {
+  &:extend(.nk-button-primary:disabled);
+}
+.nk-button-secondary.disabled {
+  &:extend(.nk-button-secondary:disabled);
+}
+.nk-button-danger.disabled {
+  &:extend(.nk-button-danger:disabled);
+}
+.nk-button-link.disabled {
+  &:extend(.nk-button-link:disabled);
+}
+.nk-button-text.disabled {
+  &:extend(.nk-button-link:disabled);
+}
+
+.nk-button {
+  &:not(:disabled, .disabled) {
+    &:extend(.nk-button:not(:disabled));
+  }
+
+  &.disabled {
+    cursor: default;
+  }
+}

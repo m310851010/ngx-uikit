@@ -1,0 +1,86 @@
+
+<h2 class="nk-h3 tm-heading-fragment"><a>默认按钮</a></h2>
+<hr>
+<button nk-button>默认按钮</button>
+
+<h2 class="nk-h3 tm-heading-fragment"><a>空按钮</a></h2>
+<hr>
+<button nk-button></button>
+
+<h2 class="nk-h3 tm-heading-fragment"><a>按钮类型 nkType</a></h2>
+<hr>
+<button nk-button nkType="default">按钮类型-default</button>
+<button nk-button nkType="primary">按钮类型-primary</button>
+<button nk-button nkType="danger">按钮类型-danger</button>
+<button nk-button nkType="secondary">按钮类型-secondary</button>
+<button nk-button nkType="link">按钮类型-link</button>
+<button nk-button nkType="text">按钮类型-text</button>
+
+<h2 class="nk-h3 tm-heading-fragment"><a>按钮大小 nkSize</a></h2>
+<hr>
+<p class="nk-margin">
+  <button nk-button nkType="default" nkSize="small" >Small button</button>
+  <button nk-button nkType="primary" nkSize="small" >Small button</button>
+  <button nk-button nkType="secondary" nkSize="small">Small button</button>
+</p>
+
+<p class="nk-margin">
+  <button nk-button nkType="default" nkSize="default" >Default button</button>
+  <button nk-button nkType="primary" nkSize="default" >Default button</button>
+  <button nk-button nkType="secondary" nkSize="default">Default button</button>
+</p>
+
+<p class="nk-margin">
+  <button nk-button nkType="default" nkSize="large">Large button</button>
+  <button nk-button nkType="primary" nkSize="large">Large button</button>
+  <button nk-button nkType="secondary" nkSize="large">Large button</button>
+</p>
+
+<h2 class="nk-h3 tm-heading-fragment"><a>A标签元素按钮</a></h2>
+<hr>
+
+<a nk-button nkType="default">按钮类型-default</a>
+<a nk-button nkType="primary">按钮类型-primary</a>
+<a nk-button nkType="danger">按钮类型-danger</a>
+<a nk-button nkType="secondary">按钮类型-secondary</a>
+<a nk-button nkType="link">按钮类型-link</a>
+<a nk-button nkType="text">按钮类型-text</a>
+
+
+<h2 class="nk-h3 tm-heading-fragment"><a>禁用按钮(普通按钮) nkDisabled</a></h2>
+<hr>
+<button nk-button [nkDisabled]="true" nkType="default">禁用按钮-default</button>
+<button nk-button [nkDisabled]="true" nkType="primary">禁用按钮-primary</button>
+<button nk-button [nkDisabled]="true" nkType="danger">禁用按钮-danger</button>
+<button nk-button [nkDisabled]="true" nkType="secondary">禁用按钮-secondary</button>
+<button nk-button [nkDisabled]="true" nkType="link">禁用按钮-link</button>
+<button nk-button [nkDisabled]="true" nkType="text">禁用按钮-text</button>
+
+<h2 class="nk-h3 tm-heading-fragment"><a>禁用按钮(A标签按钮) nkDisabled</a></h2>
+<hr>
+
+<a nk-button [nkDisabled]="true" nkType="default">禁用按钮-default</a>
+<a nk-button [nkDisabled]="true" nkType="primary">禁用按钮-primary</a>
+<a nk-button [nkDisabled]="true" nkType="danger">禁用按钮-danger</a>
+<a nk-button [nkDisabled]="true" nkType="secondary">禁用按钮-secondary</a>
+<a nk-button [nkDisabled]="true" nkType="link">禁用按钮-link</a>
+<a nk-button [nkDisabled]="true" nkType="text">禁用按钮-text</a>
+
+<h2 class="nk-h3 tm-heading-fragment"><a>Loading按钮 nkLoading</a></h2>
+<hr>
+<p class="nk-margin">
+  <a nk-button nkSize="small" [nkLoading]="true">Loading-primary</a>
+  <a nk-button nkType="primary" nkSize="small" [nkLoading]="true">Loading-primary</a>
+  <a nk-button nkType="danger" nkSize="default" [nkLoading]="true">danger button</a>
+  <a nk-button nkType="secondary" nkSize="large" [nkLoading]="true">secondary button</a>
+</p>
+
+
+<h2 class="nk-h3 tm-heading-fragment"><a>Block按钮 nkBlock</a></h2>
+<hr>
+<p class="nk-margin">
+  <a nk-button nkSize="small" [nkLoading]="true" nkBlock="true">Loading-primary</a>
+  <a nk-button nkType="primary" nkSize="small" [nkLoading]="true" nkBlock="true">Loading-primary</a>
+  <a nk-button nkType="danger" nkSize="default" [nkLoading]="true" nkBlock="true">danger button</a>
+  <a nk-button nkType="secondary" nkSize="large" [nkLoading]="true" nkBlock="true">secondary button</a>
+</p>

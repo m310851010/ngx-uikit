@@ -1,63 +1,78 @@
 import {
-  AfterContentInit,
-  ChangeDetectionStrategy, ChangeDetectorRef,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
-  Input,
-  OnInit,
-  ViewChild,
-  ViewContainerRef,
+  Input, OnChanges, Renderer2,
+  SimpleChange, SimpleChanges,
   ViewEncapsulation
 } from '@angular/core';
 import {NkIcon} from '../core/type/nk-key-value';
-import {findFirstNotEmptyNode} from '../core/util/ui-util';
-import {isNotNil} from '../core/util/nk-util';
 
 @Component({
   selector: '[nk-button]',
   exportAs: 'nkButton',
   templateUrl: './nk-button.component.html',
-  styleUrls: ['./nk-button.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   host: {
-    '[class]': `'nk-button nk-button-' + nkType + ' ' + (nkSize || nkSize === 'default' ? '' : ('nk-button-' + nkSize))`
+    '[class.nk-button]': 'true',
+    '[class.nk-button-default]': `nkType === 'default'`,
+    '[class.nk-button-primary]': `nkType === 'primary'`,
+    '[class.nk-button-secondary]': `nkType === 'secondary'`,
+    '[class.nk-button-danger]': `nkType === 'danger'`,
+    '[class.nk-button-link]': `nkType === 'link'`,
+    '[class.nk-button-text]': `nkType === 'text'`,
+    '[class.nk-button-small]': `nkSize === 'small'`,
+    '[class.nk-button-large]': `nkSize === 'large'`,
+    '[class.uk-width-1-1]': 'nkBlock'
   }
 })
-export class NkButtonComponent implements OnInit, AfterContentInit {
+export class NkButtonComponent implements OnChanges {
 
   /**
-   * 是否循环旋转图标
+   * 是否循环旋转图标,如果nkLoading为true, nkIcon为空则默认显示loading图标
    */
-  @Input() nkLoading = false;
+  @Input() nkLoading: boolean;
+  /**
+   * 按钮大小
+   */
   @Input() nkSize: NkButtonSize;
+  /**
+   * 按钮类型
+   */
   @Input() nkType: NkButtonType = 'default';
-  @ViewChild('content', {read: ElementRef}) content: ElementRef;
+  /**
+   * 是否禁用,按钮使用disabled属性, 其他元素使用样式控制
+   */
+  @Input() nkDisabled: boolean;
 
   /**
    * 显示的图标
    */
   @Input() nkIcon: string | NkIcon;
-  _hasContent = false;
+  @Input() nkBlock: boolean;
 
-  constructor(public cdr: ChangeDetectorRef) { }
+  constructor(public element: ElementRef, public render: Renderer2) { }
 
-  ngOnInit(): void {
-    this.contentChange();
-  }
+  ngOnChanges(changes: { [K in keyof this]?: SimpleChange } & SimpleChanges): void {
+    if (changes.nkDisabled) {
+      const node = this.element.nativeElement;
+      if (!node.tagName) {
+        return;
+      }
 
-  contentChange(): void {
-    const node = findFirstNotEmptyNode(this.content.nativeElement);
-    const hasElement = node !== null;
-    if (hasElement !== this._hasContent) {
-      this._hasContent = hasElement;
-      console.log(this.content.nativeElement);
-      this.cdr.detectChanges();
+      const tagName = node.tagName.toLowerCase();
+      if (tagName === 'button' || (tagName === 'input' && node.type === 'button')) {
+        this.render.setProperty(node, 'disabled', this.nkDisabled);
+        return;
+      }
+
+      if (this.nkDisabled) {
+        this.render.addClass(node, 'disabled');
+      } else {
+        this.render.removeClass(node, 'disabled');
+      }
     }
-  }
-
-  ngAfterContentInit(): void {
-    this.contentChange();
   }
 }
 
