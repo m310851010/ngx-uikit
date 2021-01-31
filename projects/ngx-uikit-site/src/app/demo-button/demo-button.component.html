@@ -1,11 +1,7 @@
 
 <h2 class="nk-h3 tm-heading-fragment"><a>默认按钮</a></h2>
 <hr>
-<button nk-button>默认按钮</button>
-
-<h2 class="nk-h3 tm-heading-fragment"><a>空按钮</a></h2>
-<hr>
-<button nk-button></button>
+<button nk-button [nkOverlay]="true">默认按钮</button>
 
 <h2 class="nk-h3 tm-heading-fragment"><a>按钮类型 nkType</a></h2>
 <hr>
@@ -84,3 +80,22 @@
   <a nk-button nkType="danger" nkSize="default" [nkLoading]="true" nkBlock="true">danger button</a>
   <a nk-button nkType="secondary" nkSize="large" [nkLoading]="true" nkBlock="true">secondary button</a>
 </p>
+
+<h2 class="nk-h3 tm-heading-fragment"><a>按钮组 nk-button-group</a></h2>
+<hr>
+<nk-button-group nkSize="small">
+  <a nk-button (click)="groupSize = 'large'">大</a>
+  <a nk-button (click)="groupSize = 'default'">中</a>
+  <a nk-button (click)="groupSize = 'small'">小</a>
+</nk-button-group>
+<br>
+<br>
+<nk-button-group [nkSize]="groupSize">
+  <a nk-button nkType="primary">Loading-primary</a>
+  <a nk-button nkType="primary">Loading-primary</a>
+  <a nk-button nkType="primary">Loading-primary</a>
+</nk-button-group>
+
+<button nk-button>Go forward
+  <i nk-icon="heart"></i></button>
+<input nk-radio>

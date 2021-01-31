@@ -1,5 +1,5 @@
 // tslint:disable-next-line
-import {ValueFormat} from '../type/nk-key-value';
+import {ValueFormat} from '../type/nk-types';
 import {isFunction, isNotNil, isString} from './nk-util';
 import {TemplateRef} from '@angular/core';
 
@@ -60,10 +60,8 @@ export function filterNotEmptyNode(node: Node): Node | null {
   }
 
   if (node.nodeType === 1 && (node as HTMLElement).outerHTML.toString().trim().length !== 0) {
-    // ELEMENT_NODE
     return node;
   } else if (node.nodeType === 3 && node.textContent !== null && node.textContent.toString().trim().length !== 0) {
-    // TEXT_NODE
     return node;
   }
   return null;

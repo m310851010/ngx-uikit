@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {NkButtonGroupComponent} from './nk-button-group.component';
 import {NkButtonComponent} from './nk-button.component';
 import {NkIconModule} from '../icon/nk-icon.module';
 import {ObserversModule} from '@angular/cdk/observers';
 
-const COMPONENTS = [NkButtonComponent];
+const COMPONENTS = [NkButtonComponent, NkButtonGroupComponent];
 
 @NgModule({
   imports: [

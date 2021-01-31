@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import zh_CN from './locale/zh_CN';
 import { DateLocale, NkI18n } from './nk-i18n';
 import { NK_DATE_TOKEN, NK_I18N_TOKEN } from './nk-i18n.token';
-import {NkKeyValue} from '../core/type/nk-key-value';
+import {NkKeyValue} from '../core/type/nk-types';
 import {NK_LOCALES} from './nk-locale';
 import {getSystemLocaleId, isEmpty, isString} from '../core/util/nk-util';
 

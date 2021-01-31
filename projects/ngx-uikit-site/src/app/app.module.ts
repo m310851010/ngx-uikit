@@ -10,12 +10,14 @@ import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {NgxUikitModule} from '../../../ngx-uikit/src/components/ngx-uikit.module';
+import { DemoRadioComponent } from './demo-radio/demo-radio.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DemoCheckboxComponent,
     DemoButtonComponent,
+    DemoRadioComponent,
   ],
   imports: [
     BrowserModule,

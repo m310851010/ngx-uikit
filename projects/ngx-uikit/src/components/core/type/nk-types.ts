@@ -38,6 +38,15 @@ export class IconNotFoundError extends NkError {
   }
 }
 
+export class IconLoadFailError extends NkError {
+  constructor(icon: string, url: string) {
+    super('icon', `failed to load icon "${icon}" from URL "${url}". you can:
+    1. set the correct URL by "NK_ICON_ROOT_URL_TOKEN",
+    2. register icon to NkIconService by "addIcon" function
+    3. reset the name of the icon, e.g, "myDIr/${icon}"`);
+  }
+}
+
 /**
  * 比较器函数, 与 SelectControlValueAccessor 相同
  */
@@ -69,10 +78,7 @@ export const defaultValueFormat: ValueFormat<any> = item => item;
  */
 // tslint:disable-next-line
 export interface NkCheckable extends NkKeyValue<any> {
-  /**
-   * 是否选中
-   */
-  nkChecked?: boolean | null;
+
   /**
    * 是否禁用
    */
@@ -86,8 +92,23 @@ export interface NkCheckable extends NkKeyValue<any> {
    * 标签文本
    */
   nkLabel?: string | null;
+
+}
+
+export interface NkCheckboxOption extends NkCheckable {
+  /**
+   * 是否选中
+   */
+  nkChecked?: boolean | null;
   /**
    * 是否半选
    */
   nkIndeterminate?: boolean | null;
+}
+
+export interface NkRadioOption extends NkCheckable {
+  /**
+   * 是否选中, 有多个为true时,只对第一个有效
+   */
+  nkChecked?: boolean | null;
 }

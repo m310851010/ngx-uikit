@@ -12,21 +12,6 @@
 /*
  * Disabled
  */
-
-
-@buttonTypes: default, primary, secondary, danger, link, text;
-// extend无法使用变量, fuck
-.make-button-disabled(@i: length(@buttonTypes)) when (@i > 0) {
-  .make-button-disabled(@i - 1);
-  @btnType: extract(@buttonTypes, @i);
-  .nk-button-@{btnType}.disabled {
-    &:extend(.nk-button-@{btnType}:disabled);
-  }
-}
-
-.make-button-disabled();
-
-
 .nk-button-default.disabled {
   &:extend(.nk-button-default:disabled);
 }
@@ -46,12 +31,62 @@
   &:extend(.nk-button-link:disabled);
 }
 
+/*Overlay*/
 .nk-button {
-  &:not(:disabled, .disabled) {
-    &:extend(.nk-button:not(:disabled));
+  .overlayBeforeFn() {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    left: -1px;
+    z-index: 1;
+    background: #fff;
+    border-radius: inherit;
+    transition: opacity .2s;
+    content: "";
+    pointer-events: none;
   }
 
-  &.disabled {
-    cursor: default;
+  &.overlay {
+    position: relative;
+    pointer-events: none;
+  }
+
+  &.overlay:before {
+    .overlayBeforeFn();
+    opacity: .35;
+  }
+
+  &.overlay-disabled {
+    .overlay;
+    &:before {
+      .overlayBeforeFn();
+      opacity: .01;
+    }
+  }
+}
+
+/*
+nk-button-group nkSize
+*/
+.nk-button-group {
+  position: relative;
+  display: inline-flex;
+  &-small {
+    .nk-button:not(.nk-button-small) {
+      .nk-button-small();
+    }
+  }
+  &-default {
+    .nk-button {
+      line-height: @button-line-height;
+      padding: 0 @button-padding-horizontal;
+      .hook-button;
+    }
+  }
+  &-large {
+    .nk-button:not(.nk-button-large) {
+      .nk-button-large();
+    }
   }
 }

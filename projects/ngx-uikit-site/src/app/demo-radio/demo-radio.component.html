@@ -1,0 +1,16 @@
+<input nk-radio nkLabel="测试啊">
+
+<nk-radio-group [nkOptions]="nkOptions" [(ngModel)]="value"></nk-radio-group>
+<br>
+<hr>
+<nk-radio-container [(ngModel)]="value" (nkOnChange)="trace($event)">
+  <label *ngFor="let item of nkOptions">
+    <input nk-radio (nkOnChange)="trace($event)" [nkLabel]="item.nkLabel" [nkValue]="item.nkValue">
+  </label>
+</nk-radio-container>
+
+<nk-radio-container [(ngModel)]="value" (nkOnChange)="trace($event)">
+  <label *ngFor="let item of nkOptions">
+    <input nk-radio (nkOnChange)="trace($event)" [nkLabel]="item.nkLabel" [nkValue]="item.nkValue">
+  </label>
+</nk-radio-container>

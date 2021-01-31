@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {NkCheckable} from '../../../ngx-uikit/src/components/core/type/nk-key-value';
+import {NkCheckable} from '../../../ngx-uikit/src/components/core/type/nk-types';
 import {NkI18nService} from '../../../ngx-uikit/src/components/i18n/nk-i18n.service';
 
 @Component({

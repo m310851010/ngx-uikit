@@ -1,5 +1,5 @@
 import { InjectionToken } from '@angular/core';
-import {NkIcon} from '../core/type/nk-key-value';
+import {NkIcon} from '../core/type/nk-types';
 
 /**
  * 图标的URL根地址,默认'assets/icons/',注意:必须以'/'结尾

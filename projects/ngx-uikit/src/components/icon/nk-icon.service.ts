@@ -1,10 +1,10 @@
 import {Inject, Injectable, Optional, Renderer2, SecurityContext} from '@angular/core';
-import {IconNotFoundError, NkIcon, NkKeyValue, UrlNotSafeError} from '../core/type/nk-key-value';
-import {Observable, of} from 'rxjs';
+import {IconLoadFailError, IconNotFoundError, NkIcon, NkKeyValue, UrlNotSafeError} from '../core/type/nk-types';
+import {Observable, of, throwError} from 'rxjs';
 import {isNotEmpty, isString} from '../core/util/nk-util';
 import {DomSanitizer} from '@angular/platform-browser';
 import {ajax, AjaxResponse} from 'rxjs/ajax';
-import {finalize, map, share, tap} from 'rxjs/operators';
+import {catchError, finalize, map, share, tap} from 'rxjs/operators';
 
 import { NkIconAccordionOpen } from './icon-type/accordion-open';
 import { NkIconDividerIcon } from './icon-type/divider-icon';
@@ -104,7 +104,7 @@ export class NkIconService {
 
   /**
    * 添加图标到缓存数据
-   * @param icons
+   * @param icons 添加图标集合
    */
   addIcon(...icons: NkIcon[]): void {
     for (const icon of icons) {
@@ -155,7 +155,9 @@ export class NkIconService {
           .trim();
         return {name: iconName, icon: svgContent, viewBox};
       }),
-      share(), finalize(() => delete this._inProgressIcon[iconName]));
+      share(),
+      catchError( (error) => throwError(new IconLoadFailError(icon, safeUrl))),
+      finalize(() => delete this._inProgressIcon[iconName]));
 
     this._inProgressIcon[iconName] = inProgress;
     return inProgress;

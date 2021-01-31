@@ -1,7 +1,7 @@
 // 该文件由generate.js生成
 // tslint:disable
 
-import {NkIcon} from '../../core/type/nk-key-value';
+import {NkIcon} from '../../core/type/nk-types';
 
 export const NkIconTriangleRight: NkIcon = {
   name: 'triangle-right',

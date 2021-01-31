@@ -1,0 +1,12 @@
+<label *ngFor="let item of _options" class="nk-margin-small-right">
+  <input
+    class="nk-radio"
+    type="radio"
+    (change)="itemViewChange($event.target.checked, item)"
+    [checked]="item.nkChecked"
+    [indeterminate]="item.nkIndeterminate"
+    [disabled]="_disabled || item.nkDisabled"
+    (click)="handleItemClick({clickEvent: $event, nkOption: item})"
+    (blur)="_onTouched()">
+  {{item.nkLabel}}
+</label>

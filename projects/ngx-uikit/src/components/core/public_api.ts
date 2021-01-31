@@ -3,4 +3,4 @@
  */
 
 export * from './util/nk-util';
-export * from './type/nk-key-value';
+export * from './type/nk-types';

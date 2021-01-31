@@ -1,6 +1,6 @@
 import {Directive, ElementRef, Input, OnChanges, Renderer2, SimpleChange, SimpleChanges} from '@angular/core';
 import {NkIconService} from './nk-icon.service';
-import {NkIcon} from '../core/type/nk-key-value';
+import {NkIcon} from '../core/type/nk-types';
 import {isEmpty, isNotEmpty} from '../core/util/nk-util';
 
 /**
@@ -20,8 +20,8 @@ export class NkIconDirective implements OnChanges {
 
   @Input('nk-icon') nkIcon: string | NkIcon;
   @Input() nkRotate = 0;
-  @Input() nkWidth: number;
-  @Input() nkHeight: number;
+  @Input() nkWidth = 20;
+  @Input() nkHeight = 20;
   _svg: SVGElement;
 
   constructor(

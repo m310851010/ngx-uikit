@@ -1,5 +1,11 @@
 
 import {isObservable as rxIsObservable, Observable} from 'rxjs';
+const {hasOwnProperty} = Object.prototype;
+
+// tslint:disable-next-line:no-any
+export function hasOwn(obj: any, key: string): boolean {
+  return hasOwnProperty.call(obj, key);
+}
 
 // tslint:disable-next-line:no-any
 export function isString(str: any): str is string {
@@ -27,15 +33,12 @@ export function isDateValid(date: Date): boolean {
 
 // tslint:disable-next-line
 export function isFunction(fn: any): fn is Function {
-  return (
-    fn instanceof Function ||
-    Object.prototype.toString.call(fn) === '[object Function]'
-  );
+  return typeof fn === 'function';
 }
 
 // tslint:disable-next-line:no-any
 export function isNumber(value?: any): value is number {
-  return typeof value === 'number' || Object.prototype.toString.call(value) === '[object Number]';
+  return typeof value === 'number';
 }
 
 // tslint:disable-next-line:no-any
@@ -43,13 +46,7 @@ export function isNotNumber(input: any): input is number {
   return !isNumber(input);
 }
 
-// tslint:disable-next-line:no-any
-export function isArray<T>(input: any): input is T[] {
-  return (
-    input instanceof Array ||
-    Object.prototype.toString.call(input) === '[object Array]'
-  );
-}
+export const {isArray} = Array;
 
 // tslint:disable-next-line:no-any
 export function isNotArray<T>(input: any): input is T {
@@ -58,7 +55,7 @@ export function isNotArray<T>(input: any): input is T {
 
 // tslint:disable-next-line:no-any
 export function isObject<T>(input: any): input is T {
-  return Object.prototype.toString.call(input) === '[object Object]';
+  return input !== null && typeof input === 'object';
 }
 
 // tslint:disable-next-line:no-any
@@ -73,7 +70,7 @@ export function isObjectEmpty(obj: any): boolean {
   }
   let k;
   for (k in obj) {
-    if (obj.hasOwnProperty(k)) {
+    if (hasOwn(obj, k)) {
       return false;
     }
   }
@@ -174,21 +171,7 @@ export function isEmptyObject( obj?: any ) {
  */
 // tslint:disable-next-line
 export function isPlainObject(obj?: any) {
-  if (!obj || !isObject(obj)) {
-    return false;
-  }
-
-  const hasOwn = Object.prototype.hasOwnProperty;
-  const hasOwnConstructor = hasOwn.call(obj, 'constructor');
-  const hasIsPrototypeOf = obj.constructor && obj.constructor.prototype && hasOwn.call(obj.constructor.prototype, 'isPrototypeOf');
-  if (obj.constructor && !hasOwnConstructor && !hasIsPrototypeOf) {
-    return false;
-  }
-
-  let key;
-  for (key in obj) { /**/ }
-
-  return typeof key === 'undefined' || hasOwn.call(obj, key);
+  return isObject(obj) && Object.getPrototypeOf(obj) === Object.prototype;
 }
 
 /**
@@ -264,9 +247,23 @@ export function isPromise(value: any): value is PromiseLike<any> {
   return value && typeof (value).subscribe !== 'function' && typeof (value).then === 'function';
 }
 
+// tslint:disable-next-line:no-any
+export function toArray<T>(... args: any[]): T[] {
+  return args;
+}
+
+// tslint:disable-next-line:no-any
+export function toNumber(value: any): number | false {
+  const num = Number(value);
+  return !isNaN(num) ? num : false;
+}
+
 // tslint:disable
 export function noop() { }
 
+/**
+ * 获取浏览器默认语言
+ */
 export function getSystemLocaleId(): string {
   return (navigator.languages ? navigator.languages[0] : null) || navigator.language;
 }

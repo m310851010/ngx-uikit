@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NkButtonGroupSize} from '../../../../ngx-uikit/src/components/button/nk-button-group.component';
 
 @Component({
   selector: 'demo-button',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DemoButtonComponent implements OnInit {
 
+  groupSize: NkButtonGroupSize = 'default';
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }
