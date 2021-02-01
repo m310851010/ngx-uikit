@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import {NkRadioContainerComponent} from './nk-radio-container.component';
 import {NkRadioGroupComponent} from './nk-radio-group.component';
 import {NkRadioDirective} from './nk-radio.directive';
+import {NkRadioButtonComponent} from './nk-radio-button.component';
 
-const COMPONENTS = [NkRadioDirective, NkRadioGroupComponent, NkRadioContainerComponent];
+const COMPONENTS = [NkRadioDirective, NkRadioGroupComponent, NkRadioContainerComponent, NkRadioButtonComponent];
 
 @NgModule({
   imports: [

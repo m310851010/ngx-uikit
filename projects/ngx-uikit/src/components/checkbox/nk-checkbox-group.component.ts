@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
 import {NkCheckboxOption} from '../core/type/nk-types';
-import {isArray, isEmpty} from '../core/util/nk-util';
+import {isArray, isEmpty, isNil} from '../core/util/nk-util';
 import {NkBaseCheckbleGroupComponent} from '../radio/nk-base-checkble-group.component';
 
 /**
@@ -63,5 +63,61 @@ export class NkCheckboxGroupComponent extends NkBaseCheckbleGroupComponent<NkChe
     item.nkIndeterminate = indeterminate;
     this.updateModelValue();
     this.nkOnItemChange.emit(item);
+  }
+
+  /**
+   * 更新ngModel
+   * @param emit 是否发布ngModelChange事件
+   */
+  updateModelValue(emit: boolean = true): void {
+    const checkedItems = this._options.filter(val => val.nkChecked);
+    const checkedValues = checkedItems.map(val => val.nkValue);
+    this.modelValue = this.toModelValue(checkedValues);
+    if (emit) {
+      this._onChange(this.modelValue);
+    }
+    this.nkOnChange.emit(checkedItems);
+  }
+
+  /**
+   * 获取用于检测是否选中的函数
+   */
+  // tslint:disable-next-line
+  protected getCheckFn(value: any | null): (_v: any) => boolean {
+    let checked: boolean;
+    return isNil(value)
+      // tslint:disable-next-line
+      ? (_v: any) => false
+      // tslint:disable-next-line
+      : (_v: any) => {
+        if (!checked) {
+          checked = this.compareWith(_v, value);
+          return checked;
+        }
+        return  false;
+      };
+  }
+
+  // tslint:disable-next-line
+  writeValue(obj: any[]): void {
+    this.updateCheckedState(obj);
+  }
+
+  /**
+   * 更新value
+   */
+  // tslint:disable-next-line
+  updateCheckedState(value: any | null): boolean {
+    this.modelValue = this.toModelValue(value);
+
+    if (isEmpty(this._options)) {
+      return false;
+    }
+
+    const fnChecked = this.getCheckFn(this.modelValue);
+    this._options.forEach(it => {
+      it.nkChecked = fnChecked(it.nkValue);
+    });
+    return true;
   }
 }

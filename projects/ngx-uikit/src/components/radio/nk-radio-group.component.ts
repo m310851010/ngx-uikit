@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
 import {NkCheckboxOption, NkRadioOption} from '../core/type/nk-types';
-import {isArray, isNil} from '../core/util/nk-util';
+import {isArray, isEmpty, isNil} from '../core/util/nk-util';
 import {NkBaseCheckbleGroupComponent} from './nk-base-checkble-group.component';
 
 /**
@@ -28,7 +28,7 @@ import {NkBaseCheckbleGroupComponent} from './nk-base-checkble-group.component';
 })
 export class NkRadioGroupComponent extends NkBaseCheckbleGroupComponent<NkRadioOption> {
 
-  _prevOption: NkRadioOption;
+  _prevOption: NkRadioOption | null;
 
   constructor(public _cdr: ChangeDetectorRef) {
     super(_cdr);
@@ -36,13 +36,10 @@ export class NkRadioGroupComponent extends NkBaseCheckbleGroupComponent<NkRadioO
 
   // tslint:disable-next-line
   toModelValue(value: any): any {
-    if (isArray(value) && value.length) {
-      return value[0];
-    }
     return isNil(value) ?  null : value;
   }
 
-  mapOptions(options: NkCheckboxOption[]): NkCheckboxOption[] {
+  mapOptions(options: NkRadioOption[]): NkRadioOption[] {
     let checked = false;
     for (const opt of options) {
       if (checked) {
@@ -86,6 +83,28 @@ export class NkRadioGroupComponent extends NkBaseCheckbleGroupComponent<NkRadioO
     this.nkOnItemChange.emit(item);
   }
 
+  /**
+   * 更新ngModel
+   * @param emit 是否发布ngModelChange事件
+   */
+  updateModelValue(emit: boolean = true): void {
+    let checkedItem: NkRadioOption | null = null;
+    for (const opt of this._options) {
+      if (checkedItem) {
+        opt.nkChecked = false;
+      }
+      if (opt.nkChecked) {
+        checkedItem = opt;
+      }
+    }
+
+    this.modelValue = this.toModelValue(checkedItem ? checkedItem.nkValue : null);
+    if (emit) {
+      this._onChange(this.modelValue);
+    }
+    this.nkOnChange.emit(checkedItem);
+  }
+
   handleItemClick(arg: { nkOption: NkRadioOption, clickEvent: MouseEvent}): void {
     this.nkOnItemClick.emit(arg);
     if (this._prevOption === arg.nkOption) {
@@ -98,21 +117,21 @@ export class NkRadioGroupComponent extends NkBaseCheckbleGroupComponent<NkRadioO
   }
 
   // tslint:disable-next-line
-  updateCheckedState(value: any | null): boolean {
-   const notEmpty = super.updateCheckedState(value);
-   if (notEmpty) {
+  writeValue(obj: any[]): void {
+    this.modelValue = this.toModelValue(obj);
 
-     let checked = false;
-     for (const opt of this._options) {
-       if (checked) {
-         opt.nkChecked = false;
-       }
-       if (opt.nkChecked) {
-         checked = true;
-         this._prevOption = opt;
-       }
-     }
-   }
-   return notEmpty;
+    if (isEmpty(this._options)) {
+      this._prevOption = null;
+      return;
+    }
+
+    const fnChecked = this.getCheckFn(this.modelValue);
+    this._options.forEach(it => {
+      it.nkChecked = fnChecked(it.nkValue);
+      if (it.nkChecked) {
+        this._prevOption = it;
+      }
+    });
   }
+
 }

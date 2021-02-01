@@ -8,7 +8,8 @@
     <input nk-radio (nkOnChange)="trace($event)" [nkLabel]="item.nkLabel" [nkValue]="item.nkValue">
   </label>
 </nk-radio-container>
-
+<br>
+<hr>
 <nk-radio-container [(ngModel)]="value" (nkOnChange)="trace($event)">
   <label *ngFor="let item of nkOptions">
     <input nk-radio (nkOnChange)="trace($event)" [nkLabel]="item.nkLabel" [nkValue]="item.nkValue">

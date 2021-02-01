@@ -174,6 +174,23 @@ export function isPlainObject(obj?: any) {
   return isObject(obj) && Object.getPrototypeOf(obj) === Object.prototype;
 }
 
+// tslint:disable-next-line
+export function isWindow(obj: any) {
+  // @ts-ignore
+  return isObject(obj) && obj === obj.window;
+}
+
+// tslint:disable-next-line
+function nodeType(obj: any) {
+  // @ts-ignore
+  return !isWindow(obj) && isObject(obj) && obj.nodeType;
+}
+
+// tslint:disable-next-line
+export function isNode(obj: any) {
+  return nodeType(obj) >= 1;
+}
+
 /**
  * 使用 === 深度比较两个对象的值是否相等
  * @param o1 第一个对象
@@ -247,10 +264,8 @@ export function isPromise(value: any): value is PromiseLike<any> {
   return value && typeof (value).subscribe !== 'function' && typeof (value).then === 'function';
 }
 
-// tslint:disable-next-line:no-any
-export function toArray<T>(... args: any[]): T[] {
-  return args;
-}
+// @ts-ignore
+export const toArray = Array.from || (value => Array.prototype.slice.call(value));
 
 // tslint:disable-next-line:no-any
 export function toNumber(value: any): number | false {

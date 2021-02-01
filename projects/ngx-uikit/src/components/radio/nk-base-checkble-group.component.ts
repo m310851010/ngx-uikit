@@ -64,7 +64,8 @@ export abstract class NkBaseCheckbleGroupComponent<OPT extends NkCheckable & {nk
   /**
    * 触发ngModelChange的同时触发该事件,当所有复选框都没被选中时返回空数组
    */
-  @Output() nkOnChange = new EventEmitter<OPT[]>();
+    // tslint:disable-next-line
+  @Output() nkOnChange = new EventEmitter<any>();
   /**
    * 当前复选框状态改变时触发该事件
    */
@@ -156,30 +157,7 @@ export abstract class NkBaseCheckbleGroupComponent<OPT extends NkCheckable & {nk
    * 获取用于检测是否选中的函数
    */
   // tslint:disable-next-line
-  protected getCheckFn(value: any[] | null): (_v: any) => boolean {
-    return isEmpty(value)
-      // tslint:disable-next-line
-      ? (_v: any) => false
-      // tslint:disable-next-line
-      : (_v: any) => (value as any[]).some(it => this.compareWith(_v, it));
-  }
-
-  /**
-   * 更新ngModel
-   * @param emit 是否发布ngModelChange事件
-   */
-  updateModelValue(emit: boolean = true): void {
-    const checkedItems = this._options.filter(val => val.nkChecked);
-    const checkedValues = checkedItems.map(val => val.nkValue);
-    this.modelValue = this.toModelValue(checkedValues);
-    if (emit) {
-      this._onChange(this.modelValue);
-    }
-    this.nkOnChange.emit(checkedItems);
-  }
-
-  // tslint:disable-next-line
-  abstract toModelValue(value: any): any;
+  protected abstract getCheckFn(value: any[] | null): (_v: any) => boolean ;
 
   registerOnChange(fn: (_: object | null) => { }): void {
     this._onChange = fn;
@@ -193,29 +171,6 @@ export abstract class NkBaseCheckbleGroupComponent<OPT extends NkCheckable & {nk
     this._disabled = isDisabled;
   }
 
-  // tslint:disable-next-line
-  writeValue(obj: any[]): void {
-    this.updateCheckedState(obj);
-  }
-
-  /**
-   * 更新value
-   */
-  // tslint:disable-next-line
-  updateCheckedState(value: any | null): boolean {
-    this.modelValue = this.toModelValue(value);
-
-    if (isEmpty(this._options)) {
-      return false;
-    }
-
-    const fnChecked = this.getCheckFn(this.modelValue);
-    this._options.forEach(it => {
-      it.nkChecked = fnChecked(it.nkValue);
-    });
-    return true;
-  }
-
   ngOnDestroy(): void {
     this.unSubscribeOptions();
   }
@@ -225,4 +180,7 @@ export abstract class NkBaseCheckbleGroupComponent<OPT extends NkCheckable & {nk
       this.subscribeOptions(isObservable(this.nkOptions) ? this.nkOptions : of(this.nkOptions));
     }
   }
+
+  // tslint:disable-next-line
+  abstract writeValue(obj: any): void;
 }
