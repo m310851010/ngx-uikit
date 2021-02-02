@@ -1,9 +1,7 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, forwardRef, OnInit, Output, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ElementRef, EventEmitter, forwardRef, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {NkRadioOption} from '../core/type/nk-types';
-import {isEmpty, isNil, isNotNil} from '../core/util/nk-util';
-import {BehaviorSubject} from 'rxjs';
-import {debounceTime, filter} from 'rxjs/operators';
+import {isEmpty, isNil} from '../core/util/nk-util';
 import {NkRadioDirective} from './nk-radio.directive';
 
 /**
@@ -47,23 +45,13 @@ export class NkRadioContainerComponent implements OnInit, ControlValueAccessor {
    * 所有子节点的checkbox
    */
   _childrenNodes: NkRadioDirective[] = [];
-  /**
-   * 注册子组件
-   */
-  _childrenRegister = new BehaviorSubject<NkRadioDirective | null>(null);
   _prevChecked?: NkRadioDirective;
   _onChange = (_: object | null) => { };
   _onTouched = () => { };
 
-  constructor() { }
+  constructor(public elementRef: ElementRef) { }
 
   ngOnInit(): void {
-    this._childrenRegister
-      .pipe(filter(it => isNotNil(it)), debounceTime(60))
-      .subscribe(node => {
-        // tslint:disable-next-line:no-any
-        this.updateChildrenCheckedState(node as NkRadioDirective);
-      });
   }
 
   registerOnChange(fn: (_: object | null) => { }): void {
@@ -77,7 +65,12 @@ export class NkRadioContainerComponent implements OnInit, ControlValueAccessor {
   // tslint:disable-next-line
   writeValue(value: any): void {
     this.modelValue = isNil(value) ? null : value;
+    this._childrenNodes.forEach(child => child.modelValue = this.modelValue);
     this.updateChildrenCheckedState();
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this._childrenNodes.forEach(value => value.setDisabledState(isDisabled));
   }
 
   updateChildrenCheckedState(node?: NkRadioDirective): void {
@@ -130,7 +123,7 @@ export class NkRadioContainerComponent implements OnInit, ControlValueAccessor {
    */
   registerChild(node: NkRadioDirective): void {
     this._childrenNodes.push(node);
-    this._childrenRegister.next(node);
+    node.modelValue = this.modelValue;
 
     // @ts-ignore
     node.nkOnChange.subscribe(childValue => {

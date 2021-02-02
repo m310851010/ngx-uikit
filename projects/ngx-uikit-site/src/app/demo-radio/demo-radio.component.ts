@@ -10,14 +10,19 @@ export class DemoRadioComponent implements OnInit {
 
   value = '2';
   nkOptions: NkRadioOption[] = [
-    {nkLabel: 'dddd', nkValue: '1', nkChecked: true},
-    {nkLabel: 'dddd', nkValue: '2', nkChecked: true}
+    {nkLabel: 'AAA', nkValue: '1', nkChecked: true},
+    {nkLabel: 'BBB', nkValue: '2'},
+    {nkLabel: 'CCC', nkValue: '3'}
     ];
   constructor() { }
 
   ngOnInit(): void {
     setTimeout(() => {
     }, 2000);
+  }
+
+  changeValue(): void {
+    this.value = '3';
   }
 
   // tslint:disable-next-line:no-any

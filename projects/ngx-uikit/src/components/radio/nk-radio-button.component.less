@@ -1,0 +1,14 @@
+.nk-button {
+  .inner-radio {
+    position: absolute;
+    clip: rect(0,0,0,0);
+    pointer-events: none;
+  }
+}
+
+.nk-button-default.active {&:extend(.nk-button-default:focus);}
+.nk-button-primary.active {&:extend(.nk-button-primary:focus);}
+.nk-button-secondary.active {&:extend(.nk-button-secondary:focus);}
+.nk-button-danger.active {&:extend(.nk-button-danger:focus);}
+.nk-button-link.active {&:extend(.nk-button-link:focus);}
+.nk-button-text.active {&:extend(.nk-button-text:focus);}

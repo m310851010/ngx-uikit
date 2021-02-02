@@ -44,15 +44,12 @@ export class NkCheckboxDirective extends NkBaseCheckble implements OnInit, OnCha
   }
 
   get nkIndeterminate(): boolean {
-    this._indeterminate = this.elementRef.nativeElement.indeterminate;
+    this._indeterminate = this._elementRef.nativeElement.indeterminate;
     return this._indeterminate;
   }
 
-  /**
-   * 如果父组件是nk-checkbox-container(NkCheckboxContainerComponent)时,
-   * 是否向父组件注册, 如果不注册将不受nk-checkbox-container控制
-   */
-  @Input() nkRegisterContainer = true;
+  // tslint:disable-next-line
+  private _checkedStateFn: (newValue: any, nkValue: any) => boolean;
 
   constructor(
     public elementRef: ElementRef,
@@ -60,14 +57,23 @@ export class NkCheckboxDirective extends NkBaseCheckble implements OnInit, OnCha
     @Optional() @Host() @Inject(forwardRef(() => NkCheckboxContainerComponent))
     public container: NkCheckboxContainerComponent) {
     super(elementRef, render);
-    this.render.addClass(this.elementRef.nativeElement, 'nk-checkbox');
+    this.render.addClass(this._elementRef.nativeElement, 'nk-checkbox');
   }
 
   ngOnInit(): void {
     if (this.container && this.nkRegisterContainer) {
+      // @ts-ignore
+      this._checkedStateFn = (newValue, nkValue) => (newValue || []).some(it => this.compareWith(it, nkValue));
       this.container.registerChild(this);
+    } else {
+      this._checkedStateFn = (newValue, nkValue) => this.compareWith(newValue, nkValue);
     }
     super.ngOnInit();
+  }
+
+  // tslint:disable-next-line
+  protected getCheckedState4ModelValue(newValue: any, nkValue: any): boolean {
+    return this._checkedStateFn(newValue, nkValue);
   }
 
   ngOnDestroy(): void {

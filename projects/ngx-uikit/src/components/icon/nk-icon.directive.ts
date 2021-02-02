@@ -14,7 +14,7 @@ import {findAll} from '../core/util/ui-util';
   selector: '[nk-icon]',
   exportAs: 'nkIcon',
   host: {
-    class: 'nk-icon',
+    '[class.nk-spin]': 'nkSpin'
   }
 })
 export class NkIconDirective implements OnChanges {
@@ -23,6 +23,11 @@ export class NkIconDirective implements OnChanges {
   @Input() nkRotate = 0;
   @Input() nkWidth = 20;
   @Input() nkHeight = 20;
+  /**
+   * 是否旋转动画
+   */
+  @Input() nkSpin: boolean;
+
   /**
    * 是否执行stroke动画
    */
@@ -33,7 +38,9 @@ export class NkIconDirective implements OnChanges {
     public iconService: NkIconService,
     public elementRef: ElementRef,
     public renderer: Renderer2,
-  ) { }
+  ) {
+    this.renderer.addClass( this.elementRef.nativeElement, 'nk-icon');
+  }
 
   ngOnChanges(changes: { [K in keyof this]?: SimpleChange } & SimpleChanges): void {
     if (changes.nkIcon) {

@@ -84,18 +84,11 @@ export class NkCheckboxGroupComponent extends NkBaseCheckbleGroupComponent<NkChe
    */
   // tslint:disable-next-line
   protected getCheckFn(value: any | null): (_v: any) => boolean {
-    let checked: boolean;
     return isNil(value)
       // tslint:disable-next-line
       ? (_v: any) => false
       // tslint:disable-next-line
-      : (_v: any) => {
-        if (!checked) {
-          checked = this.compareWith(_v, value);
-          return checked;
-        }
-        return  false;
-      };
+      : (_v: any) => (value as any[]).some(it => this.compareWith(_v, it));
   }
 
   // tslint:disable-next-line

@@ -51,24 +51,12 @@ export class NkCheckboxContainerComponent implements OnInit, ControlValueAccesso
    * 所有子节点的checkbox
    */
   _childrenNodes: NkCheckboxDirective[] = [];
-  /**
-   * 注册子组件
-   */
-  _childrenRegister = new BehaviorSubject<NkCheckboxDirective | null>(null);
   _onChange = (_: object | null) => { };
   _onTouched = () => { };
 
   constructor() { }
 
   ngOnInit(): void {
-    this._childrenRegister
-      .pipe(filter(it => isNotNil(it)), debounceTime(60))
-      .subscribe(node => {
-        if (node) {
-          // tslint:disable-next-line
-          node.setCheckedState((this.modelValue as any[]).some(it => node.compareWith(it, node.nkValue)));
-        }
-    });
   }
 
   registerOnChange(fn: (_: object | null) => { }): void {
@@ -82,7 +70,12 @@ export class NkCheckboxContainerComponent implements OnInit, ControlValueAccesso
   // tslint:disable-next-line
   writeValue(value: any[]): void {
     this.modelValue = isEmpty(value) ? null : (isArray(value) ? value : [value]);
+    this._childrenNodes.forEach(child => child.modelValue = this.modelValue);
     this.updateChildrenCheckedState();
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this._childrenNodes.forEach(value => value.setDisabledState(isDisabled));
   }
 
   updateChildrenCheckedState(): void {
@@ -99,10 +92,7 @@ export class NkCheckboxContainerComponent implements OnInit, ControlValueAccesso
       return ;
     }
 
-    this._childrenNodes.forEach(ck => {
-      // tslint:disable-next-line
-      ck.setCheckedState((this.modelValue as any[]).some(it => ck.compareWith(it, ck.nkValue)));
-    });
+    this._childrenNodes.forEach(ck => ck.updateCheckedState());
   }
 
   /**
@@ -126,7 +116,9 @@ export class NkCheckboxContainerComponent implements OnInit, ControlValueAccesso
    */
   registerChild(child: NkCheckboxDirective): void {
     this._childrenNodes.push(child);
-    this._childrenRegister.next(child);
+    child.modelValue = this.modelValue;
+    child.updateCheckedState();
+
     child.nkOnChange.subscribe(() => {
       this.updateModelValue();
       this.nkOnItemChange.emit(this._childToNkCheckboxOption(child));

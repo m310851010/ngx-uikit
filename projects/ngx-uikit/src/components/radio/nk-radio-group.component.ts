@@ -5,8 +5,8 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
-import {NkCheckboxOption, NkRadioOption} from '../core/type/nk-types';
-import {isArray, isEmpty, isNil} from '../core/util/nk-util';
+import {NkRadioOption} from '../core/type/nk-types';
+import {isEmpty, isNil} from '../core/util/nk-util';
 import {NkBaseCheckbleGroupComponent} from './nk-base-checkble-group.component';
 
 /**
@@ -133,5 +133,4 @@ export class NkRadioGroupComponent extends NkBaseCheckbleGroupComponent<NkRadioO
       }
     });
   }
-
 }

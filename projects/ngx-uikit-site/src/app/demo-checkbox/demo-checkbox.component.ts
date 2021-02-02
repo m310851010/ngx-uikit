@@ -9,7 +9,8 @@ import {CompareWith, NkCheckboxOption, ValueFormat} from '../../../../ngx-uikit/
   styleUrls: ['./demo-checkbox.component.less']
 })
 export class DemoCheckboxComponent implements OnInit {
-
+  containerModelValue = [1, 5];
+  stringModelValue = '222';
   stringOptions: string[] = ['111', '222'];
   numberOptions: number[] = [1, 2];
   singleString = '单字符串';
@@ -19,7 +20,6 @@ export class DemoCheckboxComponent implements OnInit {
     return [{nkLabel: 'Async语文', nkValue: 1}, {nkLabel: 'Async数学', nkValue: 2}, {nkLabel: 'Async英语', nkValue: 3}];
   }));
   anyObjectOptions: NkCheckboxOption[] = [{name: '高级', code: 'hight', sss: 'ddd'}, {name: '中级', code: 'middle'}, {name: '初级', code: 'normal'}];
-
   anyValueOptions: NkCheckboxOption[] = [
     {name: '开发', info: {name: 'zhangSan', id: 1}},
     {name: '测试', info: {name: 'LiSi', id: 2} },
@@ -51,7 +51,11 @@ export class DemoCheckboxComponent implements OnInit {
 
   ngOnInit(): void {
     this.anyValueModel = [this.anyValueOptions[1].info];
-    setTimeout(() => this.changeData(), 5000);
+
+    setTimeout(() => {
+      this.changeData();
+      this.objectOptions = [...this.objectOptions, {nkLabel: '化学', nkValue: 5}];
+    }, 5000);
   }
 
   changeData(): void {

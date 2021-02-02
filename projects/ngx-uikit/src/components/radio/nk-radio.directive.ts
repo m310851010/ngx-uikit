@@ -11,6 +11,7 @@ import {
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
 import {NkBaseCheckble} from './nk-base-checkble';
 import {NkRadioContainerComponent} from './nk-radio-container.component';
+import {isNil} from '../core/util/nk-util';
 
 @Directive({
   // tslint:disable-next-line:directive-selector
@@ -36,7 +37,7 @@ export class NkRadioDirective extends NkBaseCheckble implements OnInit, OnDestro
     @Optional() @Host() @Inject(forwardRef(() => NkRadioContainerComponent))
     public container: NkRadioContainerComponent) {
     super(elementRef, render);
-    this.render.addClass(this.elementRef.nativeElement, 'nk-radio');
+    this.render.addClass(this._elementRef.nativeElement, 'nk-radio');
   }
 
   ngOnInit(): void {
@@ -44,6 +45,11 @@ export class NkRadioDirective extends NkBaseCheckble implements OnInit, OnDestro
       this.container.registerChild(this);
     }
     super.ngOnInit();
+  }
+
+  // tslint:disable-next-line
+  protected getCheckedState4ModelValue(newValue: any, nkValue: any): boolean {
+    return this.compareWith(newValue, this.nkValue);
   }
 
   ngOnDestroy(): void {

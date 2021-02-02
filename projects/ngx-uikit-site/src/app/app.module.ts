@@ -11,6 +11,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {NgxUikitModule} from '../../../ngx-uikit/src/components/ngx-uikit.module';
 import { DemoRadioComponent } from './demo-radio/demo-radio.component';
+import { DemoIconComponent } from './demo-icon/demo-icon.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { DemoRadioComponent } from './demo-radio/demo-radio.component';
     DemoCheckboxComponent,
     DemoButtonComponent,
     DemoRadioComponent,
+    DemoIconComponent,
   ],
   imports: [
     BrowserModule,

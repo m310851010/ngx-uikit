@@ -112,3 +112,6 @@ export interface NkRadioOption extends NkCheckable {
    */
   nkChecked?: boolean | null;
 }
+
+export type NkButtonType = 'default' | 'primary' | 'secondary' | 'danger' | 'text' | 'link';
+export type NkButtonSize = 'large' | 'small' | 'default';

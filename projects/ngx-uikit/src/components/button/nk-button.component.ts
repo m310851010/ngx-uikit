@@ -6,7 +6,7 @@ import {
   SimpleChange, SimpleChanges,
   ViewEncapsulation
 } from '@angular/core';
-import {NkIcon} from '../core/type/nk-types';
+import {NkButtonSize, NkButtonType, NkIcon} from '../core/type/nk-types';
 
 @Component({
   selector: '[nk-button]',
@@ -87,6 +87,3 @@ export class NkButtonComponent implements OnChanges {
     }
   }
 }
-
-export type NkButtonType = 'default' | 'primary' | 'secondary' | 'danger' | 'text' | 'link';
-export type NkButtonSize = 'large' | 'small' | 'default';
