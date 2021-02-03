@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {NkBaseCheckble} from '../radio/nk-base-checkble';
-import {NkCheckboxContainerComponent} from './nk-checkbox-container.component';
+import {NkCheckboxGroupComponent} from './nk-checkbox-group.component';
 
 /**
  * checkbox指令, 注:不需要添加type="checkbox"
@@ -54,8 +54,8 @@ export class NkCheckboxDirective extends NkBaseCheckble implements OnInit, OnCha
   constructor(
     public elementRef: ElementRef,
     public render: Renderer2,
-    @Optional() @Host() @Inject(forwardRef(() => NkCheckboxContainerComponent))
-    public container: NkCheckboxContainerComponent) {
+    @Optional() @Host() @Inject(forwardRef(() => NkCheckboxGroupComponent))
+    public container: NkCheckboxGroupComponent) {
     super(elementRef, render);
     this.render.addClass(this._elementRef.nativeElement, 'nk-checkbox');
   }
