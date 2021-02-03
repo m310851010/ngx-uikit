@@ -1,0 +1,19 @@
+@import "../style/form.less";
+
+/*
+ * Disabled
+ */
+.nk-input.disabled {
+  &:extend(.nk-input:disabled);
+}
+.nk-select.disabled {
+  &:extend(.nk-select:disabled);
+}
+.nk-textarea.disabled {
+  &:extend(.nk-textarea:disabled);
+}
+
+
+.nk-file {
+  &:extend(.nk-form-custom input[type="file"]);
+}

@@ -14,6 +14,7 @@ import {NkRadioDirective} from './nk-radio.directive';
 import {NkRadioGroupComponent} from './nk-radio-group.component';
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
 import {NkButtonSize, NkButtonType} from '../core/type/nk-types';
+import {addClass, removeClass} from '../core/util/ui-util';
 
 @Component({
   selector: '[nk-radio-button]',
@@ -42,6 +43,8 @@ import {NkButtonSize, NkButtonType} from '../core/type/nk-types';
     '[class.nk-button-small]': `nkSize === 'small'`,
     '[class.nk-button-large]': `nkSize === 'large'`,
     '[class.uk-width-1-1]': 'nkBlock',
+    '[class.disabled]': 'disabled',
+    '[class.overlay-disabled]': 'disabled'
   }
 })
 export class NkRadioButtonComponent extends NkRadioDirective implements OnInit, OnChanges {
@@ -67,15 +70,14 @@ export class NkRadioButtonComponent extends NkRadioDirective implements OnInit, 
     @Optional() @Host() @Inject(forwardRef(() => NkRadioGroupComponent))
     public container: NkRadioGroupComponent) {
     super(elementRef, render, container);
-    this.render.removeClass(this.elementRef.nativeElement, 'nk-radio');
-    this.render.addClass(this.elementRef.nativeElement, 'nk-button');
-    this.render.addClass(this.elementRef.nativeElement, 'nk-button-default');
+    removeClass(this.elementRef, 'nk-radio');
+    addClass(this.elementRef, 'nk-button nk-button-default');
   }
 
   ngOnInit(): void {
     this._elementRef = this.inputElement;
     if (this.container) {
-      this.render.addClass(this.container.elementRef.nativeElement, 'nk-button-group');
+      addClass(this.container.elementRef, 'nk-button-group');
     }
     super.ngOnInit();
   }
@@ -115,22 +117,5 @@ export class NkRadioButtonComponent extends NkRadioDirective implements OnInit, 
 
   setDisabledState(isDisabled: boolean): void {
     super.setDisabledState(isDisabled);
-    this.setButtonDisabled(isDisabled);
-  }
-  ngOnChanges(changes: { [K in keyof this]?: SimpleChange } & SimpleChanges): void {
-    super.ngOnChanges(changes);
-    if (changes.nkDisabled) {
-      this.setButtonDisabled(this.nkDisabled);
-    }
-  }
-
-  setButtonDisabled(isDisabled: boolean): void {
-    if (isDisabled) {
-      this.render.addClass(this.elementRef.nativeElement, 'disabled');
-      this.render.addClass(this.elementRef.nativeElement, 'overlay-disabled');
-    } else {
-      this.render.removeClass(this.elementRef.nativeElement, 'disabled');
-      this.render.removeClass(this.elementRef.nativeElement, 'overlay-disabled');
-    }
   }
 }

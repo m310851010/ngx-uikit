@@ -1,5 +1,6 @@
 
 import {isObservable as rxIsObservable, Observable} from 'rxjs';
+import {_isNumberValue, coerceBooleanProperty} from '@angular/cdk/coercion';
 const {hasOwnProperty} = Object.prototype;
 
 // tslint:disable-next-line:no-any
@@ -267,11 +268,16 @@ export function isPromise(value: any): value is PromiseLike<any> {
 // @ts-ignore
 export const toArray = Array.from || (value => Array.prototype.slice.call(value));
 
-// tslint:disable-next-line:no-any
-export function toNumber(value: any): number | false {
-  const num = Number(value);
-  return !isNaN(num) ? num : false;
+export function toNumber(value: number | string): number;
+export function toNumber<D>(value: number | string, fallback: D): number | D;
+export function toNumber(value: number | string, fallbackValue: number = 0): number {
+  return _isNumberValue(value) ? Number(value) : fallbackValue;
 }
+
+/**
+ * 转换为boolean 值
+ */
+export const toBoolean = coerceBooleanProperty;
 
 // tslint:disable
 export function noop() { }

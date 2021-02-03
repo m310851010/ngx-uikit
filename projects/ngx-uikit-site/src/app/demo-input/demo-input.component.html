@@ -1,0 +1,56 @@
+nk-size
+<br>
+<nk-radio-group [(ngModel)]="nkSize">
+  <label nk-radio-button nkValue="large">大</label>
+  <label nk-radio-button nkValue="default">中</label>
+  <label nk-radio-button nkValue="small">小</label>
+</nk-radio-group>
+<br>
+<hr>
+<input nk-input [nkSize]="nkSize" [(ngModel)]="value" [disabled]="true">
+
+<br>
+<br> 静态文本
+<hr>
+<div nk-input nkSize="small"  [disabled]="true">这是静态文本</div>
+
+<br>
+<br>
+无边框静态文本
+<hr>
+<div nk-input [nkBlank]="true" nkSize="small">这是静态文本</div>
+
+
+<br>
+<br>
+无边框文本框
+<hr>
+
+<input nk-input [nkSize]="nkSize" [nkBlank]="true" [(ngModel)]="value" >
+<input nk-input [nkSize]="nkSize" [disabled]="true" [(ngModel)]="value">
+
+
+<br>
+各种input type
+<br>
+
+<input type="date" nk-input>
+<input type="month" nk-input>
+<input type="time" nk-input>
+<input type="tel" nk-input>
+<input type="color" nk-input>
+<input type="email" nk-input>
+<input type="number" nk-input>
+<input type="range" nk-input>
+
+<br>
+nkState
+<br>
+<nk-radio-group [(ngModel)]="nkState">
+  <label nk-radio-button nkValue="danger">danger</label>
+  <label nk-radio-button nkValue="default">default</label>
+  <label nk-radio-button nkValue="success">success</label>
+</nk-radio-group>
+<br>
+<br>
+<input [nkState]="nkState"  [(ngModel)]="value" nk-input>

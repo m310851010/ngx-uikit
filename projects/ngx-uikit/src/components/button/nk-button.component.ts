@@ -2,11 +2,12 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  Input, OnChanges, Renderer2,
-  SimpleChange, SimpleChanges,
+  Input, Optional, Renderer2, Self,
   ViewEncapsulation
 } from '@angular/core';
 import {NkButtonSize, NkButtonType, NkIcon} from '../core/type/nk-types';
+import {addClass} from '../core/util/ui-util';
+import {NgControl} from '@angular/forms';
 
 @Component({
   selector: '[nk-button]',
@@ -24,10 +25,12 @@ import {NkButtonSize, NkButtonType, NkIcon} from '../core/type/nk-types';
     '[class.nk-button-small]': `nkSize === 'small'`,
     '[class.nk-button-large]': `nkSize === 'large'`,
     '[class.uk-width-1-1]': 'nkBlock',
-    '[class.overlay]': 'nkOverlay'
+    '[class.overlay]': 'nkOverlay',
+    '[class.disabled]': 'disabled',
+    '[class.overlay-disabled]': 'disabled'
   }
 })
-export class NkButtonComponent implements OnChanges {
+export class NkButtonComponent {
 
   /**
    * 是否循环旋转图标,如果nkLoading为true, nkIcon为空则默认显示loading图标
@@ -41,10 +44,6 @@ export class NkButtonComponent implements OnChanges {
    * 按钮类型
    */
   @Input() nkType: NkButtonType = 'default';
-  /**
-   * 是否禁用,按钮使用disabled属性, 其他元素使用样式控制
-   */
-  @Input() nkDisabled: boolean;
 
   /**
    * 显示的图标
@@ -59,31 +58,14 @@ export class NkButtonComponent implements OnChanges {
    */
   @Input() nkOverlay: boolean;
 
+  /**
+   * 是否禁用
+   */
+  @Input() disabled: boolean;
+
   constructor(public elementRef: ElementRef,
-              public render: Renderer2) {
-    this.elementRef.nativeElement.classList.add('nk-button');
-  }
-
-  ngOnChanges(changes: { [K in keyof this]?: SimpleChange } & SimpleChanges): void {
-    if (changes.nkDisabled) {
-      const node = this.elementRef.nativeElement;
-      if (!node.tagName) {
-        return;
-      }
-
-      const tagName = node.tagName.toLowerCase();
-      if (tagName === 'button' || (tagName === 'input' && node.type === 'button')) {
-        this.render.setProperty(node, 'disabled', this.nkDisabled);
-        return;
-      }
-
-      if (this.nkDisabled) {
-        this.render.addClass(node, 'disabled');
-        this.render.addClass(node, 'overlay-disabled');
-      } else {
-        this.render.removeClass(node, 'disabled');
-        this.render.removeClass(node, 'overlay-disabled');
-      }
-    }
+              public render: Renderer2,
+              @Optional() @Self() public ngControl: NgControl) {
+    addClass(this.elementRef, 'nk-button');
   }
 }

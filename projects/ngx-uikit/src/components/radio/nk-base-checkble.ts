@@ -51,7 +51,7 @@ export abstract class NkBaseCheckble implements OnInit, OnChanges, OnDestroy, Co
   /**
    * 禁用状态
    */
-  @Input() nkDisabled = false;
+  @Input() disabled = false;
 
   /**
    * 触发ngModelChange的同时触发该事件
@@ -90,7 +90,7 @@ export abstract class NkBaseCheckble implements OnInit, OnChanges, OnDestroy, Co
   }
 
   setDisabledState(isDisabled: boolean): void {
-    this.nkDisabled = isDisabled;
+    this.disabled = isDisabled;
   }
 
   writeValue(value: object): void {

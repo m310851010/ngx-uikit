@@ -147,7 +147,7 @@ export class NkRadioGroupComponent implements OnInit, ControlValueAccessor {
       nkValue: node.nkValue,
       nkChecked: node.nkValue !== null,
       nkLabel: node.nkLabel,
-      nkDisabled: node.nkDisabled,
+      nkDisabled: node.disabled,
     } as NkRadioOption;
   }
 

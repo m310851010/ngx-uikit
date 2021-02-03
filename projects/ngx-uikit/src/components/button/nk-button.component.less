@@ -1,10 +1,5 @@
-
-@import "../global-component.less";
 @import "../style/margin.less";
 @import "../style/button.less";
-
-@button-text-transform:                         none;
-
 .inner-button-element:not(:empty){
   .nk-margin-small-left();
 }
@@ -33,6 +28,8 @@
 
 /*Overlay*/
 .nk-button {
+  position: relative;
+
   .overlayBeforeFn() {
     position: absolute;
     top: -1px;
@@ -46,8 +43,6 @@
     content: "";
     pointer-events: none;
   }
-
-  text-transform: none;
 
   &.overlay {
     position: relative;

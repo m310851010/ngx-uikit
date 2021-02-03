@@ -4,10 +4,10 @@ import {
   forwardRef,
   Host,
   Inject,
-  Input, OnChanges, OnDestroy, OnInit, Optional,
+  Input, OnDestroy, OnInit, Optional,
   Renderer2
 } from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {NG_VALUE_ACCESSOR} from '@angular/forms';
 import {NkBaseCheckble} from '../radio/nk-base-checkble';
 import {NkCheckboxGroupComponent} from './nk-checkbox-group.component';
 
@@ -27,13 +27,13 @@ import {NkCheckboxGroupComponent} from './nk-checkbox-group.component';
   host: {
     type: 'checkbox',
     '[indeterminate]': '_indeterminate',
-    '[disabled]': 'nkDisabled',
+    '[disabled]': 'disabled',
     '(change)': 'handleCheckedState($event.target.checked)',
     '(click)': 'nkOnItemClick.emit($event)',
     '(blur)': '_onTouched()'
   }
 })
-export class NkCheckboxDirective extends NkBaseCheckble implements OnInit, OnChanges, OnDestroy, ControlValueAccessor {
+export class NkCheckboxDirective extends NkBaseCheckble implements OnInit, OnDestroy {
 
   _indeterminate = false;
   /**

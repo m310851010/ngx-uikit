@@ -11,10 +11,11 @@ import {
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
 import {NkBaseCheckble} from './nk-base-checkble';
 import {NkRadioGroupComponent} from './nk-radio-group.component';
+import {addClass} from '../core/util/ui-util';
 
 @Directive({
   // tslint:disable-next-line:directive-selector
-  selector: '[nk-radio]',
+  selector: 'input[nk-radio]',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => NkRadioDirective),
@@ -22,7 +23,7 @@ import {NkRadioGroupComponent} from './nk-radio-group.component';
   }],
   host: {
     type: 'radio',
-    '[disabled]': 'nkDisabled',
+    '[disabled]': 'disabled',
     '(change)': 'handleCheckedState($event.target.checked)',
     '(click)': 'nkOnItemClick.emit($event)',
     '(blur)': '_onTouched()'
@@ -36,7 +37,7 @@ export class NkRadioDirective extends NkBaseCheckble implements OnInit, OnDestro
     @Optional() @Host() @Inject(forwardRef(() => NkRadioGroupComponent))
     public container: NkRadioGroupComponent) {
     super(elementRef, render);
-    this.render.addClass(this._elementRef.nativeElement, 'nk-radio');
+    addClass(this._elementRef, 'nk-radio');
   }
 
   ngOnInit(): void {

@@ -1,7 +1,7 @@
 // tslint:disable-next-line
 import {ValueFormat} from '../type/nk-types';
 import {isFunction, isNode, isNotNil, isString, toArray} from './nk-util';
-import {TemplateRef} from '@angular/core';
+import {ElementRef, TemplateRef} from '@angular/core';
 
 /**
  * 根据ValueFormat转换为函数
@@ -83,4 +83,33 @@ export function find<T extends Element>(selector: string, context?: Element): El
 
 export function findAll<T extends Element>(selector: string, context?: Element): T[] {
   return toNodes<T>((context || document).querySelectorAll(selector));
+}
+
+export function coerceElement<T>(elementOrRef: ElementRef<T> | T): T {
+  return elementOrRef instanceof ElementRef ? elementOrRef.nativeElement : elementOrRef;
+}
+
+function getClazz(className: string | string[]): string[] {
+  return isString(className) ? className.split(/\s+/) : className;
+}
+
+export function addClass<T extends Element>(elementOrRef: ElementRef<T> | T, className: string | string[]): void {
+  if (elementOrRef && className) {
+    const ele = coerceElement<T>(elementOrRef);
+    ele.classList.add.apply(ele.classList, getClazz(className));
+  }
+}
+
+export function removeClass<T extends Element>(elementOrRef: ElementRef<T> | T, className: string | string[]): void {
+  if (elementOrRef && className) {
+    const ele = coerceElement<T>(elementOrRef);
+    ele.classList.remove.apply(ele.classList, getClazz(className));
+  }
+}
+
+export function toggleClass<T extends Element>(elementOrRef: ElementRef<T> | T, className: string | string[]): void {
+  if (elementOrRef && className) {
+    const ele = coerceElement<T>(elementOrRef);
+    ele.classList.toggle.apply(ele.classList, getClazz(className));
+  }
 }

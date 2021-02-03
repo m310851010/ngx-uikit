@@ -134,7 +134,7 @@ export class NkCheckboxGroupComponent implements OnInit, ControlValueAccessor {
       nkValue: checkbox.nkValue,
       nkChecked: checkbox.nkValue !== null,
       nkLabel: checkbox.nkLabel,
-      nkDisabled: checkbox.nkDisabled,
+      nkDisabled: checkbox.disabled,
       nkIndeterminate: checkbox.nkIndeterminate
     } as NkCheckboxOption;
   }

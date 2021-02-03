@@ -6,6 +6,7 @@ import {
   SimpleChange, SimpleChanges,
   ViewEncapsulation
 } from '@angular/core';
+import {addClass} from '../core/util/ui-util';
 
 @Component({
   selector: 'nk-button-group',
@@ -19,7 +20,7 @@ import {
     '[class.nk-button-group-default]': `nkSize === 'default'`,
   }
 })
-export class NkButtonGroupComponent implements OnChanges {
+export class NkButtonGroupComponent {
 
   /**
    * 按钮大小
@@ -27,11 +28,7 @@ export class NkButtonGroupComponent implements OnChanges {
   @Input() nkSize: NkButtonGroupSize = 'default';
 
   constructor(public elementRef: ElementRef, public render: Renderer2) {
-    this.elementRef.nativeElement.classList.add('nk-button-group');
-  }
-
-  ngOnChanges(changes: { [K in keyof this]?: SimpleChange } & SimpleChanges): void {
-
+    addClass(this.elementRef, 'nk-button-group');
   }
 }
 

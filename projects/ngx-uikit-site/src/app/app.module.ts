@@ -12,6 +12,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {NgxUikitModule} from '../../../ngx-uikit/src/components/ngx-uikit.module';
 import { DemoRadioComponent } from './demo-radio/demo-radio.component';
 import { DemoIconComponent } from './demo-icon/demo-icon.component';
+import { DemoInputComponent } from './demo-input/demo-input.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { DemoIconComponent } from './demo-icon/demo-icon.component';
     DemoButtonComponent,
     DemoRadioComponent,
     DemoIconComponent,
+    DemoInputComponent,
   ],
   imports: [
     BrowserModule,

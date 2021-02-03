@@ -4,6 +4,8 @@ import {NkIconModule} from './icon/nk-icon.module';
 import {NkRadioModule} from './radio/nk-radio.module';
 import {NkCheckboxModule} from './checkbox/nk-checkbox.module';
 import {NkButtonModule} from './button/nk-button.module';
+import {NkInputModule} from './input/nk-input.module';
+import {NkFileModule} from './file/nk-file.module';
 
 @NgModule({
   exports: [
@@ -11,9 +13,10 @@ import {NkButtonModule} from './button/nk-button.module';
     NkIconModule,
     NkRadioModule,
     NkCheckboxModule,
-    NkButtonModule
+    NkButtonModule,
+    NkInputModule,
+    NkFileModule
   ],
-  declarations: []
 })
 export class NgxUikitModule {
 }
