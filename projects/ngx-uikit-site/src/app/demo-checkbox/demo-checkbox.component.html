@@ -1,36 +1,36 @@
 stringOptions
-<nk-checkbox-group [nkOptions]="stringOptions" [(ngModel)]="stringModelValue"></nk-checkbox-group>
+<nk-checkbox-list [nkOptions]="stringOptions" [(ngModel)]="stringModelValue"></nk-checkbox-list>
 
 <br>numberOptions
-<nk-checkbox-group [nkOptions]="numberOptions"></nk-checkbox-group>
+<nk-checkbox-list [nkOptions]="numberOptions"></nk-checkbox-list>
 
 <br>singleString
-<nk-checkbox-group [nkOptions]="singleString"></nk-checkbox-group>
+<nk-checkbox-list [nkOptions]="singleString"></nk-checkbox-list>
 
 <br>singleNumber
-<nk-checkbox-group [nkOptions]="singleNumber"></nk-checkbox-group>
+<nk-checkbox-list [nkOptions]="singleNumber"></nk-checkbox-list>
 
 <br>objectOptions
-<nk-checkbox-group [nkOptions]="objectOptions" [(ngModel)]="containerModelValue"></nk-checkbox-group>
+<nk-checkbox-list [nkOptions]="objectOptions" [(ngModel)]="containerModelValue"></nk-checkbox-list>
 <br>asyncOptions
-<nk-checkbox-group [nkOptions]="asyncOptions"></nk-checkbox-group>
+<nk-checkbox-list [nkOptions]="asyncOptions"></nk-checkbox-list>
 
 <br>anyObjectOptions
-<nk-checkbox-group [nkOptions]="anyObjectOptions" nkLabelFormat="name" nkValueFormat="code"></nk-checkbox-group>
+<nk-checkbox-list [nkOptions]="anyObjectOptions" nkLabelFormat="name" nkValueFormat="code"></nk-checkbox-list>
 
 <br>anyValueOptions
-<nk-checkbox-group [(ngModel)]="anyValueModel" [disabled]="true" [nkOptions]="anyValueOptions" nkLabelFormat="name" nkValueFormat="info"></nk-checkbox-group>
+<nk-checkbox-list [(ngModel)]="anyValueModel" [disabled]="true" [nkOptions]="anyValueOptions" nkLabelFormat="name" nkValueFormat="info"></nk-checkbox-list>
 
 <br>checked/disabled
-<nk-checkbox-group [nkOptions]="checkedOptions"></nk-checkbox-group>
+<nk-checkbox-list [nkOptions]="checkedOptions"></nk-checkbox-list>
 
 <br>custom label/value
-<nk-checkbox-group [nkOptions]="customOptions" [nkLabelFormat]="nkLabelFormat" nkValueFormat="id"></nk-checkbox-group>
+<nk-checkbox-list [nkOptions]="customOptions" [nkLabelFormat]="nkLabelFormat" nkValueFormat="id"></nk-checkbox-list>
 
 <br>object value checked
-<nk-checkbox-group [nkOptions]="objectCheckedOptions" [(ngModel)]="objectCheckedModel" [compareWith]="compareWith"></nk-checkbox-group>
+<nk-checkbox-list [nkOptions]="objectCheckedOptions" [(ngModel)]="objectCheckedModel" [compareWith]="compareWith"></nk-checkbox-list>
 
 <br>nk-checkbox-container
-<nk-checkbox-container [(ngModel)]="containerModelValue">
+<nk-checkbox-group [(ngModel)]="containerModelValue">
   <label *ngFor="let item of objectOptions"><input nk-checkbox [nkLabel]="item.nkLabel" [nkValue]="item.nkValue"></label>
-</nk-checkbox-container>
+</nk-checkbox-group>
