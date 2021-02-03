@@ -3,7 +3,7 @@ import {
   Component,
   ElementRef,
   forwardRef,
-  Host,
+  Host, HostListener,
   Inject, Input, OnChanges,
   OnInit,
   Optional,
@@ -11,7 +11,7 @@ import {
   ViewChild, ViewEncapsulation
 } from '@angular/core';
 import {NkRadioDirective} from './nk-radio.directive';
-import {NkRadioContainerComponent} from './nk-radio-container.component';
+import {NkRadioGroupComponent} from './nk-radio-group.component';
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
 import {NkButtonSize, NkButtonType} from '../core/type/nk-types';
 
@@ -64,8 +64,8 @@ export class NkRadioButtonComponent extends NkRadioDirective implements OnInit, 
   constructor(
     public elementRef: ElementRef,
     public render: Renderer2,
-    @Optional() @Host() @Inject(forwardRef(() => NkRadioContainerComponent))
-    public container: NkRadioContainerComponent) {
+    @Optional() @Host() @Inject(forwardRef(() => NkRadioGroupComponent))
+    public container: NkRadioGroupComponent) {
     super(elementRef, render, container);
     this.render.removeClass(this.elementRef.nativeElement, 'nk-radio');
     this.render.addClass(this.elementRef.nativeElement, 'nk-button');
@@ -81,8 +81,23 @@ export class NkRadioButtonComponent extends NkRadioDirective implements OnInit, 
   }
 
   handleCheckedButtonState(checked: boolean): void {
+    this.render.setProperty(this.inputElement.nativeElement, 'checked', checked);
     super.handleCheckedState(checked);
     this.setButtonChecked(checked);
+  }
+
+  @HostListener('click', ['$event'])
+  onClick(event: MouseEvent): void {
+    event.stopPropagation();
+    event.preventDefault();
+    this.nkOnItemClick.emit(event);
+    this._onTouched();
+
+    const checked = this.getCheckedState();
+    if (checked) {
+      return;
+    }
+    this.handleCheckedButtonState(true);
   }
 
   setCheckedState(checked: boolean): void {
@@ -92,9 +107,9 @@ export class NkRadioButtonComponent extends NkRadioDirective implements OnInit, 
 
   private setButtonChecked(checked: boolean): void {
     if (checked) {
-      this.render.addClass(this.elementRef.nativeElement, 'active');
+      this.render.addClass(this.elementRef.nativeElement, 'nk-active');
     } else {
-      this.render.removeClass(this.elementRef.nativeElement, 'active');
+      this.render.removeClass(this.elementRef.nativeElement, 'nk-active');
     }
   }
 

@@ -83,11 +83,11 @@
 
 <h2 class="nk-h3 tm-heading-fragment"><a>按钮组 nk-button-group</a></h2>
 <hr>
-<nk-button-group nkSize="small">
-  <a nk-button (click)="groupSize = 'large'">大</a>
-  <a nk-button (click)="groupSize = 'default'">中</a>
-  <a nk-button (click)="groupSize = 'small'">小</a>
-</nk-button-group>
+<nk-radio-group [(ngModel)]="groupSize" (nkOnItemClick)="trace($event)">
+  <label nk-radio-button nkSize="small" nkValue="large">大</label>
+  <label nk-radio-button nkSize="small" nkValue="default">中</label>
+  <label nk-radio-button nkSize="small" nkValue="small">小</label>
+</nk-radio-group>
 <br>
 <br>
 <nk-button-group [nkSize]="groupSize">

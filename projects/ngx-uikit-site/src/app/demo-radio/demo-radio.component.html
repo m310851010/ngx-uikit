@@ -1,36 +1,36 @@
-<!--<input nk-radio nkLabel="测试啊">-->
-<!--<br>-->
-<!--<hr>-->
-<!--<nk-radio-container [(ngModel)]="value" (nkOnChange)="trace($event)">-->
-<!--    <label [nkType]="i > 0 ? 'primary' : 'secondary'" *ngFor="let item of nkOptions; let i = index" nk-radio-button (nkOnChange)="trace($event)" [nkLabel]="item.nkLabel" [nkValue]="item.nkValue"></label>-->
-<!--</nk-radio-container>-->
+<input nk-radio nkLabel="测试啊">
+<br>
+<hr>
+<nk-radio-group [(ngModel)]="value" (nkOnChange)="trace($event)">
+    <label *ngFor="let item of nkOptions; let i = index" nk-radio-button (nkOnChange)="trace($event)" [nkLabel]="item.nkLabel" [nkValue]="item.nkValue"></label>
+</nk-radio-group>
 
-<!--<br>-->
-<!--<hr>-->
-<!--<nk-radio-group [nkOptions]="nkOptions" [(ngModel)]="value"></nk-radio-group>-->
-<!--<br>-->
-<!--<hr>-->
-<!--<nk-radio-container [(ngModel)]="value" (nkOnChange)="trace($event)">-->
-<!--  <label *ngFor="let item of nkOptions">-->
-<!--    <input nk-radio (nkOnChange)="trace($event)" [nkLabel]="item.nkLabel" [nkValue]="item.nkValue">-->
-<!--  </label>-->
-<!--</nk-radio-container>-->
-<!--<br>-->
-<!--<hr>-->
-<nk-radio-container [(ngModel)]="value" (nkOnChange)="trace($event)">
-  <label *ngFor="let item of nkOptions">
+<br>
+<hr>
+<nk-radio-list [nkOptions]="nkOptions" [(ngModel)]="value"></nk-radio-list>
+<br>
+<hr>
+<nk-radio-group [(ngModel)]="value" (nkOnChange)="trace($event)">
+  <label *ngFor="let item of nkOptions" class="nk-margin-small-right">
     <input nk-radio (nkOnChange)="trace($event)" [nkLabel]="item.nkLabel" [nkValue]="item.nkValue">
   </label>
-</nk-radio-container>
-
+</nk-radio-group>
+<br>
 <hr>
-<nk-radio-container [(ngModel)]="value" (nkOnChange)="trace($event)">
-  <label *ngFor="let item of nkOptions">
+<nk-radio-group [(ngModel)]="value" (nkOnChange)="trace($event)">
+  <label *ngFor="let item of nkOptions" class="nk-margin-small-right">
     <input nk-radio (nkOnChange)="trace($event)" [nkLabel]="item.nkLabel" [nkValue]="item.nkValue">
   </label>
-</nk-radio-container>
+</nk-radio-group>
 
 <hr>
-<nk-radio-group [nkOptions]="nkOptions" [(ngModel)]="value"></nk-radio-group>
+<nk-radio-group [(ngModel)]="value" (nkOnChange)="trace($event)">
+  <label *ngFor="let item of nkOptions" class="nk-margin-small-right">
+    <input nk-radio (nkOnChange)="trace($event)" [nkLabel]="item.nkLabel" [nkValue]="item.nkValue">
+  </label>
+</nk-radio-group>
+
+<hr>
+<nk-radio-list [nkOptions]="nkOptions" [(ngModel)]="value"></nk-radio-list>
 <hr>
 <button nk-button (click)="changeValue()">选中第三项</button>

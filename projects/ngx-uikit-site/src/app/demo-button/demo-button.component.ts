@@ -13,4 +13,8 @@ export class DemoButtonComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  // tslint:disable-next-line:no-any
+  trace(evt: any): void {
+    console.log(evt);
+  }
 }

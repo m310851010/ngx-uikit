@@ -10,8 +10,7 @@ import {
 } from '@angular/core';
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
 import {NkBaseCheckble} from './nk-base-checkble';
-import {NkRadioContainerComponent} from './nk-radio-container.component';
-import {isNil} from '../core/util/nk-util';
+import {NkRadioGroupComponent} from './nk-radio-group.component';
 
 @Directive({
   // tslint:disable-next-line:directive-selector
@@ -34,8 +33,8 @@ export class NkRadioDirective extends NkBaseCheckble implements OnInit, OnDestro
   constructor(
     public elementRef: ElementRef,
     public render: Renderer2,
-    @Optional() @Host() @Inject(forwardRef(() => NkRadioContainerComponent))
-    public container: NkRadioContainerComponent) {
+    @Optional() @Host() @Inject(forwardRef(() => NkRadioGroupComponent))
+    public container: NkRadioGroupComponent) {
     super(elementRef, render);
     this.render.addClass(this._elementRef.nativeElement, 'nk-radio');
   }

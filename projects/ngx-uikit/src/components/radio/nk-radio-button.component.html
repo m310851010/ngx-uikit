@@ -1,9 +1,5 @@
 <input #inputElement type="radio"
        class="inner-radio"
        [disabled]="nkDisabled"
-       (change)="handleCheckedButtonState($event.target.checked)"
-       (click)="nkOnItemClick.emit($event)"
-       (blur)="_onTouched()"
 >
-
 <ng-content></ng-content>
