@@ -35,8 +35,9 @@
 
   <h3>Documentation</h3>
 
-  <ul v-for="(pages, category, index) in navigation" class="nk-nav nk-nav-default tm-nav" :class="{'nk-margin-top': index}">
-    <li class="nk-nav-header">{{ category }}</li>
+  <ul *ngFor="let item of navigation; let index = index" class="uk-nav uk-nav-default tm-nav" [class.uk-margin-top]="index">
+    <!--<li class="nk-nav-header">{{ category }}</li>-->
+    <a [routerLink]="item.path">{{ item.data.cnName + ' ('  + item.data.name + ')' }}</a>
     <!--<router-link v-for="(p, label) in pages" :key="p" tag="li" :to="p"><a>{{ label }}</a></router-link>-->
   </ul>
 

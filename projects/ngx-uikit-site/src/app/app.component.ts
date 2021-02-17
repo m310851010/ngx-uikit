@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NkCheckable} from '../../../ngx-uikit/src/components/core/type/nk-types';
 import {NkI18nService} from '../../../ngx-uikit/src/components/i18n/nk-i18n.service';
+import {routes} from './app-routing.module';
 
 @Component({
   selector: 'demo-root',
@@ -11,6 +12,7 @@ export class AppComponent implements OnInit {
   title = 'ngx-uikit-site';
   category = '';
   subject = '';
+  navigation = routes.sort((a, b) => a.data && b.data && a.data.name.localeCompare(b.data.name));
   constructor(public i18n: NkI18nService) {
     this.i18n.localeChange.subscribe(value => {
       console.log('收到国际化变更===', value);
@@ -18,6 +20,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.i18n.localeChange.subscribe(value => {
       console.log('收到国际化变更===', value);
     });

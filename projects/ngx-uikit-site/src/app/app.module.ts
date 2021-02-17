@@ -13,6 +13,7 @@ import {NgxUikitModule} from '../../../ngx-uikit/src/components/ngx-uikit.module
 import { DemoRadioComponent } from './demo-radio/demo-radio.component';
 import { DemoIconComponent } from './demo-icon/demo-icon.component';
 import { DemoInputComponent } from './demo-input/demo-input.component';
+import { DemoMarginPaddingComponent } from './demo-margin-padding/demo-margin-padding.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { DemoInputComponent } from './demo-input/demo-input.component';
     DemoRadioComponent,
     DemoIconComponent,
     DemoInputComponent,
+    DemoMarginPaddingComponent,
   ],
   imports: [
     BrowserModule,

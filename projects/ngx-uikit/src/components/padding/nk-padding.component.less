@@ -1,0 +1,80 @@
+@import "../style/padding.less";
+
+/*
+ * Default
+ */
+.nk-padding-top { padding-top: @padding-padding;}
+.nk-padding-bottom { padding-bottom: @padding-padding;}
+.nk-padding-left { padding-left: @padding-padding;}
+.nk-padding-right{ padding-right: @padding-padding;}
+.nk-padding-vertical {
+  .nk-padding-top();
+  .nk-padding-bottom();
+}
+.nk-padding-horizontal {
+  .nk-padding-left();
+  .nk-padding-right();
+}
+
+/* Desktop and bigger */
+@media (min-width: @breakpoint-large) {
+  .nk-padding-top { padding-top: @padding-padding-l;}
+  .nk-padding-bottom { padding-bottom: @padding-padding-l;}
+  .nk-padding-left { padding-left: @padding-padding-l;}
+  .nk-padding-right{ padding-right: @padding-padding-l;}
+  .nk-padding-vertical {
+    .nk-padding-top();
+    .nk-padding-bottom();
+  }
+  .nk-padding-horizontal {
+    .nk-padding-left();
+    .nk-padding-right();
+  }
+}
+
+/*
+ * Small
+ */
+.nk-padding-small-top { padding-top: @padding-small-padding;}
+.nk-padding-small-bottom { padding-bottom: @padding-small-padding;}
+.nk-padding-small-left { padding-left: @padding-small-padding;}
+.nk-padding-small-right{ padding-right: @padding-small-padding;}
+.nk-padding-small-vertical {
+  .nk-padding-small-top();
+  .nk-padding-small-bottom();
+}
+.nk-padding-small-horizontal {
+  .nk-padding-small-left();
+  .nk-padding-small-right();
+}
+
+/*
+ * large
+ */
+.nk-padding-large-top { padding-top: @padding-large-padding;}
+.nk-padding-large-bottom { padding-bottom: @padding-large-padding;}
+.nk-padding-large-left { padding-left: @padding-large-padding;}
+.nk-padding-large-right{ padding-right: @padding-large-padding;}
+.nk-padding-large-vertical {
+  .nk-padding-large-top();
+  .nk-padding-large-bottom();
+}
+.nk-padding-large-horizontal {
+  .nk-padding-large-left();
+  .nk-padding-large-right();
+}
+
+@media (min-width: @breakpoint-large) {
+  .nk-padding-large-top { padding-top: @padding-large-padding-l;}
+  .nk-padding-large-bottom { padding-bottom: @padding-large-padding-l;}
+  .nk-padding-large-left { padding-left: @padding-large-padding-l;}
+  .nk-padding-large-right{ padding-right: @padding-large-padding-l;}
+  .nk-padding-large-vertical {
+    .nk-padding-large-top();
+    .nk-padding-large-bottom();
+  }
+  .nk-padding-large-horizontal {
+    .nk-padding-large-left();
+    .nk-padding-large-right();
+  }
+}

@@ -10,6 +10,7 @@ export class DemoInputComponent implements OnInit {
   nkSize: NkInputSize = 'small';
   nkState: NkInputState = 'default';
   value = 'XXXX';
+  colorValue = '#6cd95e';
   constructor() { }
 
   ngOnInit(): void {

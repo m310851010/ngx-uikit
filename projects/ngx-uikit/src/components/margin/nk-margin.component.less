@@ -1,0 +1,110 @@
+@import "../style/margin.less";
+/*
+ * Default
+ */
+.nk-margin {margin: @margin-margin;}
+.nk-margin-vertical {
+  .nk-margin-top();
+  .nk-margin-bottom();
+}
+
+.nk-margin-horizontal {
+  .nk-margin-left();
+  .nk-margin-right();
+}
+
+/*
+ * Small
+ */
+.nk-margin-small{margin: @margin-small-margin;}
+.nk-margin-small-vertical {
+  .nk-margin-small-top();
+  .nk-margin-small-bottom();
+}
+.nk-margin-small-horizontal {
+  .nk-margin-small-left();
+  .nk-margin-small-right();
+}
+
+/*
+ * medium
+ */
+.nk-margin-medium {margin: @margin-medium-margin;}
+.nk-margin-medium-vertical {
+  .nk-margin-medium-top();
+  .nk-margin-medium-bottom();
+}
+.nk-margin-medium-horizontal {
+  .nk-margin-medium-left();
+  .nk-margin-medium-right();
+}
+
+/*
+ * large
+ */
+.nk-margin-large { margin: @margin-large-margin; }
+.nk-margin-large-vertical {
+  .nk-margin-large-top();
+  .nk-margin-large-bottom();
+}
+.nk-margin-large-horizontal {
+  .nk-margin-large-left();
+  .nk-margin-large-right();
+}
+/* Desktop and bigger */
+@media (min-width: @breakpoint-large) {
+  .nk-margin-large { margin: @margin-large-margin-l; }
+  .nk-margin-large-vertical {
+    margin-top: @margin-large-margin-l !important;
+    margin-bottom: @margin-large-margin-l !important;
+  }
+  .nk-margin-large-horizontal {
+    margin-left: @margin-large-margin-l !important;
+    margin-right: @margin-large-margin-l !important;
+  }
+}
+
+/*
+ * xlarge
+ */
+.nk-margin-xlarge { margin: @margin-xlarge-margin; }
+.nk-margin-xlarge-vertical {
+  .nk-margin-xlarge-top();
+  .nk-margin-xlarge-bottom();
+}
+.nk-margin-xlarge-horizontal {
+  .nk-margin-xlarge-left();
+  .nk-margin-xlarge-right();
+}
+/* Desktop and bigger */
+@media (min-width: @breakpoint-large) {
+  .nk-margin-xlarge { margin: @margin-xlarge-margin-l; }
+  .nk-margin-large-vertical {
+    margin-top: @margin-xlarge-margin-l !important;
+    margin-bottom: @margin-xlarge-margin-l !important;
+  }
+  .nk-margin-large-horizontal {
+    margin-left: @margin-xlarge-margin-l !important;
+    margin-right: @margin-xlarge-margin-l !important;
+  }
+}
+
+/*
+ * auto
+ */
+.nk-margin-auto-horizontal {
+  .nk-margin-auto-left();
+  .nk-margin-auto-right();
+}
+
+/*
+ * remove
+ */
+.nk-margin-remove-vertical {
+  .nk-margin-remove-top();
+  .nk-margin-remove-bottom();
+}
+.nk-margin-remove-horizontal {
+  .nk-margin-remove-left();
+  .nk-margin-remove-right();
+}
