@@ -1,0 +1,45 @@
+@import "../style/form.less";
+
+.nk-input-group-compact {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+
+  & > :not(:last-child) {
+    margin-right: -1px;
+    border-right-width: 1px;
+
+    &.nk-input:hover,
+    &.nk-input:focus,
+    &.nk-select:hover,
+    &.nk-select:focus,
+    &.nk-textarea:hover,
+    &.nk-textarea:focus,
+    &.nk-button:hover,
+    &.nk-button:focus {
+      z-index: 2;
+    }
+  }
+
+  .nk-input-addon {
+    &:extend(.nk-input);
+    position: relative;
+    text-align: center;
+    transition: all 0.3s;
+    display: flex;
+    padding: 0 11px;
+    width: 50px;
+  }
+
+  .nk-input-prefix, .nk-input-suffix {
+    display: flex;
+    flex: none;
+    align-items: center;
+  }
+}
+
+.nk-input-group:extend(.nk-input) {
+  .nk-input-addon{
+    border: none;
+  }
+}

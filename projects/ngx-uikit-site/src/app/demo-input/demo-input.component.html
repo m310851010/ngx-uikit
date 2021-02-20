@@ -1,3 +1,11 @@
+
+<nk-input-group  nkPrefixIcon="lock" [nkSuffix]="lock">
+  <input nk-input>
+  <!--<button nk-button class="nk-width-1-3">ddddd</button>-->
+</nk-input-group>
+<ng-template #lock>
+  <button nk-button nkIcon="search"></button>
+</ng-template>
 nk-size
 <br>
 <nk-radio-group [(ngModel)]="nkSize">
@@ -41,7 +49,7 @@ nk-size
 <input type="color" nk-input [(ngModel)]="colorValue">
 <input type="email" nk-input>
 <input type="number" nk-input>
-<input type="range" nk-input>
+<input type="range" class="nk-range">
 
 <br>
 nkState
@@ -54,3 +62,8 @@ nkState
 <br>
 <br>
 <input [nkState]="nkState"  [(ngModel)]="value" nk-input>
+
+<br>
+nk-autosize
+<br>
+<textarea nk-autosize nkMinRows="3" nkMaxRows="6"></textarea>

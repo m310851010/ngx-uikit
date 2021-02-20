@@ -8,3 +8,25 @@
   display: inline-block;
   animation: loading 1s infinite linear;
 }
+
+textarea.nk-textarea-autosize-measuring {
+  height: auto !important;
+  overflow: hidden !important;
+  // Having 2px top and bottom padding seems to fix a bug where Chrome gets an incorrect
+  // measurement. We just have to account for it later and subtract it off the final result.
+  padding: 2px 0 !important;
+  box-sizing: content-box !important;
+}
+
+textarea.cdk-textarea-autosize-measuring {
+  padding: 2px 0!important;
+  box-sizing: content-box!important;
+  height: auto!important;
+  overflow: hidden!important
+}
+
+textarea.cdk-textarea-autosize-measuring-firefox {
+  padding: 2px 0!important;
+  box-sizing: content-box!important;
+  height: 0!important
+}

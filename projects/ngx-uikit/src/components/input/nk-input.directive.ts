@@ -17,7 +17,7 @@ import {toBoolean} from '../core/util/nk-util';
   }
 })
 export class NkInputDirective {
-  protected _disabled = false;
+  _disabled = false;
 
   @Input() nkSize: NkInputSize = 'default';
   @Input() nkState: NkInputState = 'default';

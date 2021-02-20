@@ -8,6 +8,8 @@ import {NkCheckboxModule} from './checkbox/nk-checkbox.module';
 import {NkButtonModule} from './button/nk-button.module';
 import {NkInputModule} from './input/nk-input.module';
 import {NkFileModule} from './file/nk-file.module';
+import {NkGridModule} from './grid/nk-grid.module';
+import {NkTemplateOutletModule} from './outlet/nk-template-outlet.module';
 
 @NgModule({
   exports: [
@@ -19,7 +21,9 @@ import {NkFileModule} from './file/nk-file.module';
     NkInputModule,
     NkFileModule,
     NkMarginModule,
-    NkPaddingModule
+    NkPaddingModule,
+    NkGridModule,
+    NkTemplateOutletModule
   ],
 })
 export class NgxUikitModule {

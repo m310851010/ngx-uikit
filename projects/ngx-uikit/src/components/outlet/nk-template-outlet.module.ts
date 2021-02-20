@@ -1,17 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {NkInputDirective} from './nk-input.directive';
-import {NkInputGroupComponent} from './nk-input-group.component';
-import {NkAutosizeDirective} from './nk-autosize.directive';
-import {TextFieldModule} from '@angular/cdk/text-field';
+import {NkTemplateOutletDirective} from './nk-template-outlet.directive';
 
-const COMPONENTS = [NkInputDirective, NkAutosizeDirective, NkInputGroupComponent];
+const COMPONENTS = [NkTemplateOutletDirective];
 @NgModule({
   imports: [
     CommonModule,
-    TextFieldModule
   ],
   declarations: [COMPONENTS],
   exports: [COMPONENTS]
 })
-export class NkInputModule { }
+export class NkTemplateOutletModule { }

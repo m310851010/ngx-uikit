@@ -1,3 +1,12 @@
-<p>
-  nk-input-group works!
-</p>
+
+<i [nk-icon]="nkPrefixIcon" *ngIf="nkPrefixIcon" class="nk-input-addon"></i>
+<span class="nk-input-prefix" *ngIf="nkPrefix">
+  <ng-container *nkTemplateOutlet="nkPrefix">{{nkPrefix}}</ng-container>
+</span>
+
+<ng-content></ng-content>
+
+<i [nk-icon]="nkSuffixIcon" *ngIf="nkSuffixIcon" class="nk-input-addon"></i>
+<span class="nk-input-suffix" *ngIf="nkSuffix">
+  <ng-container *nkTemplateOutlet="nkSuffix">{{nkSuffix}}</ng-container>
+</span>

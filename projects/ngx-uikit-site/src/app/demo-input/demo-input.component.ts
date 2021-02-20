@@ -9,11 +9,16 @@ import {NkInputSize, NkInputState} from '../../../../ngx-uikit/src/components/in
 export class DemoInputComponent implements OnInit {
   nkSize: NkInputSize = 'small';
   nkState: NkInputState = 'default';
-  value = 'XXXX';
+  value = 'ddds';
   colorValue = '#6cd95e';
+  nkMinRows = 3;
+  str = '{{ctx}}';
   constructor() { }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.nkMinRows = 5;
+    }, 2000);
   }
 
 }

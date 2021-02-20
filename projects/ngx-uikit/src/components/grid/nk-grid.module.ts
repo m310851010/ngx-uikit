@@ -6,9 +6,9 @@ const COMPONENTS = [NkGridDirective];
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
   ],
-  declarations: [COMPONENTS],
+  declarations: [...COMPONENTS],
   exports: [COMPONENTS]
 })
 export class NkGridModule { }
