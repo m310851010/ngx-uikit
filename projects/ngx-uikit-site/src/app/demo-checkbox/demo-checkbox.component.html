@@ -34,3 +34,9 @@ stringOptions
 <nk-checkbox-group [(ngModel)]="containerModelValue">
   <label *ngFor="let item of objectOptions"><input nk-checkbox [nkLabel]="item.nkLabel" [nkValue]="item.nkValue"></label>
 </nk-checkbox-group>
+
+<br>checkbox模拟radio
+<ng-container *ngFor="let item of userList; let i = index">
+  <label><input nk-checkbox [checked]="item.checked" (change)="checkedChange($event.target.checked, item)" [nkLabel]="i"></label>
+</ng-container>
+

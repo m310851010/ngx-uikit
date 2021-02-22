@@ -43,6 +43,9 @@ export class DemoCheckboxComponent implements OnInit {
     {nkLabel: '钱七', nkValue: {name: 'LiSi', id: 2} },
     {nkLabel: '孙八', nkValue: {name: 'WangWu', id: 3}}];
 
+  userList: UserItem[] = [{}, {}, {}, {}];
+  prevItem: UserItem;
+
   objectCheckedModel: NkCheckboxOption[] = [{id: 1}, {id: 3}];
   compareWith: CompareWith<NkCheckboxOption>  = (o1, o2) =>  o1.id === o2.id;
 
@@ -62,9 +65,28 @@ export class DemoCheckboxComponent implements OnInit {
     this.singleString = '测试';
   }
 
+
   // tslint:disable-next-line
   trace(evt: any, tag: string) {
     console.log(`[${tag}] `, evt);
     console.log(this.anyValueModel);
   }
+
+
+  checkedChange(status: boolean, item: UserItem): void {
+    item.checked = status;
+    if (this.prevItem) {
+      this.prevItem.checked = false;
+    }
+
+    if (this.prevItem === item) {
+      setTimeout(() => item.checked = true);
+    }
+
+    this.prevItem = item;
+  }
+}
+
+export interface UserItem {
+  checked?: boolean;
 }
