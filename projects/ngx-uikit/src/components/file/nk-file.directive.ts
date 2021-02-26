@@ -5,7 +5,7 @@ import {addClass} from '../core/util/ui-util';
  * input file控件, 需要父级元素设置 style包含 position: relative
  * @example
  <button nk-button>
- <input file>
+ <input nk-file>
  选择文件
  </button>
  */
