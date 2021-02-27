@@ -1,8 +1,7 @@
 import {AfterViewInit, Directive, DoCheck, ElementRef, HostListener, Input, NgZone, OnDestroy} from '@angular/core';
 import {CdkTextareaAutosize} from '@angular/cdk/text-field';
 import {Platform} from '@angular/cdk/platform';
-import {addClass} from '../core/util/ui-util';
-import {toBoolean} from '../core/util/nk-util';
+import {addClass, toBoolean} from 'ngx-uikit/core';
 
 @Directive({
   selector: 'textarea[nk-autosize]',

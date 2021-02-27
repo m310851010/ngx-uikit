@@ -1,7 +1,7 @@
-import {ChangeDetectorRef, OnDestroy, Pipe, PipeTransform} from '@angular/core';
-import { NkI18nService } from './nk-i18n.service';
+import {OnDestroy, Pipe, PipeTransform} from '@angular/core';
+import {NkI18nService } from './nk-i18n.service';
 import {Subscription} from 'rxjs';
-import {equals} from '../core/util/nk-util';
+import {equals} from 'ngx-uikit/core';
 
 @Pipe({
   name: 'nkI18n',

@@ -2,7 +2,7 @@
  * Public API Surface of icon
  */
 
-export * from './icon-type/public_api';
+export * from './icon-type/public-api';
 export * from './nk-icon.directive';
 export * from './nk-icon.service';
 export * from './nk-icon-names';

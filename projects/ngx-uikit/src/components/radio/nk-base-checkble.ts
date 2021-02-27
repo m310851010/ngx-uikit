@@ -9,9 +9,7 @@ import {
   Renderer2, SimpleChange, SimpleChanges
 } from '@angular/core';
 import {ControlValueAccessor} from '@angular/forms';
-import {CompareWith, defaultCompareWith} from '../core/type/nk-types';
-import {isNil, isNotEmpty} from '../core/util/nk-util';
-import {insertAfter} from '../core/util/ui-util';
+import {isNil, isNotEmpty, insertAfter, CompareWith, defaultCompareWith} from 'ngx-uikit/core';
 
 export abstract class NkBaseCheckble implements OnInit, OnChanges, OnDestroy, ControlValueAccessor {
 

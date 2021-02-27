@@ -6,11 +6,20 @@ import {
   OnInit, Output, SimpleChange, SimpleChanges,
 } from '@angular/core';
 import {ControlValueAccessor} from '@angular/forms';
-import {CompareWith, defaultCompareWith, NkCheckable, NkRadioOption, ValueFormat} from '../core/type/nk-types';
 import {Observable, of, Subscription} from 'rxjs';
 import {map, share} from 'rxjs/operators';
-import {isObservable, isEmpty, isNotEmpty, isPlainObject, isArray, isNil} from '../core/util/nk-util';
-import {getValueFormatFn} from '../core/util/ui-util';
+import {
+  isObservable,
+  isEmpty,
+  getValueFormatFn,
+  isPlainObject,
+  isArray,
+  isNil,
+  CompareWith,
+  defaultCompareWith,
+  NkCheckable,
+  ValueFormat
+} from 'ngx-uikit/core';
 
 export abstract class NkBaseCheckbleGroupComponent<OPT extends NkCheckable & {nkChecked?: boolean | null}>
   implements OnInit, OnDestroy, OnChanges, ControlValueAccessor {

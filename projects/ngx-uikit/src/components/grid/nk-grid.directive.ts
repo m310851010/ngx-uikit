@@ -1,5 +1,5 @@
 import {Directive, ElementRef, Input} from '@angular/core';
-import {addClass} from '../core/util/ui-util';
+import {addClass} from 'ngx-uikit/core';
 
 @Directive({
   // tslint:disable-next-line

@@ -1,7 +1,6 @@
 import {Directive, ElementRef, Input, Optional, Renderer2, Self} from '@angular/core';
-import {addClass} from '../core/util/ui-util';
+import {addClass, toBoolean} from 'ngx-uikit/core';
 import {NgControl} from '@angular/forms';
-import {toBoolean} from '../core/util/nk-util';
 
 @Directive({
   // tslint:disable-next-line

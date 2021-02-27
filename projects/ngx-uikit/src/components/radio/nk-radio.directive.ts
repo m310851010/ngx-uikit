@@ -11,7 +11,7 @@ import {
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
 import {NkBaseCheckble} from './nk-base-checkble';
 import {NkRadioGroupComponent} from './nk-radio-group.component';
-import {addClass} from '../core/util/ui-util';
+import {addClass} from 'ngx-uikit/core';
 
 @Directive({
   // tslint:disable-next-line:directive-selector

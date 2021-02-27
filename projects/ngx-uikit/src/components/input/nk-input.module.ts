@@ -4,8 +4,8 @@ import {NkInputDirective} from './nk-input.directive';
 import {NkInputGroupComponent} from './nk-input-group.component';
 import {NkAutosizeDirective} from './nk-autosize.directive';
 import {TextFieldModule} from '@angular/cdk/text-field';
-import {NkTemplateOutletModule} from '../outlet/nk-template-outlet.module';
-import {NkIconModule} from '../icon/nk-icon.module';
+import {NkTemplateOutletModule} from 'ngx-uikit/outlet';
+import {NkIconModule} from 'ngx-uikit/icon';
 
 const COMPONENTS = [NkInputDirective, NkAutosizeDirective, NkInputGroupComponent];
 @NgModule({

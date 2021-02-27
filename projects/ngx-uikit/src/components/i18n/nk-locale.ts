@@ -34,7 +34,7 @@ import {default as uk_UA} from './locale/uk_UA';
 import {default as vi_VN} from './locale/vi_VN';
 import {default as zh_CN} from './locale/zh_CN';
 import {default as zh_TW} from './locale/zh_TW';
-import {NkKeyValue} from '../core/type/nk-types';
+import {NkKeyValue} from 'ngx-uikit/core';
 import {NkI18n} from './nk-i18n';
 
 export const NK_LOCALES: NkKeyValue<NkI18n> = {

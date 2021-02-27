@@ -1,8 +1,6 @@
 import {Directive, ElementRef, Input, OnChanges, Renderer2, SimpleChange, SimpleChanges} from '@angular/core';
 import {NkIconService} from './nk-icon.service';
-import {NkIcon} from '../core/type/nk-types';
-import {isEmpty, isNotEmpty} from '../core/util/nk-util';
-import {findAll} from '../core/util/ui-util';
+import {isEmpty, isNotEmpty, findAll, NkIcon} from 'ngx-uikit/core';
 
 /**
  * 图标指令

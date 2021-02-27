@@ -1,5 +1,5 @@
 import {Directive, ElementRef, Renderer2} from '@angular/core';
-import {addClass} from '../core/util/ui-util';
+import {addClass} from 'ngx-uikit/core';
 
 /**
  * input file控件, 需要父级元素设置 style包含 position: relative
@@ -22,5 +22,4 @@ export class NkFileDirective {
               public render: Renderer2) {
     addClass(this._elementRef, 'nk-file');
   }
-
 }

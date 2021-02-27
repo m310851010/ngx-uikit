@@ -1,5 +1,5 @@
 // tslint:disable-next-line
-import {ValueFormat} from '../type/nk-types';
+import {ValueFormat} from 'ngx-uikit/core';
 import {isFunction, isNode, isNotNil, isString, toArray} from './nk-util';
 import {ElementRef, TemplateRef} from '@angular/core';
 
@@ -85,7 +85,7 @@ export function findAll<T extends Element>(selector: string, context?: Element):
   return toNodes<T>((context || document).querySelectorAll(selector));
 }
 
-export function coerceElement<T>(elementOrRef: ElementRef<T> | T): T {
+export function coerceElement<T>(elementOrRef: ElementRef | T): T {
   return elementOrRef instanceof ElementRef ? elementOrRef.nativeElement : elementOrRef;
 }
 

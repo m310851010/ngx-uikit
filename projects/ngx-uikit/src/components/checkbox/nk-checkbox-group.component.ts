@@ -1,10 +1,7 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, forwardRef, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {NkCheckboxOption} from '../core/type/nk-types';
 import {NkCheckboxDirective} from './nk-checkbox.directive';
-import {isArray, isEmpty, isNil, isNotNil} from '../core/util/nk-util';
-import {BehaviorSubject} from 'rxjs';
-import {debounceTime, filter} from 'rxjs/operators';
+import {isArray, isEmpty, isNil, NkCheckboxOption} from 'ngx-uikit/core';
 
 /**
  * nk-checkbox容器,可以访问子节点的nk-checkbox

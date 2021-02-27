@@ -1,7 +1,7 @@
 // 该文件由generate.js生成
 // tslint:disable
 
-import {NkIcon} from '../../core/type/nk-types';
+import {NkIcon} from 'ngx-uikit/core';
 
 export const NkIconGithubAlt: NkIcon = {
   name: 'github-alt',

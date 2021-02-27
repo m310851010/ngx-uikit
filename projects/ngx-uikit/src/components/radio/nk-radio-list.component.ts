@@ -5,8 +5,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
-import {NkRadioOption} from '../core/type/nk-types';
-import {isEmpty, isNil} from '../core/util/nk-util';
+import {isEmpty, isNil, NkRadioOption} from 'ngx-uikit/core';
 import {NkBaseCheckbleGroupComponent} from './nk-base-checkble-group.component';
 
 /**

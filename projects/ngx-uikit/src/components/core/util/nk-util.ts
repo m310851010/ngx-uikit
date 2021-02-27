@@ -288,3 +288,12 @@ export function noop() { }
 export function getSystemLocaleId(): string {
   return (navigator.languages ? navigator.languages[0] : null) || navigator.language;
 }
+
+/**
+ * 当value为null或undefined时返回默认值,否则返回原始值
+ * @param value 原始值
+ * @param defaultValue 默认值
+ */
+export function defaultIfy<T>(value: T, defaultValue: T): T {
+  return isNil(value) ? defaultValue : value;
+}

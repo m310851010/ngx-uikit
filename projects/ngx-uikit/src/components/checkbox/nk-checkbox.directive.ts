@@ -8,7 +8,7 @@ import {
   Renderer2
 } from '@angular/core';
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
-import {NkBaseCheckble} from '../radio/nk-base-checkble';
+import {NkBaseCheckble} from 'ngx-uikit/radio';
 import {NkCheckboxGroupComponent} from './nk-checkbox-group.component';
 
 /**

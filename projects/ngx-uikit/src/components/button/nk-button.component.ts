@@ -5,8 +5,7 @@ import {
   Input, Optional, Renderer2, Self,
   ViewEncapsulation
 } from '@angular/core';
-import {NkButtonSize, NkButtonType, NkIcon} from '../core/type/nk-types';
-import {addClass} from '../core/util/ui-util';
+import {addClass, NkButtonSize, NkButtonType, NkIcon} from 'ngx-uikit/core';
 import {NgControl} from '@angular/forms';
 
 @Component({

@@ -5,9 +5,8 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
-import {NkCheckboxOption} from '../core/type/nk-types';
-import {isArray, isEmpty, isNil} from '../core/util/nk-util';
-import {NkBaseCheckbleGroupComponent} from '../radio/nk-base-checkble-group.component';
+import {isArray, isEmpty, isNil, NkCheckboxOption} from 'ngx-uikit/core';
+import {NkBaseCheckbleGroupComponent} from 'ngx-uikit/radio';
 
 /**
  * 复选框组。 设计思想是,通过给定任意数组或Observable发射的数组创建多个复选框

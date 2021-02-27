@@ -1,5 +1,5 @@
 import {Component, ElementRef, Input, OnInit, Optional, Renderer2, Self, TemplateRef} from '@angular/core';
-import {addClass, removeClass} from '../core/util/ui-util';
+import {addClass, removeClass} from 'ngx-uikit/core';
 import {NkInputDirective} from './nk-input.directive';
 import {NgControl} from '@angular/forms';
 

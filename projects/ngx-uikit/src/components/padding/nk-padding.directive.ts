@@ -1,6 +1,6 @@
 import {Directive, ElementRef, Input, OnChanges, OnInit, Renderer2, SimpleChange, SimpleChanges} from '@angular/core';
-import {isEmpty, isString} from '../core/util/nk-util';
-import {addClass, removeClass} from '../core/util/ui-util';
+import {isEmpty, isString} from 'ngx-uikit/core';
+import {addClass, removeClass} from 'ngx-uikit/core';
 
 @Directive({
   // tslint:disable-next-line

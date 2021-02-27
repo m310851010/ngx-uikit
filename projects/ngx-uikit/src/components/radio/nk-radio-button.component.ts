@@ -7,14 +7,13 @@ import {
   Inject, Input, OnChanges,
   OnInit,
   Optional,
-  Renderer2, SimpleChange, SimpleChanges,
+  Renderer2,
   ViewChild, ViewEncapsulation
 } from '@angular/core';
 import {NkRadioDirective} from './nk-radio.directive';
 import {NkRadioGroupComponent} from './nk-radio-group.component';
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
-import {NkButtonSize, NkButtonType} from '../core/type/nk-types';
-import {addClass, removeClass} from '../core/util/ui-util';
+import {addClass, removeClass, NkButtonSize, NkButtonType} from 'ngx-uikit/core';
 
 @Component({
   selector: '[nk-radio-button]',

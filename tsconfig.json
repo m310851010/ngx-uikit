@@ -24,7 +24,12 @@
       "ngx-uikit": [
         "dist/ngx-uikit/ngx-uikit",
         "dist/ngx-uikit",
-        "projects/ngx-uikit"
+        "projects/ngx-uikit/src/public_api.ts"
+      ],
+      "ngx-uikit/*": [
+        "dist/ngx-uikit/ngx-uikit",
+        "dist/ngx-uikit/components/*",
+        "projects/ngx-uikit/src/components/*"
       ]
     }
   },

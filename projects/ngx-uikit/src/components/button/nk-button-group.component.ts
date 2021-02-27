@@ -6,7 +6,7 @@ import {
   SimpleChange, SimpleChanges,
   ViewEncapsulation
 } from '@angular/core';
-import {addClass} from '../core/util/ui-util';
+import {addClass} from 'ngx-uikit/core';
 
 @Component({
   selector: 'nk-button-group',

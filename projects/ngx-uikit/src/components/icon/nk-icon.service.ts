@@ -1,7 +1,6 @@
 import {Inject, Injectable, Optional, Renderer2, SecurityContext} from '@angular/core';
-import {IconLoadFailError, IconNotFoundError, NkIcon, NkKeyValue, UrlNotSafeError} from '../core/type/nk-types';
 import {Observable, of, throwError} from 'rxjs';
-import {isNotEmpty, isString} from '../core/util/nk-util';
+import {isNotEmpty, isString, IconLoadFailError, IconNotFoundError, NkIcon, NkKeyValue, UrlNotSafeError} from 'ngx-uikit/core';
 import {DomSanitizer} from '@angular/platform-browser';
 import {ajax, AjaxResponse} from 'rxjs/ajax';
 import {catchError, finalize, map, share, tap} from 'rxjs/operators';

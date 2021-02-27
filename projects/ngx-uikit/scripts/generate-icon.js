@@ -35,7 +35,7 @@ async function generateIconFile() {
       `// 该文件由generate.js生成
 // tslint:disable
 
-import {NkIcon} from '../../core/type/nk-types';
+import {NkIcon} from 'ngx-uikit/core';
 
 export const ${iconExportName}: NkIcon = {
   name: '${svgName}',
@@ -71,8 +71,8 @@ export const ${iconExportName}: NkIcon = {
   }
 
 
-  const publicApiPath = path.resolve(__dirname, `../src/components/icon/icon-type/public_api.ts`)
-  console.log(`创建public_api.ts文件=>${iconNamesPath}`);
+  const publicApiPath = path.resolve(__dirname, `../src/components/icon/icon-type/public-api.ts`)
+  console.log(`创建public-api.ts文件=>${iconNamesPath}`);
 
   fs.writeFileSync(
     publicApiPath,
