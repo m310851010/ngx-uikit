@@ -1,6 +1,15 @@
 import {Inject, Injectable, Optional, Renderer2, SecurityContext} from '@angular/core';
 import {Observable, of, throwError} from 'rxjs';
-import {isNotEmpty, isString, IconLoadFailError, IconNotFoundError, NkIcon, NkKeyValue, UrlNotSafeError} from 'ngx-uikit/core';
+import {
+  isNotEmpty,
+  isString,
+  IconLoadFailError,
+  IconNotFoundError,
+  NkIcon,
+  NkKeyValue,
+  UrlNotSafeError,
+  NkAny
+} from 'ngx-uikit/core';
 import {DomSanitizer} from '@angular/platform-browser';
 import {ajax, AjaxResponse} from 'rxjs/ajax';
 import {catchError, finalize, map, share, tap} from 'rxjs/operators';
@@ -87,8 +96,7 @@ export class NkIconService {
 
   constructor(
     protected _sanitizer: DomSanitizer,
-    // tslint:disable-next-line:no-any
-    @Inject(DOCUMENT) protected  _document: any,
+    @Inject(DOCUMENT) protected  _document: NkAny,
     @Optional() @Inject(NK_ICON_ROOT_URL_TOKEN) protected _urlRoot: string,
     @Optional() @Inject(NK_ICON_TOKEN) protected _icons: NkIcon[]
   ) {

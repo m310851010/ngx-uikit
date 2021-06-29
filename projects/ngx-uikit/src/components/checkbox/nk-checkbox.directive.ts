@@ -10,6 +10,7 @@ import {
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
 import {NkBaseCheckble} from 'ngx-uikit/radio';
 import {NkCheckboxGroupComponent} from './nk-checkbox-group.component';
+import {NkAny} from 'ngx-uikit/core';
 
 /**
  * checkbox指令, 注:不需要添加type="checkbox"
@@ -48,8 +49,7 @@ export class NkCheckboxDirective extends NkBaseCheckble implements OnInit, OnDes
     return this._indeterminate;
   }
 
-  // tslint:disable-next-line
-  private _checkedStateFn: (newValue: any, nkValue: any) => boolean;
+  private _checkedStateFn: (newValue: NkAny, nkValue: NkAny) => boolean;
 
   constructor(
     public elementRef: ElementRef,
@@ -72,7 +72,7 @@ export class NkCheckboxDirective extends NkBaseCheckble implements OnInit, OnDes
   }
 
   // tslint:disable-next-line
-  protected getCheckedState4ModelValue(newValue: any, nkValue: any): boolean {
+  protected getCheckedState4ModelValue(newValue: NkAny, nkValue: NkAny): boolean {
     return this._checkedStateFn(newValue, nkValue);
   }
 

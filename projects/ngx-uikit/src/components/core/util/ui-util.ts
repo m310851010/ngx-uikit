@@ -1,5 +1,4 @@
-// tslint:disable-next-line
-import {ValueFormat} from 'ngx-uikit/core';
+import {NkAny, ValueFormat} from 'ngx-uikit/core';
 import {isFunction, isNode, isNotNil, isString, toArray} from './nk-util';
 import {ElementRef, TemplateRef} from '@angular/core';
 
@@ -8,7 +7,7 @@ import {ElementRef, TemplateRef} from '@angular/core';
  * @param format ValueFormat
  */
 // tslint:disable-next-line
-export function getValueFormatFn(format: ValueFormat<any>): (item: any) => string | number | any {
+export function getValueFormatFn(format: ValueFormat<NkAny>): (item: NkAny) => string | number | NkAny {
   if (isString(format)) {
     return item => item ? item[format as string] : '';
   }
@@ -20,8 +19,8 @@ export function getValueFormatFn(format: ValueFormat<any>): (item: any) => strin
 
 /**
  * 提供insertAfter()
- * @param newElement
- * @param targetElement
+ * @param newElement 插入new的DOM
+ * @param targetElement 目标DOM
  * @return 是否插入成功
  */
 export function insertAfter(newElement: Element, targetElement: Element): boolean {
@@ -38,8 +37,7 @@ export function insertAfter(newElement: Element, targetElement: Element): boolea
   return true;
 }
 
-// tslint:disable-next-line:no-any
-export function isTemplateRef(value: any): boolean {
+export function isTemplateRef(value: NkAny): boolean {
   return value instanceof TemplateRef;
 }
 
@@ -67,13 +65,11 @@ export function filterNotEmptyNode(node: Node): Node | null {
   return null;
 }
 
-// tslint:disable-next-line:no-any
-export function toNode<T extends Element>(element: any): T {
+export function toNode<T extends Element>(element: NkAny): T {
   return toNodes<T>(element)[0];
 }
 
-// tslint:disable-next-line:no-any
-export function toNodes<T extends Element>(element: any): T[] {
+export function toNodes<T extends Element>(element: NkAny): T[] {
   return element && (isNode(element) ? [element] : toArray(element).filter(isNode)) || [];
 }
 
@@ -89,27 +85,27 @@ export function coerceElement<T>(elementOrRef: ElementRef | T): T {
   return elementOrRef instanceof ElementRef ? elementOrRef.nativeElement : elementOrRef;
 }
 
-function getClazz(className: string | string[]): string[] {
+function getClassName(className: string | string[]): string[] {
   return isString(className) ? className.split(/\s+/) : className;
 }
 
 export function addClass<T extends Element>(elementOrRef: ElementRef<T> | T, className: string | string[]): void {
   if (elementOrRef && className) {
     const ele = coerceElement<T>(elementOrRef);
-    ele.classList.add.apply(ele.classList, getClazz(className));
+    ele.classList.add.apply(ele.classList, getClassName(className));
   }
 }
 
 export function removeClass<T extends Element>(elementOrRef: ElementRef<T> | T, className: string | string[]): void {
   if (elementOrRef && className) {
     const ele = coerceElement<T>(elementOrRef);
-    ele.classList.remove.apply(ele.classList, getClazz(className));
+    ele.classList.remove.apply(ele.classList, getClassName(className));
   }
 }
 
 export function toggleClass<T extends Element>(elementOrRef: ElementRef<T> | T, className: string | string[]): void {
   if (elementOrRef && className) {
     const ele = coerceElement<T>(elementOrRef);
-    ele.classList.toggle.apply(ele.classList, getClazz(className));
+    ele.classList.toggle.apply(ele.classList, getClassName(className));
   }
 }

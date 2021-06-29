@@ -55,21 +55,6 @@ export interface NkConfirmI18n {
   okText: string;
   cancelText: string;
 }
-
-export interface NkDatePickerI18n {
-  lang: NkDatePickerLangI18n;
-  timePickerLocale: NkTimePickerI18n;
-}
-
-export interface NkDatePickerLangI18n extends NkCalendarI18n {
-  placeholder: string;
-  rangePlaceholder: string[];
-}
-
-export interface NkTimePickerI18n {
-  placeholder: string;
-}
-
 export interface NkCalendarI18n {
   today: string;
   now: string;
@@ -97,6 +82,20 @@ export interface NkCalendarI18n {
   nextDecade: string;
   previousCentury: string;
   nextCentury: string;
+}
+
+export interface NkDatePickerI18n {
+  lang: NkDatePickerLangI18n;
+  timePickerLocale: NkTimePickerI18n;
+}
+
+export interface NkDatePickerLangI18n extends NkCalendarI18n {
+  placeholder: string;
+  rangePlaceholder: string[];
+}
+
+export interface NkTimePickerI18n {
+  placeholder: string;
 }
 
 // tslint:disable-next-line:no-any

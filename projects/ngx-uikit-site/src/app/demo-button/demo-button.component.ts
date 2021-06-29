@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NkButtonGroupSize} from '../../../../ngx-uikit/src/components/button/nk-button-group.component';
+import {NkAny} from 'ngx-uikit/core';
 
 @Component({
   selector: 'demo-button',
@@ -13,8 +14,7 @@ export class DemoButtonComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  // tslint:disable-next-line:no-any
-  trace(evt: any): void {
+  trace(evt: NkAny): void {
     console.log(evt);
   }
 }

@@ -8,7 +8,7 @@
     "build-site:ngx-uikit-site": "ng build ngx-uikit",
     "generate-icon": "node projects/ngx-uikit/scripts/generate-icon.js",
     "test": "ng test ngx-uikit",
-    "lint": "ng lint",
+    "lint": "ng lint --fix",
     "e2e": "ng e2e"
   },
   "private": true,

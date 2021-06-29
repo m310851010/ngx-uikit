@@ -5,6 +5,9 @@ export interface NkKeyValue<V> {
   [key: string ]: V;
 }
 
+// tslint:disable-next-line:no-any
+export type NkAny = any;
+
 /**
  * 图标对象
  */
@@ -57,27 +60,23 @@ export type CompareWith<T> = (o1: T, o2: T) => boolean;
  * @param o1 对象1
  * @param o2 对象2
  */
-// tslint:disable-next-line
-export const defaultCompareWith: CompareWith<any> = (o1, o2) => o1 === o2;
+export const defaultCompareWith: CompareWith<NkAny> = (o1, o2) => o1 === o2;
 
 /**
  * 格式化函数
  */
-// tslint:disable-next-line
-export type ValueFormat<T> = string | ((item: T) => string | number | any);
+export type ValueFormat<T> = string | ((item: T) => string | number | NkAny);
 
 /**
  * 默认格式化函数
  * @param item 单个数据项
  */
-// tslint:disable-next-line
-export const defaultValueFormat: ValueFormat<any> = item => item;
+export const defaultValueFormat: ValueFormat<NkAny> = item => item;
 
 /**
  * option类型基本数据定义
  */
-// tslint:disable-next-line
-export interface NkCheckable extends NkKeyValue<any> {
+export interface NkCheckable extends NkKeyValue<NkAny> {
 
   /**
    * 是否禁用
@@ -86,8 +85,7 @@ export interface NkCheckable extends NkKeyValue<any> {
   /**
    * 值
    */
-  // tslint:disable-next-line
-  nkValue?: any | null;
+  nkValue?: NkAny | null;
   /**
    * 标签文本
    */

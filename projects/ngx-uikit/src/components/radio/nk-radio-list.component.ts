@@ -5,7 +5,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
-import {isEmpty, isNil, NkRadioOption} from 'ngx-uikit/core';
+import {isEmpty, isNil, NkAny, NkRadioOption} from 'ngx-uikit/core';
 import {NkBaseCheckbleGroupComponent} from './nk-base-checkble-group.component';
 
 /**
@@ -33,8 +33,7 @@ export class NkRadioListComponent extends NkBaseCheckbleGroupComponent<NkRadioOp
     super(_cdr);
   }
 
-  // tslint:disable-next-line
-  toModelValue(value: any): any {
+  toModelValue(value: NkAny): NkAny {
     return isNil(value) ?  null : value;
   }
 
@@ -54,14 +53,13 @@ export class NkRadioListComponent extends NkBaseCheckbleGroupComponent<NkRadioOp
   /**
    * 获取用于检测是否选中的函数
    */
-  // tslint:disable-next-line
-  protected getCheckFn(value: any | null): (_v: any) => boolean {
+  protected getCheckFn(value: NkAny | null): (_v: NkAny) => boolean {
     let checked: boolean;
     return isNil(value)
       // tslint:disable-next-line
-      ? (_v: any) => false
+      ? (_v: NkAny) => false
       // tslint:disable-next-line
-      : (_v: any) => {
+      : (_v: NkAny) => {
         if (!checked) {
           checked = this.compareWith(_v, value);
           return checked;
@@ -75,7 +73,6 @@ export class NkRadioListComponent extends NkBaseCheckbleGroupComponent<NkRadioOp
    * @param checked 是否被选中
    * @param item 当前数据
    */
-  // tslint:disable-next-line
   itemViewChange(checked: boolean, item: NkRadioOption): void {
     item.nkChecked = checked;
     this.updateModelValue();
@@ -115,8 +112,7 @@ export class NkRadioListComponent extends NkBaseCheckbleGroupComponent<NkRadioOp
     this._prevOption = arg.nkOption;
   }
 
-  // tslint:disable-next-line
-  writeValue(obj: any[]): void {
+  writeValue(obj: NkAny[]): void {
     this.modelValue = this.toModelValue(obj);
 
     if (isEmpty(this._options)) {

@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, ElementRef, EventEmitter, forwardRef, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {isEmpty, isNil, NkRadioOption} from 'ngx-uikit/core';
+import {isEmpty, isNil, NkAny, NkRadioOption} from 'ngx-uikit/core';
 import {NkRadioDirective} from './nk-radio.directive';
 
 /**
@@ -27,7 +27,7 @@ export class NkRadioGroupComponent implements OnInit, ControlValueAccessor {
    * 选中状态设置为NkValue,否则设置为null,为了适应表单的required
    */
     // tslint:disable-next-line
-  modelValue: any = null;
+  modelValue: NkAny = null;
 
   /**
    * 触发ngModelChange的同时触发该事件,当所有复选框都没被选中时返回空数组
@@ -62,7 +62,7 @@ export class NkRadioGroupComponent implements OnInit, ControlValueAccessor {
   }
 
   // tslint:disable-next-line
-  writeValue(value: any): void {
+  writeValue(value: NkAny): void {
     this.modelValue = isNil(value) ? null : value;
     this._childrenNodes.forEach(child => child.modelValue = this.modelValue);
     this.updateChildrenCheckedState();

@@ -9,15 +9,14 @@ import {
   Renderer2, SimpleChange, SimpleChanges
 } from '@angular/core';
 import {ControlValueAccessor} from '@angular/forms';
-import {isNil, isNotEmpty, insertAfter, CompareWith, defaultCompareWith} from 'ngx-uikit/core';
+import {isNil, isNotEmpty, insertAfter, CompareWith, defaultCompareWith, NkAny} from 'ngx-uikit/core';
 
 export abstract class NkBaseCheckble implements OnInit, OnChanges, OnDestroy, ControlValueAccessor {
 
   /**
    * ngModel绑定的值
    */
-    // tslint:disable-next-line
-  modelValue: any;
+  modelValue: NkAny;
 
   /**
    * 显示的文本
@@ -32,7 +31,7 @@ export abstract class NkBaseCheckble implements OnInit, OnChanges, OnDestroy, Co
    * 组件value, 相当于原生组件 value属性, 可以是任意类型
    */
   // tslint:disable-next-line
-  @Input() nkValue: any
+  @Input() nkValue: NkAny
 
   /**
    * 如果父组件是nk-checkbox-container、nk-radio-container时,
@@ -44,7 +43,7 @@ export abstract class NkBaseCheckble implements OnInit, OnChanges, OnDestroy, Co
    * 比较器
    */
     // tslint:disable-next-line
-  @Input() compareWith: CompareWith<any> = defaultCompareWith;
+  @Input() compareWith: CompareWith<NkAny> = defaultCompareWith;
 
   /**
    * 禁用状态
@@ -54,8 +53,7 @@ export abstract class NkBaseCheckble implements OnInit, OnChanges, OnDestroy, Co
   /**
    * 触发ngModelChange的同时触发该事件
    */
-    // tslint:disable-next-line
-  @Output() nkOnChange = new EventEmitter<any | null>();
+  @Output() nkOnChange = new EventEmitter<NkAny | null>();
   /**
    * 复选框点击事件
    * 触发该事件时,并不能正确判断checked状态
@@ -65,8 +63,7 @@ export abstract class NkBaseCheckble implements OnInit, OnChanges, OnDestroy, Co
 
   _prevNkLabelElement: Node | null;
   _elementRef: ElementRef;
-  // tslint:disable-next-line
-  _onChange = (_: any | null) => { };
+  _onChange = (_: NkAny | null) => { };
   _onTouched = () => { };
 
   protected constructor(public elementRef: ElementRef, public render: Renderer2) {
@@ -78,8 +75,7 @@ export abstract class NkBaseCheckble implements OnInit, OnChanges, OnDestroy, Co
     this._addNkLabelTag();
   }
 
-  // tslint:disable-next-line
-  registerOnChange(fn: (_: any | null) => {}): void {
+  registerOnChange(fn: (_: NkAny | null) => {}): void {
     this._onChange = fn;
   }
 
@@ -101,8 +97,7 @@ export abstract class NkBaseCheckble implements OnInit, OnChanges, OnDestroy, Co
    * @param newValue 当前值和nkValue比较
    * @return 是否选中
    */
-  // tslint:disable-next-line
-  updateCheckedState(newValue?: any): boolean {
+  updateCheckedState(newValue?: NkAny): boolean {
     const isEq = this.getCheckedState4ModelValue(isNil(newValue) ? this.modelValue : newValue, this.nkValue);
     this.setCheckedState(isEq);
     return isEq;
@@ -123,8 +118,7 @@ export abstract class NkBaseCheckble implements OnInit, OnChanges, OnDestroy, Co
     return this._elementRef.nativeElement.checked;
   }
 
-  // tslint:disable-next-line
-  protected abstract getCheckedState4ModelValue(newValue: any, nkValue: any): boolean;
+  protected abstract getCheckedState4ModelValue(newValue: NkAny, nkValue: NkAny): boolean;
 
   handleCheckedState(checked: boolean): void {
     const value = checked ? this.nkValue : null;

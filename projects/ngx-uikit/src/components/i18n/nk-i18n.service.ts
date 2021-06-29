@@ -5,7 +5,7 @@ import zh_CN from './locale/zh_CN';
 import { DateLocale, NkI18n } from './nk-i18n';
 import { NK_DATE_TOKEN, NK_I18N_TOKEN } from './nk-i18n.token';
 import {NK_LOCALES} from './nk-locale';
-import {getSystemLocaleId, isEmpty, isString, NkKeyValue} from 'ngx-uikit/core';
+import {getSystemLocaleId, isEmpty, isString, NkAny, NkKeyValue} from 'ngx-uikit/core';
 
 @Injectable({
   providedIn: 'root'
@@ -25,8 +25,7 @@ export class NkI18nService {
     this.setDateLocale(dateLocale || null);
   }
 
-  // tslint:disable-next-line:no-any
-  translate(path: string, data?: NkKeyValue<any>): string {
+  translate(path: string, data?: NkKeyValue<NkAny>): string {
     let content = this._getObjectPath(this._locale, path);
     if (typeof content === 'string') {
       if (data) {
@@ -66,8 +65,7 @@ export class NkI18nService {
     return this.dateLocale;
   }
 
-  // tslint:disable-next-line:no-any
-  getLocaleData(path?: string, defaultValue?: any): any {
+  getLocaleData(path?: string, defaultValue?: NkAny): NkAny {
     const result = path ? this._getObjectPath(this._locale, path) : this._locale;
     return result || defaultValue;
   }
@@ -81,8 +79,7 @@ export class NkI18nService {
     return NK_LOCALES[localeId] || zh_CN;
   }
 
-  // tslint:disable-next-line:no-any
-  private _getObjectPath(obj: NkKeyValue<any>, path: string): string | object | any {
+  private _getObjectPath(obj: NkKeyValue<NkAny>, path: string): string | object | NkAny {
     let res = obj;
     const paths = path.split('.');
     const depth = paths.length;

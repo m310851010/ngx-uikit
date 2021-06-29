@@ -5,7 +5,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
-import {isArray, isEmpty, isNil, NkCheckboxOption} from 'ngx-uikit/core';
+import {isArray, isEmpty, isNil, NkAny, NkCheckboxOption} from 'ngx-uikit/core';
 import {NkBaseCheckbleGroupComponent} from 'ngx-uikit/radio';
 
 /**
@@ -30,15 +30,13 @@ export class NkCheckboxListComponent extends NkBaseCheckbleGroupComponent<NkChec
    * ngModel绑定的值,该值通过valueFormat转换后获得
    * 如果列表为空,则设置为null,为了适应表单的required
    */
-  // tslint:disable-next-line
-  modelValue: any[] | null = null;
+  modelValue: NkAny[] | null = null;
 
   constructor(public _cdr: ChangeDetectorRef) {
     super(_cdr);
   }
 
-  // tslint:disable-next-line
-  toModelValue(value: any): any {
+  toModelValue(value: NkAny): NkAny {
     if (isEmpty(value)) {
       return null;
     }
@@ -56,7 +54,6 @@ export class NkCheckboxListComponent extends NkBaseCheckbleGroupComponent<NkChec
    * @param indeterminate 是否半选
    * @param item 当前数据
    */
-  // tslint:disable-next-line
   itemViewChange(checked: boolean, indeterminate: boolean, item: NkCheckboxOption): void {
     item.nkChecked = checked;
     item.nkIndeterminate = indeterminate;
@@ -81,25 +78,20 @@ export class NkCheckboxListComponent extends NkBaseCheckbleGroupComponent<NkChec
   /**
    * 获取用于检测是否选中的函数
    */
-  // tslint:disable-next-line
-  protected getCheckFn(value: any | null): (_v: any) => boolean {
+  protected getCheckFn(value: NkAny | null): (_v: NkAny) => boolean {
     return isNil(value)
-      // tslint:disable-next-line
-      ? (_v: any) => false
-      // tslint:disable-next-line
-      : (_v: any) => (value as any[]).some(it => this.compareWith(_v, it));
+      ? (_v: NkAny) => false
+      : (_v: NkAny) => (value as NkAny[]).some(it => this.compareWith(_v, it));
   }
 
-  // tslint:disable-next-line
-  writeValue(obj: any[]): void {
+  writeValue(obj: NkAny[]): void {
     this.updateCheckedState(obj);
   }
 
   /**
    * 更新value
    */
-  // tslint:disable-next-line
-  updateCheckedState(value: any | null): boolean {
+  updateCheckedState(value: NkAny | null): boolean {
     this.modelValue = this.toModelValue(value);
 
     if (isEmpty(this._options)) {

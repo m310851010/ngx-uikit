@@ -18,7 +18,7 @@ import {
   CompareWith,
   defaultCompareWith,
   NkCheckable,
-  ValueFormat
+  ValueFormat, NkAny
 } from 'ngx-uikit/core';
 
 export abstract class NkBaseCheckbleGroupComponent<OPT extends NkCheckable & {nkChecked?: boolean | null}>
@@ -28,29 +28,24 @@ export abstract class NkBaseCheckbleGroupComponent<OPT extends NkCheckable & {nk
    * ngModel绑定的值,该值通过valueFormat转换后获得
    * 如果列表为空,则设置为null,为了适应表单的required
    */
-  // tslint:disable-next-line
-  modelValue: any | null = null;
+  modelValue: NkAny | null = null;
   /**
    * label格式化, 默认取label属性
    */
-  // tslint:disable-next-line
   _labelFormat = getValueFormatFn('nkLabel');
   /**
    * 值的格式化,默认取 value属性
    */
-  // tslint:disable-next-line
   _valueFormat = getValueFormatFn('nkValue');
   /**
    * 界面显示使用的数据
    */
-  // tslint:disable-next-line
   _options: OPT[];
   private _optionsSubscription: Subscription | null;
   /**
    * 所有复选框列表
    */
-  // tslint:disable-next-line
-  @Input() nkOptions: any | any[] | OPT[] | Observable<any[]>;
+  @Input() nkOptions: NkAny | NkAny[] | OPT[] | Observable<NkAny[]>;
 
   /**
    * 比较器, (o1=当前项, o2=当前值) => boolean
@@ -73,8 +68,7 @@ export abstract class NkBaseCheckbleGroupComponent<OPT extends NkCheckable & {nk
   /**
    * 触发ngModelChange的同时触发该事件,当所有复选框都没被选中时返回空数组
    */
-    // tslint:disable-next-line
-  @Output() nkOnChange = new EventEmitter<any>();
+  @Output() nkOnChange = new EventEmitter<NkAny>();
   /**
    * 当前复选框状态改变时触发该事件
    */
@@ -99,13 +93,11 @@ export abstract class NkBaseCheckbleGroupComponent<OPT extends NkCheckable & {nk
     this.subscribeOptions(isObservable(this.nkOptions) ? this.nkOptions : of(this.nkOptions));
   }
 
-  // tslint:disable-next-line
-  subscribeOptions(obs: Observable<any[]>): void {
+  subscribeOptions(obs: Observable<NkAny[]>): void {
     this.unSubscribeOptions();
 
     this._optionsSubscription = obs.pipe(
-      // tslint:disable-next-line
-      map<any[], OPT[]>(this._mapToOptions.bind(this)),
+      map<NkAny[], OPT[]>(this._mapToOptions.bind(this)),
       share())
       .subscribe(value => {
         this._options = this.mapOptions(value);
@@ -126,8 +118,7 @@ export abstract class NkBaseCheckbleGroupComponent<OPT extends NkCheckable & {nk
    * 把原始值转换为 OPT[]
    * @param value 原始值
    */
-  // tslint:disable-next-line
-  _mapToOptions(value: any[]): OPT[] {
+  _mapToOptions(value: NkAny[]): OPT[] {
     if (isEmpty(value)) {
       return [];
     }
@@ -139,7 +130,6 @@ export abstract class NkBaseCheckbleGroupComponent<OPT extends NkCheckable & {nk
     const fnChecked = this.getCheckFn(this.modelValue);
     // 对象类型
     if (isPlainObject(value[0])) {
-      // tslint:disable-next-line
       return value.map<OPT>((itValue, index, array) => {
         const it = itValue as OPT;
         if (isNil(it.nkLabel)) {
@@ -165,10 +155,9 @@ export abstract class NkBaseCheckbleGroupComponent<OPT extends NkCheckable & {nk
   /**
    * 获取用于检测是否选中的函数
    */
-  // tslint:disable-next-line
-  protected abstract getCheckFn(value: any[] | null): (_v: any) => boolean ;
+  protected abstract getCheckFn(value: NkAny[] | null): (_v: NkAny) => boolean ;
 
-  registerOnChange(fn: (_: object | null) => { }): void {
+  registerOnChange(fn: (_: NkAny | null) => { }): void {
     this._onChange = fn;
   }
 
@@ -190,6 +179,5 @@ export abstract class NkBaseCheckbleGroupComponent<OPT extends NkCheckable & {nk
     }
   }
 
-  // tslint:disable-next-line
-  abstract writeValue(obj: any): void;
+  abstract writeValue(obj: NkAny): void;
 }

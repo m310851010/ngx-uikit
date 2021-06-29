@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NkRadioOption} from '../../../../ngx-uikit/src/components/core/type/nk-types';
+import {NkAny, NkRadioOption} from '../../../../ngx-uikit/src/components/core/type/nk-types';
 
 @Component({
   selector: 'demo-demo-radio',
@@ -25,8 +25,7 @@ export class DemoRadioComponent implements OnInit {
     this.value = '3';
   }
 
-  // tslint:disable-next-line:no-any
-  trace(evt: any): void {
+  trace(evt: NkAny): void {
     console.log(evt);
   }
 }

@@ -11,10 +11,9 @@ import {
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
 import {NkBaseCheckble} from './nk-base-checkble';
 import {NkRadioGroupComponent} from './nk-radio-group.component';
-import {addClass} from 'ngx-uikit/core';
+import {addClass, NkAny} from 'ngx-uikit/core';
 
 @Directive({
-  // tslint:disable-next-line:directive-selector
   selector: 'input[nk-radio]',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -47,8 +46,7 @@ export class NkRadioDirective extends NkBaseCheckble implements OnInit, OnDestro
     super.ngOnInit();
   }
 
-  // tslint:disable-next-line
-  protected getCheckedState4ModelValue(newValue: any, nkValue: any): boolean {
+  protected getCheckedState4ModelValue(newValue: NkAny, nkValue: NkAny): boolean {
     return this.compareWith(newValue, this.nkValue);
   }
 

@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, forwardRef, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {NkCheckboxDirective} from './nk-checkbox.directive';
-import {isArray, isEmpty, isNil, NkCheckboxOption} from 'ngx-uikit/core';
+import {isArray, isEmpty, isNil, NkAny, NkCheckboxOption} from 'ngx-uikit/core';
 
 /**
  * nk-checkbox容器,可以访问子节点的nk-checkbox
@@ -26,8 +26,7 @@ export class NkCheckboxGroupComponent implements OnInit, ControlValueAccessor {
    * ngModel绑定的值,该值通过valueFormat转换后获得
    * 如果列表为空,则设置为null,为了适应表单的required
    */
-    // tslint:disable-next-line
-  modelValue: any[] | null = null;
+  modelValue: NkAny[] | null = null;
 
   /**
    * 触发ngModelChange的同时触发该事件,当所有复选框都没被选中时返回空数组
@@ -64,8 +63,7 @@ export class NkCheckboxGroupComponent implements OnInit, ControlValueAccessor {
     this._onTouched = fn;
   }
 
-  // tslint:disable-next-line
-  writeValue(value: any[]): void {
+  writeValue(value: NkAny[]): void {
     this.modelValue = isEmpty(value) ? null : (isArray(value) ? value : [value]);
     this._childrenNodes.forEach(child => child.modelValue = this.modelValue);
     this.updateChildrenCheckedState();
