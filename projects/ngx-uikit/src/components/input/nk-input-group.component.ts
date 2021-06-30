@@ -1,4 +1,15 @@
-import {Component, ElementRef, Input, OnInit, Optional, Renderer2, Self, TemplateRef} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  Optional,
+  Renderer2,
+  Self,
+  TemplateRef,
+  ViewEncapsulation
+} from '@angular/core';
 import {addClass, removeClass} from 'ngx-uikit/core';
 import {NkInputDirective} from './nk-input.directive';
 import {NgControl} from '@angular/forms';
@@ -6,6 +17,9 @@ import {NgControl} from '@angular/forms';
 @Component({
   selector: 'nk-input-group',
   templateUrl: './nk-input-group.component.html',
+  preserveWhitespaces: false,
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     '[class.nk-form-large]': `nkSize === 'large'`,
     '[class.nk-form-small]': `nkSize === 'small'`,

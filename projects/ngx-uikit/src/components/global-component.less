@@ -30,3 +30,15 @@ textarea.cdk-textarea-autosize-measuring-firefox {
   box-sizing: content-box!important;
   height: 0!important
 }
+
+.clearfix() {
+  &::before {
+    display: table;
+    content: '';
+  }
+  &::after {
+    display: table;
+    clear: both;
+    content: '';
+  }
+}
